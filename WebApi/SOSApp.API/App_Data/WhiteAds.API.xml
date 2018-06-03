@@ -1,0 +1,2356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WhiteRaven.API</name>
+    </assembly>
+    <members>
+        <member name="T:WhiteRaven.API.AppProvider.AppAuthorizationProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WhiteRaven.API.AppProvider.AppAuthorizationProvider.logger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.AppProvider.AppAuthorizationProvider.ValidateClientAuthentication(Microsoft.Owin.Security.OAuth.OAuthValidateClientAuthenticationContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.AppProvider.AppAuthorizationProvider.GrantResourceOwnerCredentials(Microsoft.Owin.Security.OAuth.OAuthGrantResourceOwnerCredentialsContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.AppProvider.AppAuthorizationProvider.GrantCustomExtension(Microsoft.Owin.Security.OAuth.OAuthGrantCustomExtensionContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.AppProvider.AppAuthorizationProvider.TokenEndpoint(Microsoft.Owin.Security.OAuth.OAuthTokenEndpointContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:WhiteRaven.API.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:WhiteRaven.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:WhiteRaven.API.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:WhiteRaven.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:WhiteRaven.API.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:WhiteRaven.API.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,WhiteRaven.API.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,WhiteRaven.API.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:WhiteRaven.API.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},WhiteRaven.API.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.#ctor(WhiteRaven.API.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,WhiteRaven.API.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:WhiteRaven.API.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WhiteRaven.API.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WhiteRaven.API.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:WhiteRaven.API.Controllers.EmpresaCuentaController">
+            <summary>
+            Controlador de EmpresaCuenta
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.EmpresaCuentaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de EmpresaCuenta
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.EmpresaCuentaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar EmpresaCuenta por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.EmpresaCuentaController.Post(WhiteRaven.Data.AppModel.EmpresaCuentaModel)">
+            <summary>
+            Método para Agregar EmpresaCuenta
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.EmpresaCuentaController.Put(System.Int32,WhiteRaven.Data.AppModel.EmpresaCuentaModel)">
+            <summary>
+            Método para Modificar EmpresaCuenta
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.EmpresaCuentaController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar EmpresaCuenta
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteRaven.API.Controllers.InstitucionSocialCuentaController">
+            <summary>
+            Controlador de InstitucionSocialCuenta
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.InstitucionSocialCuentaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de InstitucionSocialCuenta
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.InstitucionSocialCuentaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar InstitucionSocialCuenta por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.InstitucionSocialCuentaController.Post(WhiteRaven.Data.AppModel.InstitucionSocialCuentaModel)">
+            <summary>
+            Método para Agregar InstitucionSocialCuenta
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.InstitucionSocialCuentaController.Put(System.Int32,WhiteRaven.Data.AppModel.InstitucionSocialCuentaModel)">
+            <summary>
+            Método para Modificar InstitucionSocialCuenta
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.InstitucionSocialCuentaController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar InstitucionSocialCuenta
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteRaven.API.Controllers.VendedorCuentaController">
+            <summary>
+            Controlador de VendedorCuenta
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.VendedorCuentaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de VendedorCuenta
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.VendedorCuentaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar VendedorCuenta por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.VendedorCuentaController.Post(WhiteRaven.Data.AppModel.VendedorCuentaModel)">
+            <summary>
+            Método para Agregar VendedorCuenta
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.VendedorCuentaController.Put(System.Int32,WhiteRaven.Data.AppModel.VendedorCuentaModel)">
+            <summary>
+            Método para Modificar VendedorCuenta
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteRaven.API.Controllers.VendedorCuentaController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar VendedorCuenta
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:WhiteRaven.API.Core.ApiKeyHandler">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Core.ApiKeyHandler.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Core.ApiKeyHandler.ValidateKey(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Core.ApiBaseController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WhiteRaven.API.Core.ApiBaseController.logger">
+            <summary>
+            Crea una instancia de log4net
+            </summary>
+        </member>
+        <member name="F:WhiteRaven.API.Core.ApiBaseController.mapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Core.ApiBaseController.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Core.AppConfiguration">
+            <summary>
+            Application Configuration
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Core.AppConfiguration.RegisterApi(System.Web.Http.HttpConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="T:WhiteRaven.API.Core.AppStartup">
+            <summary>
+            App Startup
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Core.AppStartup.HttpConfiguration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Core.AppStartup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:WhiteRaven.API.Core.AppStartup.ConfigureOAuth(Owin.IAppBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="T:WhiteRaven.API.Core.AutoMapperConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Core.AutoMapperConfig.MapperConfiguration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:WhiteRaven.API.Core.AutoMapperConfig.Instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Core.AutoMapperConfig.Init">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:WhiteRaven.API.Core.CustomExceptionFilter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhiteRaven.API.Core.CustomExceptionFilter.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="actionExecutedContext"></param>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.AccionUsuarioToRolController">
+            <summary>
+            Controlador de AccionUsuarioToRol
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AccionUsuarioToRolController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de AccionUsuarioToRol
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AccionUsuarioToRolController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar AccionUsuarioToRol por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AccionUsuarioToRolController.Post(WhiteRaven.Data.AppModel.AccionUsuarioToRolModel)">
+            <summary>
+            Método para Agregar AccionUsuarioToRol
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AccionUsuarioToRolController.Put(System.Int32,WhiteRaven.Data.AppModel.AccionUsuarioToRolModel)">
+            <summary>
+            Método para Modificar AccionUsuarioToRol
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AccionUsuarioToRolController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar AccionUsuarioToRol
+            </summary>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.AdsCategoriaController">
+            <summary>
+            Controlador de AdsCategoria
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsCategoriaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de AdsCategoria
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsCategoriaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar AdsCategoria por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsCategoriaController.Post(WhiteRaven.Data.AppModel.AdsCategoriaModel)">
+            <summary>
+            Método para Agregar AdsCategoria
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsCategoriaController.Put(System.Int32,WhiteRaven.Data.AppModel.AdsCategoriaModel)">
+            <summary>
+            Método para Modificar AdsCategoria
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsCategoriaController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar AdsCategoria
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.AdsController">
+            <summary>
+            Controlador de Ads
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Ads
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Ads por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsController.Post(WhiteRaven.Data.AppModel.AdsModel)">
+            <summary>
+            Método para Agregar Ads
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsController.Put(System.Int32,WhiteRaven.Data.AppModel.AdsModel)">
+            <summary>
+            Método para Modificar Ads
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.AdsController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Ads
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.BancoController">
+            <summary>
+            Controlador de Banco
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BancoController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Banco
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BancoController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Banco por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BancoController.Post(WhiteRaven.Data.AppModel.BancoModel)">
+            <summary>
+            Método para Agregar Banco
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BancoController.Put(System.Int32,WhiteRaven.Data.AppModel.BancoModel)">
+            <summary>
+            Método para Modificar Banco
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BancoController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Banco
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.BeneficioController">
+            <summary>
+            Controlador de Beneficio
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BeneficioController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Beneficio
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BeneficioController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Beneficio por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BeneficioController.Post(WhiteRaven.Data.AppModel.BeneficioModel)">
+            <summary>
+            Método para Agregar Beneficio
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BeneficioController.Put(System.Int32,WhiteRaven.Data.AppModel.BeneficioModel)">
+            <summary>
+            Método para Modificar Beneficio
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.BeneficioController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Beneficio
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.Beneficio_DetalleController">
+            <summary>
+            Controlador de Beneficio_Detalle
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Beneficio_DetalleController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Beneficio_Detalle
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Beneficio_DetalleController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Beneficio_Detalle por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Beneficio_DetalleController.Post(WhiteRaven.Data.AppModel.Beneficio_DetalleModel)">
+            <summary>
+            Método para Agregar Beneficio_Detalle
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Beneficio_DetalleController.Put(System.Int32,WhiteRaven.Data.AppModel.Beneficio_DetalleModel)">
+            <summary>
+            Método para Modificar Beneficio_Detalle
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Beneficio_DetalleController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Beneficio_Detalle
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.CalificacionController">
+            <summary>
+            Controlador de Calificacion
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CalificacionController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Calificacion
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CalificacionController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Calificacion por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CalificacionController.Post(WhiteRaven.Data.AppModel.CalificacionModel)">
+            <summary>
+            Método para Agregar Calificacion
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CalificacionController.Put(System.Int32,WhiteRaven.Data.AppModel.CalificacionModel)">
+            <summary>
+            Método para Modificar Calificacion
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CalificacionController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Calificacion
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.CategoriasPorAdsController">
+            <summary>
+            Controlador de CategoriasPorAds
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CategoriasPorAdsController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de CategoriasPorAds
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CategoriasPorAdsController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar CategoriasPorAds por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CategoriasPorAdsController.Post(WhiteRaven.Data.AppModel.CategoriasPorAdsModel)">
+            <summary>
+            Método para Agregar CategoriasPorAds
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CategoriasPorAdsController.Put(System.Int32,WhiteRaven.Data.AppModel.CategoriasPorAdsModel)">
+            <summary>
+            Método para Modificar CategoriasPorAds
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CategoriasPorAdsController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar CategoriasPorAds
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.CiudadController">
+            <summary>
+            Controlador de Ciudad
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CiudadController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Ciudad
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CiudadController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Ciudad por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CiudadController.Post(WhiteRaven.Data.AppModel.CiudadModel)">
+            <summary>
+            Método para Agregar Ciudad
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CiudadController.Put(System.Int32,WhiteRaven.Data.AppModel.CiudadModel)">
+            <summary>
+            Método para Modificar Ciudad
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.CiudadController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Ciudad
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.EmpresaConfiguracionesController">
+            <summary>
+            Controlador de EmpresaConfiguraciones
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaConfiguracionesController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de EmpresaConfiguraciones
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaConfiguracionesController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar EmpresaConfiguraciones por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaConfiguracionesController.Post(WhiteRaven.Data.AppModel.EmpresaConfiguracionesModel)">
+            <summary>
+            Método para Agregar EmpresaConfiguraciones
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaConfiguracionesController.Put(System.Int32,WhiteRaven.Data.AppModel.EmpresaConfiguracionesModel)">
+            <summary>
+            Método para Modificar EmpresaConfiguraciones
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaConfiguracionesController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar EmpresaConfiguraciones
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.EmpresaController">
+            <summary>
+            Controlador de Empresa
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Empresa
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Empresa por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaController.Post(WhiteRaven.Data.AppModel.EmpresaModel)">
+            <summary>
+            Método para Agregar Empresa
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaController.Put(System.Int32,WhiteRaven.Data.AppModel.EmpresaModel)">
+            <summary>
+            Método para Modificar Empresa
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Empresa
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.EmpresaHorariosController">
+            <summary>
+            Controlador de EmpresaHorarios
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+             Método para Mostrar Lista de EmpresaHorarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar EmpresaHorarios por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosController.Post(WhiteRaven.Data.AppModel.EmpresaHorariosModel)">
+            <summary>
+            Método para Agregar EmpresaHorarios
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosController.Put(System.Int32,WhiteRaven.Data.AppModel.EmpresaHorariosModel)">
+            <summary>
+            Método para Modificar EmpresaHorarios
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar EmpresaHorarios
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.EmpresaHorariosEspecialesController">
+            <summary>
+            Controlador de EmpresaHorariosEspeciales
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosEspecialesController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Métodos para Mostrar Lista de EmpresaHorariosEspeciales
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosEspecialesController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar EmpresaHorariosEspeciales por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosEspecialesController.Post(WhiteRaven.Data.AppModel.EmpresaHorariosEspecialesModel)">
+            <summary>
+            Método para Agregar EmpresaHorariosEspeciales
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosEspecialesController.Put(System.Int32,WhiteRaven.Data.AppModel.EmpresaHorariosEspecialesModel)">
+            <summary>
+            Método para Modificar EmpresaHorariosEspeciales
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaHorariosEspecialesController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar EmpresaHorariosEspeciales 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.EmpresaRedesSocialesController">
+            <summary>
+            Controlador de EmpresaRedesSociales
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRedesSocialesController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método para Mostrar por Lista de EmpresaRedesSociales
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRedesSocialesController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar EmpresaRedesSociales por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRedesSocialesController.Post(WhiteRaven.Data.AppModel.EmpresaRedesSocialesModel)">
+            <summary>
+            Método para Agregar EmpresaRedesSociales
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRedesSocialesController.Put(System.Int32,WhiteRaven.Data.AppModel.EmpresaRedesSocialesModel)">
+            <summary>
+            Método para Modificar EmpresaRedesSociales
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRedesSocialesController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar EmpresaRedesSociales
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.EmpresaRubroController">
+            <summary>
+            Controlador de EmpresaRubro
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRubroController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de EmpresaRubro
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRubroController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar EmpresaRubro por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRubroController.Post(WhiteRaven.Data.AppModel.EmpresaRubroModel)">
+            <summary>
+            Método para Agregar EmpresaRubro
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRubroController.Put(System.Int32,WhiteRaven.Data.AppModel.EmpresaRubroModel)">
+            <summary>
+            Método para Modificar EmpresaRubro
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaRubroController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar EmpresaRubro
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.EmpresaSucursalController">
+            <summary>
+            Controlador de Empresa Sucursal
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaSucursalController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Vendedor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaSucursalController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar EmpresaSucursal por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaSucursalController.Post(WhiteRaven.Data.AppModel.EmpresaSucursalModel)">
+            <summary>
+            Método para Agregar EmpresaSucursal
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaSucursalController.Put(System.Int32,WhiteRaven.Data.AppModel.EmpresaSucursalModel)">
+            <summary>
+             Método para Modificar EmpresaSucursal
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.EmpresaSucursalController.Delete(System.Int32)">
+            <summary>
+             Método para Eliminar EmpresaSucursal
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.FormaPagoController">
+            <summary>
+            Controlador de FormaPago
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de FormaPago
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar FormaPago por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoController.Post(WhiteRaven.Data.AppModel.FormaPagoModel)">
+            <summary>
+            Método para Agregar FormaPago
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoController.Put(System.Int32,WhiteRaven.Data.AppModel.FormaPagoModel)">
+            <summary>
+            Método para Modificar FormaPago
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoController.Delete(System.Int32)">
+            <summary>
+             Método para Eliminar FormaPago
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.FormaPagoEmpresaController">
+            <summary>
+            Controlador de FormaPagoEmpresa
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoEmpresaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de FormaPagoEmpresa
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoEmpresaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar FormaPagoEmpresa por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoEmpresaController.Post(WhiteRaven.Data.AppModel.FormaPagoEmpresaModel)">
+            <summary>
+            Método para Agregar FormaPagoEmpresa
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoEmpresaController.Put(System.Int32,WhiteRaven.Data.AppModel.FormaPagoEmpresaModel)">
+            <summary>
+            Método para Modificar FormaPagoEmpresa
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoEmpresaController.Delete(System.Int32)">
+            <summary>
+             Método para Eliminar FormaPagoEmpresa
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.FormaPagoVendedorController">
+            <summary>
+            Controlador de FormaPagoVendedor
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoVendedorController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de FormaPagoVendedor
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoVendedorController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar FormaPagoVendedor por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoVendedorController.Post(WhiteRaven.Data.AppModel.FormaPagoVendedorModel)">
+            <summary>
+            Método para Agregar FormaPagoVendedor
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoVendedorController.Put(System.Int32,WhiteRaven.Data.AppModel.FormaPagoVendedorModel)">
+            <summary>
+            Método para Modificar FormaPagoVendedor
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.FormaPagoVendedorController.Delete(System.Int32)">
+            <summary>
+             Método para Eliminar FormaPagoVendedor
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.HorariosController">
+            <summary>
+            Controlador de Horarios
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.HorariosController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Horarios
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.HorariosController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Horarios por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.HorariosController.Post(WhiteRaven.Data.AppModel.HorariosModel)">
+            <summary>
+            Método para Agregar Horarios
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.HorariosController.Put(System.Int32,WhiteRaven.Data.AppModel.HorariosModel)">
+            <summary>
+            Método para Modificar Horarios
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.HorariosController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Horarios
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.InstitucionSocialConfiguracionesController">
+            <summary>
+            Controlador de InstitucionSocialConfiguraciones
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialConfiguracionesController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de InstitucionSocialConfiguraciones
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialConfiguracionesController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar InstitucionSocialConfiguraciones por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialConfiguracionesController.Post(WhiteRaven.Data.AppModel.InstitucionSocialConfiguracionesModel)">
+            <summary>
+            Método para Agregar InstitucionSocialConfiguraciones
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialConfiguracionesController.Put(System.Int32,WhiteRaven.Data.AppModel.InstitucionSocialConfiguracionesModel)">
+            <summary>
+            Método para Modificar InstitucionSocialConfiguraciones
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialConfiguracionesController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar InstitucionSocialConfiguraciones
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.InstitucionSocialController">
+            <summary>
+            Controlador de InstitucionSocial
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de InstitucionSocial
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar InstitucionSocial por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialController.Post(WhiteRaven.Data.AppModel.InstitucionSocialModel)">
+            <summary>
+            Método para Agregar InstitucionSocial
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialController.Put(System.Int32,WhiteRaven.Data.AppModel.InstitucionSocialModel)">
+            <summary>
+            Método para Modificar InstitucionSocial
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar InstitucionSocial
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.InstitucionSocialRedesSocialesController">
+            <summary>
+            Controlador de InstitucionSocialRedesSociales
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialRedesSocialesController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de InstitucionSocialRedesSociales
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialRedesSocialesController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar InstitucionSocialRedesSociales por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialRedesSocialesController.Post(WhiteRaven.Data.AppModel.InstitucionSocialRedesSocialesModel)">
+            <summary>
+            Método para Agregar InstitucionSocialRedesSociales
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialRedesSocialesController.Put(System.Int32,WhiteRaven.Data.AppModel.InstitucionSocialRedesSocialesModel)">
+            <summary>
+            Método para Modificar InstitucionSocialRedesSociales
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.InstitucionSocialRedesSocialesController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar InstitucionSocialRedesSociales
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.MonedaController">
+            <summary>
+            Controlador de Moneda
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.MonedaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Moneda
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.MonedaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Moneda por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.MonedaController.Post(WhiteRaven.Data.AppModel.MonedaModel)">
+            <summary>
+            Método para Agregar Moneda
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.MonedaController.Put(System.Int32,WhiteRaven.Data.AppModel.MonedaModel)">
+            <summary>
+            Método para Modificar Moneda
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.MonedaController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Moneda
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.PaisController">
+            <summary>
+            Controlador de Pais
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PaisController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Pais
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PaisController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Pais por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PaisController.Post(WhiteRaven.Data.AppModel.PaisModel)">
+            <summary>
+            Método para Agregar Pais
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PaisController.Put(System.Int32,WhiteRaven.Data.AppModel.PaisModel)">
+            <summary>
+            Método para Modificar Pais
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PaisController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Pais
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.PlanController">
+            <summary>
+            Controlador de Plan
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PlanController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Plan
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PlanController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Plan por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PlanController.Post(WhiteRaven.Data.AppModel.PlanModel)">
+            <summary>
+            Método para Agregar Plan
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PlanController.Put(System.Int32,WhiteRaven.Data.AppModel.PlanModel)">
+            <summary>
+            Método para Modificar Plan
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.PlanController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Plan
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.Plan_CaracteristicaController">
+            <summary>
+            Controlador de Plan_Caracteristica
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Plan_CaracteristicaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Plan_Caracteristica
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Plan_CaracteristicaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Plan_Caracteristica por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Plan_CaracteristicaController.Post(WhiteRaven.Data.AppModel.Plan_CaracteristicaModel)">
+            <summary>
+            Método para Agregar Plan_Caracteristica
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Plan_CaracteristicaController.Put(System.Int32,WhiteRaven.Data.AppModel.Plan_CaracteristicaModel)">
+            <summary>
+            Método para Modificar Plan_Caracteristica
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.Plan_CaracteristicaController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Plan_Caracteristica
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.ProvinciaController">
+            <summary>
+            Controlador de Provincia
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.ProvinciaController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Provincia
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.ProvinciaController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Provincia por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.ProvinciaController.Post(WhiteRaven.Data.AppModel.ProvinciaModel)">
+            <summary>
+            Método para Agregar Provincia
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.ProvinciaController.Put(System.Int32,WhiteRaven.Data.AppModel.ProvinciaModel)">
+            <summary>
+            Método para Modificar Provincia
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.ProvinciaController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Provincia
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.RedesSocialesController">
+            <summary>
+            Controlador de RedesSociales
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.RedesSocialesController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de RedesSociales
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.RedesSocialesController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar RedesSociales por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.RedesSocialesController.Post(WhiteRaven.Data.AppModel.RedesSocialesModel)">
+            <summary>
+            Método para Agregar RedesSociales
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.RedesSocialesController.Put(System.Int32,WhiteRaven.Data.AppModel.RedesSocialesModel)">
+            <summary>
+            Método para Modificar RedesSociales
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.RedesSocialesController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar RedesSociales
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.UserSessionController">
+            <summary>
+            Controlador de UserSession
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UserSessionController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de UserSession
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UserSessionController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar UserSession por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UserSessionController.Post(WhiteRaven.Data.AppModel.UserSessionModel)">
+            <summary>
+            Método para Agregar UserSession
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UserSessionController.Put(System.Int32,WhiteRaven.Data.AppModel.UserSessionModel)">
+            <summary>
+            Método para Modificar UserSession
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.UsuarioAccionController">
+            <summary>
+            Controlador de Usuario
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioAccionController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de UsuarioAccion
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioAccionController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar UsuarioAccion por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioAccionController.Post(WhiteRaven.Data.AppModel.UsuarioAccionModel)">
+            <summary>
+            Método para Agregar UsuarioAccion
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioAccionController.Put(System.Int32,WhiteRaven.Data.AppModel.UsuarioAccionModel)">
+            <summary>
+            Método para Modificar UsuarioAccion
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioAccionController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar UsuarioAccion
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.UsuarioController">
+            <summary>
+            Controlador de Usuario
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Usuario
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Usuario por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioController.Post(WhiteRaven.Data.AppModel.UsuarioModel)">
+            <summary>
+            Método para Agregar Usuario
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioController.Put(System.Int32,WhiteRaven.Data.AppModel.UsuarioModel)">
+            <summary>
+            Método para Modificar Usuario
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Usuario
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.UsuarioRolController">
+            <summary>
+            Controlador de UsuarioRol
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioRolController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de UsuarioRol
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioRolController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar UsuarioRol por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioRolController.Post(WhiteRaven.Data.AppModel.UsuarioRolModel)">
+            <summary>
+            Método para Agregar UsuarioRol
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioRolController.Put(System.Int32,WhiteRaven.Data.AppModel.UsuarioRolModel)">
+            <summary>
+            Método para Modificar UsuarioRol
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.UsuarioRolController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar UsuarioRol
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.VendedorConfiguracionesController">
+            <summary>
+            Controlador de VendedorConfiguraciones
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorConfiguracionesController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de VendedorConfiguraciones
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorConfiguracionesController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar VendedorConfiguraciones por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorConfiguracionesController.Post(WhiteRaven.Data.AppModel.VendedorConfiguracionesModel)">
+            <summary>
+            Método para Agregar VendedorConfiguraciones
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorConfiguracionesController.Put(System.Int32,WhiteRaven.Data.AppModel.VendedorConfiguracionesModel)">
+            <summary>
+            Método para Modificar VendedorConfiguraciones
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorConfiguracionesController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar VendedorConfiguraciones
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.VendedorController">
+            <summary>
+            Controlador de Vendedor
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Vendedor
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Vendedor por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorController.Post(WhiteRaven.Data.AppModel.VendedorModel)">
+            <summary>
+            Método para Agregar Vendedor
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorController.Put(System.Int32,WhiteRaven.Data.AppModel.VendedorModel)">
+            <summary>
+            Método para Modificar Vendedor
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Vendedor
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.VendedorRedesSocialesController">
+            <summary>
+            Controlador de Vendedor
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorRedesSocialesController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de VendedorRedesSociales
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorRedesSocialesController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar VendedorRedesSociales por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorRedesSocialesController.Post(WhiteRaven.Data.AppModel.VendedorRedesSocialesModel)">
+            <summary>
+            Método para Agregar VendedorRedesSociales
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorRedesSocialesController.Put(System.Int32,WhiteRaven.Data.AppModel.VendedorRedesSocialesModel)">
+            <summary>
+            Método para Modificar VendedorRedesSociales
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VendedorRedesSocialesController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar VendedorRedesSociales
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:WhiteAds.API.Controllers.VentasController">
+            <summary>
+            Controlador de Ventas
+            </summary>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VentasController.Get(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.String)">
+            <summary>
+            Método Para Mostrar por Lista de Ventas
+            </summary>
+            <param name="page"></param>
+            <param name="start"></param>
+            <param name="limit"></param>
+            <param name="filter"></param>
+            <param name="sort"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VentasController.Get(System.Int32)">
+            <summary>
+            Método para Mostrar Ventas por Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VentasController.Post(WhiteRaven.Data.AppModel.VentasModel)">
+            <summary>
+            Método para Agregar Ventas
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VentasController.Put(System.Int32,WhiteRaven.Data.AppModel.VentasModel)">
+            <summary>
+            Método para Modificar Ventas
+            </summary>
+            <param name="id"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WhiteAds.API.Controllers.VentasController.Delete(System.Int32)">
+            <summary>
+            Método para Eliminar Ventas
+            </summary>
+            <param name="id"></param>
+        </member>
+    </members>
+</doc>

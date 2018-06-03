@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5528baf2e95942cab9562c286265a3ce" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="WhiteAdsModel.AccionUsuarioToRol" Width="1.5" PointX="3" PointY="3.5" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Ads" Width="1.5" PointX="8.25" PointY="45" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Banco" Width="1.5" PointX="5.75" PointY="1.75" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Beneficio" Width="1.5" PointX="8.25" PointY="58.25" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Beneficio_Detalle" Width="1.5" PointX="10.5" PointY="58.5" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Calificacion" Width="1.5" PointX="8.25" PointY="30.375" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Ciudad" Width="1.5" PointX="3.75" PointY="18.375" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Empresa" Width="1.5" PointX="6" PointY="20.5" />
+        <EntityTypeShape EntityType="WhiteAdsModel.EmpresaConfiguraciones" Width="1.5" PointX="8.25" PointY="23.5" />
+        <EntityTypeShape EntityType="WhiteAdsModel.EmpresaHorarios" Width="1.5" PointX="8.25" PointY="37.625" />
+        <EntityTypeShape EntityType="WhiteAdsModel.EmpresaHorariosEspeciales" Width="1.5" PointX="8.25" PointY="19.75" />
+        <EntityTypeShape EntityType="WhiteAdsModel.EmpresaRedesSociales" Width="1.5" PointX="11.25" PointY="18" />
+        <EntityTypeShape EntityType="WhiteAdsModel.EmpresaRubro" Width="1.5" PointX="3.75" PointY="27.25" />
+        <EntityTypeShape EntityType="WhiteAdsModel.EmpresaSucursal" Width="1.5" PointX="8.25" PointY="41.125" />
+        <EntityTypeShape EntityType="WhiteAdsModel.FormaPago" Width="1.5" PointX="9" PointY="34.125" />
+        <EntityTypeShape EntityType="WhiteAdsModel.FormaPagoEmpresa" Width="1.5" PointX="11.25" PointY="28" />
+        <EntityTypeShape EntityType="WhiteAdsModel.FormaPagoVendedor" Width="1.5" PointX="14.25" PointY="19.125" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Horarios" Width="1.5" PointX="8.25" PointY="11.375" />
+        <EntityTypeShape EntityType="WhiteAdsModel.InstitucionSocial" Width="1.5" PointX="6" PointY="55.625" />
+        <EntityTypeShape EntityType="WhiteAdsModel.InstitucionSocialConfiguraciones" Width="1.5" PointX="8.25" PointY="54.75" />
+        <EntityTypeShape EntityType="WhiteAdsModel.InstitucionSocialRedesSociales" Width="1.5" PointX="11.25" PointY="37" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Moneda" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Pais" Width="1.5" PointX="1.5" PointY="14.875" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Plan" Width="1.5" PointX="0.75" PointY="23.125" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Plan_Caracteristica" Width="1.5" PointX="3" PointY="23.25" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Provincia" Width="1.5" PointX="1.5" PointY="18.75" />
+        <EntityTypeShape EntityType="WhiteAdsModel.RedesSociales" Width="1.5" PointX="9" PointY="16" />
+        <EntityTypeShape EntityType="WhiteAdsModel.UserSession" Width="1.5" PointX="5.25" PointY="8.375" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Usuario" Width="1.5" PointX="3" PointY="7.5" />
+        <EntityTypeShape EntityType="WhiteAdsModel.UsuarioAccion" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WhiteAdsModel.UsuarioRol" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Vendedor" Width="1.5" PointX="9" PointY="5.125" />
+        <EntityTypeShape EntityType="WhiteAdsModel.VendedorConfiguraciones" Width="1.5" PointX="11.25" PointY="6" />
+        <EntityTypeShape EntityType="WhiteAdsModel.VendedorRedesSociales" Width="1.5" PointX="11.25" PointY="10.625" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Ventas" Width="1.5" PointX="11.25" PointY="22.375" />
+        <AssociationConnector Association="WhiteAdsModel.FK_AccionUsuarioToRol_UsuarioAccion" />
+        <AssociationConnector Association="WhiteAdsModel.FK_AccionUsuarioToRol_UsuarioRol" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Ads_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Beneficio_Detalle_Beneficio" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Beneficio_InstitucionSocial" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Calificacion_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Ciudad_Provincia" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Empresa_Ciudad" />
+        <AssociationConnector Association="WhiteAdsModel.FK_InstitucionSocial_Ciudad" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Vendedor_Ciudad" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Empresa_EmpresaRubro" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Empresa_Plan" />
+        <AssociationConnector Association="WhiteAdsModel.FK_EmpresaConfiguraciones_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_EmpresaHorarios_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_EmpresaHorariosEspeciales_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_EmpresaRedesSociales_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_EmpresaSucursal_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_FormaPagoEmpresa_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Horarios_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Ventas_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_EmpresaRedesSociales_RedesSociales" />
+        <AssociationConnector Association="WhiteAdsModel.FK_FormaPagoEmpresa_FormaPago" />
+        <AssociationConnector Association="WhiteAdsModel.FK_FormaPagoVendedor_FormaPago" />
+        <AssociationConnector Association="WhiteAdsModel.FK_FormaPagoVendedor_Vendedor" />
+        <AssociationConnector Association="WhiteAdsModel.FK_InstitucionSocialConfiguraciones_InstitucionSocial" />
+        <AssociationConnector Association="WhiteAdsModel.FK_InstitucionSocialRedesSociales_InstitucionSocial" />
+        <AssociationConnector Association="WhiteAdsModel.FK_InstitucionSocialRedesSociales_RedesSociales" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Provincia_Pais" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Plan_Caracteristica_Plan" />
+        <AssociationConnector Association="WhiteAdsModel.FK_VendedorRedesSociales_RedesSociales" />
+        <AssociationConnector Association="WhiteAdsModel.FK_UserSession_Usuario" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Usuario_UsuarioRol" />
+        <AssociationConnector Association="WhiteAdsModel.FK_VendedorConfiguraciones_Vendedor" />
+        <AssociationConnector Association="WhiteAdsModel.FK_VendedorRedesSociales_Vendedor" />
+        <AssociationConnector Association="WhiteAdsModel.FK_Ventas_Vendedor" />
+        <EntityTypeShape EntityType="WhiteAdsModel.Pago" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="WhiteAdsModel.EmpresaCuenta" Width="1.5" PointX="8.25" PointY="63.25" />
+        <EntityTypeShape EntityType="WhiteAdsModel.InstitucionSocialCuenta" Width="1.5" PointX="8.25" PointY="67" />
+        <EntityTypeShape EntityType="WhiteAdsModel.VendedorCuenta" Width="1.5" PointX="11.25" PointY="2.125" />
+        <AssociationConnector Association="WhiteAdsModel.FK_EmpresaCuenta_Empresa" />
+        <AssociationConnector Association="WhiteAdsModel.FK_InstitucionSocialCuenta_InstitucionSocial" />
+        <AssociationConnector Association="WhiteAdsModel.FK_VendedorCuenta_Vendedor" />
+        <EntityTypeShape EntityType="WhiteAdsModel.CategoriasPorAds" Width="1.5" PointX="10.5" PointY="48.125" />
+        <AssociationConnector Association="WhiteAdsModel.FK_CategoriasPorAds_Ads" />
+        <EntityTypeShape EntityType="WhiteAdsModel.AdsCategoria" Width="1.5" PointX="4.375" PointY="13" />
+        <AssociationConnector Association="WhiteAdsModel.FK_AdsCategoria_AdsCategoria" />
+        <AssociationConnector Association="WhiteAdsModel.FK_CategoriasPorAds_AdsCategoria" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
