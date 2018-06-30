@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace WhiteRaven.API.Areas.HelpPage.ModelDescriptions
+namespace SOSApp.API.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

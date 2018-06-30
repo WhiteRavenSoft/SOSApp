@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace WhiteRaven.API.Areas.HelpPage
+namespace SOSApp.API.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

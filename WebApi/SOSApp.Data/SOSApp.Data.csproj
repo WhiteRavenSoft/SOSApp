@@ -7,8 +7,8 @@
     <ProjectGuid>{0552EADA-E505-4763-88AC-DCB6D9017900}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhiteRaven.Data</RootNamespace>
-    <AssemblyName>WhiteRaven.Data</AssemblyName>
+    <RootNamespace>SOSApp.Data</RootNamespace>
+    <AssemblyName>SOSApp.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -49,207 +49,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppModel\AccionUsuarioToRolModel.cs" />
-    <Compile Include="AppModel\AdsCategoriaModel.cs" />
-    <Compile Include="AppModel\AdsModel.cs" />
     <Compile Include="AppModel\AppPagedResponse.cs" />
     <Compile Include="AppModel\AppResponse.cs" />
-    <Compile Include="AppModel\BancoModel.cs" />
-    <Compile Include="AppModel\BeneficioModel.cs" />
-    <Compile Include="AppModel\Beneficio_DetalleModel.cs" />
-    <Compile Include="AppModel\CalificacionModel.cs" />
-    <Compile Include="AppModel\CategoriasPorAdsModel.cs" />
-    <Compile Include="AppModel\CiudadModel.cs" />
-    <Compile Include="AppModel\EmpresaConfiguracionesModel.cs" />
-    <Compile Include="AppModel\EmpresaCuentaModel.cs" />
-    <Compile Include="AppModel\EmpresaHorariosEspecialesModel.cs" />
-    <Compile Include="AppModel\EmpresaHorariosModel.cs" />
-    <Compile Include="AppModel\EmpresaModel.cs" />
-    <Compile Include="AppModel\EmpresaRedesSocialesModel.cs" />
-    <Compile Include="AppModel\EmpresaRubroModel.cs" />
-    <Compile Include="AppModel\EmpresaSucursalModel.cs" />
-    <Compile Include="AppModel\External\MercadoPago\AccessToken.cs" />
-    <Compile Include="AppModel\External\MercadoPago\PaymentNotificationResponse.cs" />
-    <Compile Include="AppModel\External\MercadoPago\PaymentPreferenceRequest.cs" />
-    <Compile Include="AppModel\External\MercadoPago\PaymentPreferenceResponse.cs" />
-    <Compile Include="AppModel\External\MercadoPago\PaymentSearchResponse.cs" />
-    <Compile Include="AppModel\External\UserExternalModel.cs" />
-    <Compile Include="AppModel\FormaPagoEmpresaModel.cs" />
-    <Compile Include="AppModel\FormaPagoModel.cs" />
-    <Compile Include="AppModel\FormaPagoVendedorModel.cs" />
     <Compile Include="AppModel\GridFilter.cs" />
-    <Compile Include="AppModel\HorariosModel.cs" />
-    <Compile Include="AppModel\InstitucionSocialConfiguracionesModel.cs" />
-    <Compile Include="AppModel\InstitucionSocialCuentaModel.cs" />
-    <Compile Include="AppModel\InstitucionSocialModel.cs" />
-    <Compile Include="AppModel\InstitucionSocialRedesSocialesModel.cs" />
-    <Compile Include="AppModel\MonedaModel.cs" />
-    <Compile Include="AppModel\PagoModel.cs" />
-    <Compile Include="AppModel\PaisModel.cs" />
-    <Compile Include="AppModel\PlanModel.cs" />
-    <Compile Include="AppModel\Plan_CaracteristicaModel.cs" />
-    <Compile Include="AppModel\ProvinciaModel.cs" />
-    <Compile Include="AppModel\RedesSocialesModel.cs" />
-    <Compile Include="AppModel\SocialModel.cs" />
-    <Compile Include="AppModel\SysdiagramsModel.cs" />
-    <Compile Include="AppModel\UserSessionModel.cs" />
-    <Compile Include="AppModel\UsuarioAccionModel.cs" />
-    <Compile Include="AppModel\VendedorConfiguracionesModel.cs" />
-    <Compile Include="AppModel\VendedorCuentaModel.cs" />
-    <Compile Include="AppModel\VendedorModel.cs" />
-    <Compile Include="AppModel\UsuarioModel.cs" />
-    <Compile Include="AppModel\UsuarioRolModel.cs" />
-    <Compile Include="AppModel\VendedorRedesSocialesModel.cs" />
-    <Compile Include="AppModel\VentasModel.cs" />
-    <Compile Include="AppModel\W3wResponse.cs" />
-    <Compile Include="DBModel\AccionUsuarioToRol.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
+    <Compile Include="AppModel\NewsModel.cs" />
+    <Compile Include="AppModel\UserModel.cs" />
+    <Compile Include="AppModel\UserGroupModel.cs" />
+    <Compile Include="AppModel\UserRoleModel.cs" />
+    <Compile Include="DBModel\News.cs">
+      <DependentUpon>SOSAppDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Ads.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\AdsCategoria.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Banco.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Beneficio.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Beneficio_Detalle.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Calificacion.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\CategoriasPorAds.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Ciudad.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\dbWhiteAds.Context.cs">
+    <Compile Include="DBModel\SOSAppDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbWhiteAds.Context.tt</DependentUpon>
+      <DependentUpon>SOSAppDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\dbWhiteAds.cs">
+    <Compile Include="DBModel\SOSAppDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
+      <DependentUpon>SOSAppDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\dbWhiteAds.Designer.cs">
+    <Compile Include="DBModel\SOSAppDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbWhiteAds.edmx</DependentUpon>
+      <DependentUpon>SOSAppDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\Empresa.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
+    <Compile Include="DBModel\User.cs">
+      <DependentUpon>SOSAppDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\EmpresaConfiguraciones.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
+    <Compile Include="DBModel\UserGroup.cs">
+      <DependentUpon>SOSAppDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\EmpresaCuenta.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
+    <Compile Include="DBModel\UserRole.cs">
+      <DependentUpon>SOSAppDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DBModel\EmpresaHorarios.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\EmpresaHorariosEspeciales.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\EmpresaRedesSociales.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\EmpresaRubro.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\EmpresaSucursal.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\FormaPago.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\FormaPagoEmpresa.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\FormaPagoVendedor.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Horarios.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\InstitucionSocial.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\InstitucionSocialConfiguraciones.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\InstitucionSocialCuenta.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\InstitucionSocialRedesSociales.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Moneda.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Pago.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Pais.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Plan.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Plan_Caracteristica.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Provincia.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\RedesSociales.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\UserSession.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Usuario.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\UsuarioAccion.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\UsuarioRol.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Vendedor.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\VendedorConfiguraciones.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\VendedorCuenta.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\VendedorRedesSociales.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Ventas.cs">
-      <DependentUpon>dbWhiteAds.tt</DependentUpon>
+    <Compile Include="DBModel\UsersByUserGroup.cs">
+      <DependentUpon>SOSAppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="DBModel\dbWhiteAds.edmx">
+    <EntityDeploy Include="DBModel\SOSAppDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>dbWhiteAds.Designer.cs</LastGenOutput>
+      <LastGenOutput>SOSAppDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DBModel\dbWhiteAds.edmx.diagram">
-      <DependentUpon>dbWhiteAds.edmx</DependentUpon>
+    <None Include="DBModel\SOSAppDB.edmx.diagram">
+      <DependentUpon>SOSAppDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -257,21 +103,21 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DBModel\dbWhiteAds.Context.tt">
+    <Content Include="DBModel\SOSAppDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbWhiteAds.edmx</DependentUpon>
-      <LastGenOutput>dbWhiteAds.Context.cs</LastGenOutput>
+      <DependentUpon>SOSAppDB.edmx</DependentUpon>
+      <LastGenOutput>SOSAppDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DBModel\dbWhiteAds.tt">
+    <Content Include="DBModel\SOSAppDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>dbWhiteAds.edmx</DependentUpon>
-      <LastGenOutput>dbWhiteAds.cs</LastGenOutput>
+      <DependentUpon>SOSAppDB.edmx</DependentUpon>
+      <LastGenOutput>SOSAppDB.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SOSApp.Core\SOSApp.Core.csproj">
       <Project>{30550ecc-43c8-48a6-990d-432db264ef99}</Project>
-      <Name>WhiteRaven.Core</Name>
+      <Name>SOSApp.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

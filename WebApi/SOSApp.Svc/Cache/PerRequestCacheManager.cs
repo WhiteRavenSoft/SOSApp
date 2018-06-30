@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace WhiteRaven.Svc.Cache
+namespace SOSApp.Svc.Cache
 {
     public partial class PerRequestCacheManager : ICacheManager
     {

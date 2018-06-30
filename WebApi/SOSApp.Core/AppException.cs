@@ -1,8 +1,8 @@
-﻿using WhiteRaven.Core.Enum;
+﻿using SOSApp.Core.Enum;
 using System;
 using System.Runtime.Serialization;
 
-namespace WhiteRaven.Core
+namespace SOSApp.Core
 {
     public class AppException : Exception
     {

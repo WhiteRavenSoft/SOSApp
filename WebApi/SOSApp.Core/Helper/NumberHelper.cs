@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.Core.Helper
+namespace SOSApp.Core.Helper
 {
     public static class NumberHelper
     {

@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Crear Noticia";
+    ViewBag.SectionName = "News";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Noticias</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Noticia
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <form id="formNoticia" name="news" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="Title">Título</label>
+                        <input id="Title" name="Title" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="Important">Copete</label>
+                        <input id="Important" name="Important" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="Date">Fecha</label>
+                        <input type="date" id="Date" name="Date" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="Body">Cuerpo</label>
+                        <textarea id="Body" name="Body" rows="4" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="Image">Imágen</label>
+                        <input type="file" id="Image" name="Image" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label for="Active"><input id="Active" name="Active" type="checkbox" value="true" checked="checked" />Activo?</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="reset" class="btn btn-default">Limpiar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var url = ApiUrl + "News";
+            $('#formNoticia').attr('action', url);
+            //$("#formNoticia").submit(function (e) {
+            //    $.ajax({
+            //        type: "POST",
+            //        url: url,
+            //        data: $("#formNoticia").serialize(),
+            //        success: function (data) {
+            //            window.location.assign("/News");
+            //        }
+            //    });
+
+            //    e.preventDefault();
+            //});
+
+        });
+    </script>
+}
+
+

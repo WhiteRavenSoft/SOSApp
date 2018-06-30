@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace WhiteRaven.API
+namespace SOSApp.API
 {
     public class BundleConfig
     {

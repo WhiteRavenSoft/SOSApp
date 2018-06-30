@@ -1,4 +1,4 @@
-﻿using WhiteRaven.Core.Helper;
+﻿using SOSApp.Core.Helper;
 using ImageResizer;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace WhiteRaven.Core.Media
+namespace SOSApp.Core.Media
 {
     public partial class ImageManager
     {
@@ -28,7 +28,7 @@ namespace WhiteRaven.Core.Media
                     Width = width,
                     Height = height,
                     Mode = FitMode.Crop,
-                    JpegQuality = AppHelper.LoadAppSettingInteger("WhiteRaven.WebApp.Media.Image.Quality", 90)
+                    JpegQuality = AppHelper.LoadAppSettingInteger("SOSApp.WebApp.Media.Image.Quality", 90)
                 };
 
                 if (File.Exists(Path.Combine(origin, filename)))
@@ -73,7 +73,7 @@ namespace WhiteRaven.Core.Media
 
         public static string AppDefaultImage(int width, int height)
         {
-            var thumb = LoadResizedImage(PhysicalPath, PhysicalThumbPath, AppHelper.LoadAppSetting("WhiteRaven.WebApp.Media.Image.Default"), width, height);
+            var thumb = LoadResizedImage(PhysicalPath, PhysicalThumbPath, AppHelper.LoadAppSetting("SOSApp.WebApp.Media.Image.Default"), width, height);
 
             return string.Format("{0}/{1}", WebThumbPath, thumb);
         }
@@ -142,7 +142,7 @@ namespace WhiteRaven.Core.Media
         {
             get
             {
-                return AppHelper.LoadAppSetting("WhiteRaven.WebApp.Media.PhysicalPath");
+                return AppHelper.LoadAppSetting("SOSApp.WebApp.Media.PhysicalPath");
             }
         }
 
@@ -150,7 +150,7 @@ namespace WhiteRaven.Core.Media
         {
             get
             {
-                return AppHelper.LoadAppSetting("WhiteRaven.WebApp.Media.PhysicalThumbPath");
+                return AppHelper.LoadAppSetting("SOSApp.WebApp.Media.PhysicalThumbPath");
             }
         }
 
@@ -158,7 +158,7 @@ namespace WhiteRaven.Core.Media
         {
             get
             {
-                var url = AppHelper.LoadAppSetting("WhiteRaven.WebApp.Media.WebThumbPath");
+                var url = AppHelper.LoadAppSetting("SOSApp.WebApp.Media.WebThumbPath");
 
                 if (!url.NotEmpty())
                     url = string.Format("{0}/avatars/thumbs", AppHelper.CDNLocation());

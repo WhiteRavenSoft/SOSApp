@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 
-namespace WhiteRaven.API.AppProvider
+namespace SOSApp.API.AppProvider
 {
     public class CustomUserProvider : IUserIdProvider
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{B5468972-A7A7-448A-A91C-A2D801B89842}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhiteRaven.Svc</RootNamespace>
-    <AssemblyName>WhiteRaven.Svc</AssemblyName>
+    <RootNamespace>SOSApp.Svc</RootNamespace>
+    <AssemblyName>SOSApp.Svc</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -82,48 +82,10 @@
     <Compile Include="Cache\WebCache.cs" />
     <Compile Include="Configuration\WhiteRavenConfig.cs" />
     <Compile Include="Context\BaseContext.cs" />
-    <Compile Include="DataService\AdsCategoriaSvc.cs" />
-    <Compile Include="DataService\AdsSvc.cs" />
-    <Compile Include="DataService\BeneficioSvc.cs" />
-    <Compile Include="DataService\Beneficio_DetalleSvc.cs" />
-    <Compile Include="DataService\CalificacionSvc.cs" />
-    <Compile Include="DataService\CategoriasPorAdsSvc.cs" />
-    <Compile Include="DataService\EmpresaCuentaSvc.cs" />
-    <Compile Include="DataService\EmpresaHorariosEspecialesSvc.cs" />
-    <Compile Include="DataService\EmpresaHorariosSvc.cs" />
-    <Compile Include="DataService\EmpresaRedesSocialesSvc.cs" />
-    <Compile Include="DataService\EmpresaRubroSvc.cs" />
-    <Compile Include="DataService\EmpresaSucursalSvc.cs" />
-    <Compile Include="DataService\FormaPagoEmpresaSvc.cs" />
-    <Compile Include="DataService\FormaPagoSvc.cs" />
-    <Compile Include="DataService\FormaPagoVendedorSvc.cs" />
-    <Compile Include="DataService\HorariosSvc.cs" />
-    <Compile Include="DataService\InstitucionSocialConfiguracionesSvc.cs" />
-    <Compile Include="DataService\InstitucionSocialCuentaSvc.cs" />
-    <Compile Include="DataService\InstitucionSocialRedesSocialesSvc.cs" />
-    <Compile Include="DataService\InstitucionSocialSvc.cs" />
-    <Compile Include="DataService\PaisSvc.cs" />
-    <Compile Include="DataService\PlanSvc.cs" />
-    <Compile Include="DataService\Plan_CaracteristicaSvc.cs" />
-    <Compile Include="DataService\ProvinciaSvc.cs" />
-    <Compile Include="DataService\RedesSocialesSvc.cs" />
-    <Compile Include="DataService\VendedorConfiguracionesSvc.cs" />
-    <Compile Include="DataService\EmpresaConfiguracionesSvc.cs" />
-    <Compile Include="DataService\BancoSvc.cs" />
-    <Compile Include="DataService\CiudadSvc.cs" />
-    <Compile Include="DataService\MonedaSvc.cs" />
-    <Compile Include="DataService\EmpresaSvc.cs" />
-    <Compile Include="DataService\VendedorCuentaSvc.cs" />
-    <Compile Include="DataService\VendedorRedesSocialesSvc.cs" />
-    <Compile Include="DataService\VendedorSvc.cs" />
-    <Compile Include="DataService\UsuarioAccionSvc.cs" />
-    <Compile Include="DataService\AccionUsuarioToRolSvc.cs" />
-    <Compile Include="DataService\UsuarioRolSvc.cs" />
-    <Compile Include="DataService\UserSessionSvc.cs" />
-    <Compile Include="DataService\UsuarioSvc.cs" />
-    <Compile Include="DataService\VentasSvc.cs" />
-    <Compile Include="ExternalService\MercadoPagoSvc.cs" />
-    <Compile Include="ExternalService\W3wService.cs" />
+    <Compile Include="DataService\UserRoleSvc.cs" />
+    <Compile Include="DataService\UserGroupSvc.cs" />
+    <Compile Include="DataService\NewsSvc.cs" />
+    <Compile Include="DataService\UserSvc.cs" />
     <Compile Include="GenericDataService\GenericSvc.cs" />
     <Compile Include="GenericDataService\IGenericSvc.cs" />
     <Compile Include="Helper\CodeHelper.cs" />
@@ -149,12 +111,15 @@
   <ItemGroup>
     <ProjectReference Include="..\SOSApp.Core\SOSApp.Core.csproj">
       <Project>{30550ecc-43c8-48a6-990d-432db264ef99}</Project>
-      <Name>WhiteRaven.Core</Name>
+      <Name>SOSApp.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\SOSApp.Data\SOSApp.Data.csproj">
       <Project>{0552eada-e505-4763-88ac-dcb6d9017900}</Project>
-      <Name>WhiteRaven.Data</Name>
+      <Name>SOSApp.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExternalService\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

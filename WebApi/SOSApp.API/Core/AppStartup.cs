@@ -9,12 +9,12 @@ using System;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
-using WhiteRaven.API.AppProvider;
-using WhiteRaven.Core;
-using WhiteRaven.Svc.Infrastructure;
+using SOSApp.API.AppProvider;
+using SOSApp.Core;
+using SOSApp.Svc.Infrastructure;
 
-[assembly: OwinStartup(typeof(WhiteRaven.API.Core.AppStartup))]
-namespace WhiteRaven.API.Core
+[assembly: OwinStartup(typeof(SOSApp.API.Core.AppStartup))]
+namespace SOSApp.API.Core
 {
     /// <summary>
     /// App Startup

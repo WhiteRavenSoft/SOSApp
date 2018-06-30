@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace WhiteRaven.Core.ComponentModel
+namespace SOSApp.Core.ComponentModel
 {
     public class CustomOptionTypeConverter : TypeConverter
     {

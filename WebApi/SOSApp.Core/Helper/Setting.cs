@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.Core.Helper
+namespace SOSApp.Core.Helper
 {
     public class Settings
     {
@@ -19,7 +19,7 @@ namespace WhiteRaven.Core.Helper
                 }
                 catch
                 {
-                    return "http://api.whiteads.com/";
+                    return "http://api.sosapp.com/";
                 }
             }
         }
@@ -57,35 +57,19 @@ namespace WhiteRaven.Core.Helper
             }
         }
 
-        public static string UserImagePath
+        public static string NewsImagePath
         {
             get
             {
                 try
                 {
-                    return ConfigurationManager.AppSettings["UserImagePath"].ToString();
+                    return ConfigurationManager.AppSettings["App.CDN.Path.News"].ToString();
                 }
                 catch
                 {
-                    return "~/Uploads/Images/User/{0}/";
+                    return "~/Images/News/";
                 }
             }
         }
-
-        public static string DriverImagePath
-        {
-            get
-            {
-                try
-                {
-                    return ConfigurationManager.AppSettings["EmpresaImagePath"].ToString();
-                }
-                catch
-                {
-                    return "~/Uploads/Images/Driver/{0}/";
-                }
-            }
-        }
-
     }
 }

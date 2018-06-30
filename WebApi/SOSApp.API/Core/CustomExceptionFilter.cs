@@ -1,5 +1,5 @@
-﻿using WhiteRaven.Core.Enum;
-using WhiteRaven.Data.AppModel;
+﻿using SOSApp.Core.Enum;
+using SOSApp.Data.AppModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http.Filters;
 
-namespace WhiteRaven.API.Core
+namespace SOSApp.API.Core
 {
     /// <summary>
     /// 

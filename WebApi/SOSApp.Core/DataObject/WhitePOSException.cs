@@ -1,4 +1,4 @@
-﻿using WhiteRaven.Core.Enum;
+﻿using SOSApp.Core.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +6,9 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.Core.DataObject
+namespace SOSApp.Core.DataObject
 {
-    public class WhiteRavenException : Exception
+    public class SOSAppException : Exception
     {
         public string PageName
         {
@@ -33,7 +33,7 @@ namespace WhiteRaven.Core.DataObject
         /// <summary>
         /// Initializes a new instance of the Exception class.
         /// </summary>
-        public WhiteRavenException() : base()
+        public SOSAppException() : base()
         {
         }
 
@@ -45,12 +45,12 @@ namespace WhiteRaven.Core.DataObject
         /// <param name="page">Page of error.</param>
         /// <param name="ipAddress">Usuario IP Address.</param>
         /// <param name="severity">Error Severity.</param>
-        public WhiteRavenException(string message, Exception innerException, string page, string ipAddress, LogSeverityEnum severity)
+        public SOSAppException(string message, Exception innerException, string page, string ipAddress, LogSeverityEnum severity)
             : base(message, innerException)
         {
         }
 
-        public WhiteRavenException(Exception exception, string page, string ipAddress, LogSeverityEnum severity)
+        public SOSAppException(Exception exception, string page, string ipAddress, LogSeverityEnum severity)
             : base(exception.Message, exception.InnerException)
         {
             PageName = page;
@@ -62,7 +62,7 @@ namespace WhiteRaven.Core.DataObject
         /// Initializes a new instance of the Exception class with a specified error message.
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
-        public WhiteRavenException(string message, string page, string ipAddress, LogSeverityEnum severity, string module = null)
+        public SOSAppException(string message, string page, string ipAddress, LogSeverityEnum severity, string module = null)
             : base(message)
         {
             PageName = page;
@@ -80,7 +80,7 @@ namespace WhiteRaven.Core.DataObject
         /// </summary>
 		/// <param name="messageFormat">The exception message format.</param>
 		/// <param name="args">The exception message arguments.</param>
-        public WhiteRavenException(string messageFormat, params object[] args)
+        public SOSAppException(string messageFormat, params object[] args)
             : base(string.Format(messageFormat, args))
         {
         }
@@ -88,9 +88,9 @@ namespace WhiteRaven.Core.DataObject
         /// <summary>
         /// Initializes a new instance of the Exception class with serialized data.
         /// </summary>
-        /// <param name="info">The SerializationInfo that holds the serialized object data aWhiteRavenut the exception being thrown.</param>
-        /// <param name="context">The StreamingContext that contains contextual information aWhiteRavenut the source or destination.</param>
-        protected WhiteRavenException(SerializationInfo
+        /// <param name="info">The SerializationInfo that holds the serialized object data aSOSApput the exception being thrown.</param>
+        /// <param name="context">The StreamingContext that contains contextual information aSOSApput the source or destination.</param>
+        protected SOSAppException(SerializationInfo
             info, StreamingContext context)
             : base(info, context)
         {
@@ -101,7 +101,7 @@ namespace WhiteRaven.Core.DataObject
         /// </summary>
         /// <param name="message">The error message that explains the reason for the exception.</param>
         /// <param name="innerException">The exception that is the cause of the current exception, or a null reference if no inner exception is specified.</param>
-        public WhiteRavenException(string message, Exception innerException)
+        public SOSAppException(string message, Exception innerException)
             : base(message, innerException)
         {
         }

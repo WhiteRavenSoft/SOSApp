@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using WhiteRaven.API.Areas.HelpPage.ModelDescriptions;
+using SOSApp.API.Areas.HelpPage.ModelDescriptions;
 
-namespace WhiteRaven.API.Areas.HelpPage.Models
+namespace SOSApp.API.Areas.HelpPage.Models
 {
     /// <summary>
     /// The model that represents an API displayed on the help page.

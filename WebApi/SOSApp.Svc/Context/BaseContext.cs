@@ -1,98 +1,22 @@
-﻿using WhiteRaven.Svc.DataService;
-using WhiteRaven.Svc.Infrastructure;
+﻿using SOSApp.Svc.DataService;
+using SOSApp.Svc.Infrastructure;
 using System;
 using System.Globalization;
 using System.Threading;
 using System.Web;
 using System.Web.Security;
-using WhiteRaven.Core.Enum;
-using WhiteRaven.Core.Helper;
-using WhiteRaven.Data.DBModel;
+using SOSApp.Core.Enum;
+using SOSApp.Core.Helper;
+using SOSApp.Data.DBModel;
 
-namespace WhiteRaven.Svc.Context
+namespace SOSApp.Svc.Context
 {
     public partial class BaseContext
     {
-        private Usuario user;
-        private UsuarioRol userRol;
+        private User user;
+        private UserRole userRol;
 
         private HttpContext httpContext = HttpContext.Current;
-
-        private UserSession SaveSession()
-        {
-            //while (IoC.Resolve<WebSessionSvc>().FindOne(x => x.WebSessionGUID == guid) != null)
-            //    guid = Guid.NewGuid();
-
-            var session = new UserSession();
-
-            int current = 0;
-
-            if (this.Usuario != null)
-                current = this.Usuario.ID;
-
-            session.UserSessionGUID = Guid.Empty;
-            session.ID_Usuario = current;
-            session.UltimoAccesso = DateTime.UtcNow;
-            session = IoC.Resolve<UserSessionSvc>().Save(session);
-            return session;
-        }
-
-        public UserSession LoadSession(bool createInDatabase)
-        {
-            return this.LoadSession(createInDatabase, null);
-        }
-
-        public UserSession LoadSession(bool createInDatabase, Guid? sessionID)
-        {
-            UserSession byId = null;
-
-            object obj2 = Current[AppHelper.SESSION_KEY];
-
-            if (obj2 != null)
-                byId = (UserSession)obj2;
-
-            if ((byId == null) && (sessionID.HasValue))
-            {
-                byId = IoC.Resolve<UserSessionSvc>().FindOne(x => x.UserSessionGUID == sessionID);
-                return byId;
-            }
-            if (byId == null && createInDatabase)
-            {
-                byId = SaveSession();
-            }
-
-            string sessionCookieValue = string.Empty;
-
-            if ((HttpContext.Current.Request.Cookies[AppHelper.SESSION_GUID_KEY] != null) && (HttpContext.Current.Request.Cookies[AppHelper.SESSION_GUID_KEY].Value != null))
-                sessionCookieValue = HttpContext.Current.Request.Cookies[AppHelper.SESSION_GUID_KEY].Value;
-
-            if ((byId) == null && (!string.IsNullOrEmpty(sessionCookieValue)))
-            {
-                var dbSession = IoC.Resolve<UserSessionSvc>().FindOne(x => x.UserSessionGUID == new Guid(sessionCookieValue));
-
-                byId = dbSession;
-            }
-
-            Current[AppHelper.SESSION_KEY] = byId;
-
-            return byId;
-        }
-
-        public void SaveSessionToClient()
-        {
-            if (HttpContext.Current != null && this.WebSession != null)
-                AppHelper.SetCookie(HttpContext.Current.ApplicationInstance, AppHelper.SESSION_GUID_KEY, this.WebSession.UserSessionGUID.ToString());
-        }
-
-        public void ResetSession()
-        {
-            if (HttpContext.Current != null)
-                AppHelper.SetCookie(HttpContext.Current.ApplicationInstance, AppHelper.SESSION_GUID_KEY, string.Empty);
-
-            this.WebSession = null;
-            this.Usuario = null;
-            this[AppHelper.SESSION_RESET_KEY] = true;
-        }
 
         public static BaseContext Current
         {
@@ -149,19 +73,7 @@ namespace WhiteRaven.Svc.Context
             }
         }
 
-        public UserSession WebSession
-        {
-            get
-            {
-                return this.LoadSession(false);
-            }
-            set
-            {
-                Current[AppHelper.SESSION_KEY] = value;
-            }
-        }
-
-        public Usuario Usuario
+        public User User
         {
             get
             {
@@ -173,7 +85,7 @@ namespace WhiteRaven.Svc.Context
             }
         }
 
-        public UsuarioRol UsuarioRol
+        public UserRole UserRole
         {
             get
             {
@@ -198,36 +110,6 @@ namespace WhiteRaven.Svc.Context
             }
         }
 
-        public int MainCurrency
-        {
-            get
-            {
-                return (int)CurrencyEnum.USD;
-            }
-            set
-            {
-                if (value == 0)
-                    return;
-
-                AppHelper.SetCookie(httpContext.ApplicationInstance, AppHelper.CURRENCY_KEY, value.ToString());
-            }
-        }
-
-        public int MainLang
-        {
-            get
-            {
-                return (int)LangEnum.ES;
-            }
-            set
-            {
-                if (value == 0)
-                    return;
-
-                AppHelper.SetCookie(httpContext.ApplicationInstance, AppHelper.LANG_KEY, value.ToString());
-            }
-        }
-
         public void SetCulture(CultureInfo culture)
         {
             Thread.CurrentThread.CurrentCulture = culture;
@@ -236,9 +118,6 @@ namespace WhiteRaven.Svc.Context
 
         public static void SignOut()
         {
-            if (Current != null)
-                Current.ResetSession();
-
             if (HttpContext.Current != null && HttpContext.Current.Session != null)
                 HttpContext.Current.Session.Abandon();
 

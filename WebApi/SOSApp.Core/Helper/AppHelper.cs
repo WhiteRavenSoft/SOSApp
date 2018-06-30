@@ -7,20 +7,20 @@ using System.Text;
 using FluentValidation;
 using System.Text.RegularExpressions;
 using System.ComponentModel;
-using WhiteRaven.Core.ComponentModel;
+using SOSApp.Core.ComponentModel;
 using System.Globalization;
 using System.Reflection;
-using WhiteRaven.Core.DataObject;
+using SOSApp.Core.DataObject;
 using System.Web;
 using System.Configuration;
 using System.Net;
-using WhiteRaven.Core.Enum;
+using SOSApp.Core.Enum;
 using Newtonsoft.Json;
 using System.Linq.Expressions;
 using System.Web.UI.HtmlControls;
 using System.Web.UI;
 
-namespace WhiteRaven.Core.Helper
+namespace SOSApp.Core.Helper
 {
     public static class AppHelper
     {
@@ -29,19 +29,19 @@ namespace WhiteRaven.Core.Helper
 
         #region Application Key
 
-        public const string SESSION_KEY = "WhiteRaven.SESSION_KEY";
+        public const string SESSION_KEY = "SOSApp.SESSION_KEY";
 
-        public const string SESSION_RESET_KEY = "WhiteRaven.SESSION_RESET_KEY";
+        public const string SESSION_RESET_KEY = "SOSApp.SESSION_RESET_KEY";
 
-        public const string SESSION_GUID_KEY = "WhiteRaven.SESSION_GUID_KEY";
+        public const string SESSION_GUID_KEY = "SOSApp.SESSION_GUID_KEY";
 
-        public const string LANG_KEY = "WhiteRaven.LANG_KEY";
+        public const string LANG_KEY = "SOSApp.LANG_KEY";
 
-        public const string CURRENCY_KEY = "WhiteRaven.CURRENCY_KEY";
+        public const string CURRENCY_KEY = "SOSApp.CURRENCY_KEY";
 
-        public const string CONTEXT_KEY = "WhiteRaven.CONTEXT_KEY";
+        public const string CONTEXT_KEY = "SOSApp.CONTEXT_KEY";
 
-        public const string PAGE_READONLY_KEY = "WhiteRaven.PAGE_READONLY_KEY";
+        public const string PAGE_READONLY_KEY = "SOSApp.PAGE_READONLY_KEY";
 
         #endregion Application Key
 
@@ -55,36 +55,36 @@ namespace WhiteRaven.Core.Helper
         public static string AppLocation(string path = null)
         {
             if (!path.NotEmpty())
-                return LoadAppSetting("WhiteRaven.WebApp.Base.Path");
+                return LoadAppSetting("SOSApp.WebApp.Base.Path");
 
-            return string.Format("{0}/{1}", LoadAppSetting("WhiteRaven.WebApp.Base.Path"), path);
+            return string.Format("{0}/{1}", LoadAppSetting("SOSApp.WebApp.Base.Path"), path);
         }
 
         public static string ApiLocation(string path = null)
         {
             if (!path.NotEmpty())
-                return LoadAppSetting("WhiteRaven.WebApi.Base.Path");
+                return LoadAppSetting("SOSApp.WebApi.Base.Path");
 
-            return string.Format("{0}/{1}", LoadAppSetting("WhiteRaven.WebApi.Base.Path"), path);
+            return string.Format("{0}/{1}", LoadAppSetting("SOSApp.WebApi.Base.Path"), path);
         }
 
         public static string CDNLocation(string path = null)
         {
             if (!path.NotEmpty())
-                return LoadAppSetting("WhiteRaven.WebApp.CDN.Path");
+                return LoadAppSetting("SOSApp.WebApp.CDN.Path");
 
-            return string.Format("{0}/{1}", LoadAppSetting("WhiteRaven.WebApp.CDN.Path"), path);
+            return string.Format("{0}/{1}", LoadAppSetting("SOSApp.WebApp.CDN.Path"), path);
         }
 
 
         public static bool AppOnTesting()
         {
-            return LoadAppSettingboolean("WhiteRaven.WebApp.AppOnTesting", false);
+            return LoadAppSettingboolean("SOSApp.WebApp.AppOnTesting", false);
         }
 
         public static bool AppLogger()
         {
-            return LoadAppSettingboolean("WhiteRaven.WebApp.Logger.Enabled", false);
+            return LoadAppSettingboolean("SOSApp.WebApp.Logger.Enabled", false);
         }
 
 
@@ -242,7 +242,7 @@ namespace WhiteRaven.Core.Helper
         {
 
             using (System.IO.StreamWriter file =
-                new System.IO.StreamWriter(@"" + AppHelper.LoadAppSetting("WhiteRaven.WebTxt.Siap.Path") + Namefile + ".txt"))
+                new System.IO.StreamWriter(@"" + AppHelper.LoadAppSetting("SOSApp.WebTxt.Siap.Path") + Namefile + ".txt"))
             {
                 file.WriteLine(lines);
             }
@@ -398,9 +398,9 @@ namespace WhiteRaven.Core.Helper
             Type instanceType = instance.GetType();
             PropertyInfo pi = instanceType.GetProperty(propertyName);
             if (pi == null)
-                throw new WhiteRavenException("No property '{0}' found on the instance of type '{1}'.", propertyName, instanceType);
+                throw new SOSAppException("No property '{0}' found on the instance of type '{1}'.", propertyName, instanceType);
             if (!pi.CanWrite)
-                throw new WhiteRavenException("The property '{0}' on the instance of type '{1}' does not have a setter.", propertyName, instanceType);
+                throw new SOSAppException("The property '{0}' on the instance of type '{1}' does not have a setter.", propertyName, instanceType);
             if (value != null && !value.GetType().IsAssignableFrom(pi.PropertyType))
                 value = To(value, pi.PropertyType);
             pi.SetValue(instance, value, new object[0]);

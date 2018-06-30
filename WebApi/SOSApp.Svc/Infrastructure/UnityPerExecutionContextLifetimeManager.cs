@@ -4,7 +4,7 @@ using System.Runtime.Remoting.Messaging;
 using System.ServiceModel;
 using System.Web;
 
-namespace WhiteRaven.Svc.Infrastructure
+namespace SOSApp.Svc.Infrastructure
 {
     public class UnityPerExecutionContextLifetimeManager : LifetimeManager
     {

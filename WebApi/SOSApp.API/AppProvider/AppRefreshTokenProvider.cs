@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.API.AppProvider
+namespace SOSApp.API.AppProvider
 {
     public class AppRefreshTokenProvider : IAuthenticationTokenProvider
     {

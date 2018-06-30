@@ -1,16 +1,16 @@
-﻿using WhiteRaven.Svc.Cache;
-using WhiteRaven.Core.Enum;
-using WhiteRaven.Core.Helper;
+﻿using SOSApp.Svc.Cache;
+using SOSApp.Core.Enum;
+using SOSApp.Core.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WhiteRaven.Svc.Infrastructure;
-using WhiteRaven.Svc.DataService;
-using WhiteRaven.Data.DBModel;
+using SOSApp.Svc.Infrastructure;
+using SOSApp.Svc.DataService;
+using SOSApp.Data.DBModel;
 
-namespace WhiteRaven.Svc.Helper
+namespace SOSApp.Svc.Helper
 {
     public static class CodeHelper
     {
@@ -25,20 +25,6 @@ namespace WhiteRaven.Svc.Helper
         //Código de ejemplo CIBR: C = Cliente, I = Internaciona, BR = código ISO de la Tabla de Países.
         //Código de ejemplo CNAR: C = Cliente, N = Nacional, AR = código ISO de la Tabla de Países.
 
-
-        public static string LoadCustomerCode(int id, int country)
-        {
-            //var object1 = WebCache.Instance.LoadCountry(country);
-
-            if (country != 0)
-            {
-                var type = CustomerTypeEnum.International;
-                var idcode = string.Format("{0:0000000000}", id);
-                return string.Format("C{0}{1}", type.EnumDescription(), idcode).ToUpper();
-            }
-
-            return string.Empty;
-        }
 
         public static string LoadSupplierCode(int id, int country, bool expense = false)
         {
@@ -57,17 +43,6 @@ namespace WhiteRaven.Svc.Helper
             }
 
             return string.Empty;
-        }
-
-
-        public static string LoadInvoiceCode(int number, int fctype)
-        {
-            var ptoventa = string.Format("{0:0000}", AppHelper.LoadAppSettingInteger("WhiteRaven.WebApp.AFIP.PTOVENTA", 0));
-            var fac = string.Format("{0:00000000}", number);
-
-            InvoiceAFIPTypeEnum factype = (InvoiceAFIPTypeEnum)fctype;
-
-            return string.Format("{0}-{1}", ptoventa, fac);
         }
 
         public static string LoadGuideCode(int code)
@@ -91,21 +66,6 @@ namespace WhiteRaven.Svc.Helper
             return string.Format("{0:00000000}", number);
         }
 
-        public static string LoadInvoiceLetter(int type)
-        {
-            var letter = string.Empty;
-
-            if (((InvoiceTypeEnum)type) == InvoiceTypeEnum.I
-                || ((InvoiceTypeEnum)type) == InvoiceTypeEnum.A
-                || ((InvoiceTypeEnum)type) == InvoiceTypeEnum.B
-                || ((InvoiceTypeEnum)type) == InvoiceTypeEnum.C)
-                letter = string.Format("FC{0}", ((InvoiceTypeEnum)type).ToString());
-            else
-                letter = ((InvoiceTypeEnum)type).ToString();
-
-            return letter;
-        }
-
         public static string SetProductTypeCode(string ptcode)
         {
             return string.Format("{0:D5}", ptcode.ToInt());
@@ -115,7 +75,7 @@ namespace WhiteRaven.Svc.Helper
         {
             var inv = string.Format("{0:D8}", number);
 
-            var pofs = string.Format("{0:D5}", AppHelper.LoadAppSettingInteger("WhiteRaven.WebApp.Invoices.PointOfSale", 0));
+            var pofs = string.Format("{0:D5}", AppHelper.LoadAppSettingInteger("SOSApp.WebApp.Invoices.PointOfSale", 0));
 
             return string.Format("{0}-{1}", pofs, inv);
         }

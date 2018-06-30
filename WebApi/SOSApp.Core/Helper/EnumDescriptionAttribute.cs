@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace WhiteRaven.Core.Helper
+namespace SOSApp.Core.Helper
 {
     public class EnumDescriptionAttribute : Attribute
     {

@@ -1,4 +1,4 @@
-namespace WhiteRaven.API.Areas.HelpPage.ModelDescriptions
+namespace SOSApp.API.Areas.HelpPage.ModelDescriptions
 {
     public class KeyValuePairModelDescription : ModelDescription
     {

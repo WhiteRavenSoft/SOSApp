@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.Core.Validator
+namespace SOSApp.Core.Validator
 {
     public static class ValidatorExtensions
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace WhiteRaven.API.Areas.HelpPage.ModelDescriptions
+namespace SOSApp.API.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using WhiteRaven.Data.AppModel;
-using WhiteRaven.Data.DBModel;
+using SOSApp.Data.AppModel;
+using SOSApp.Data.DBModel;
 
-namespace WhiteRaven.API.Core
+namespace SOSApp.API.Core
 {
     /// <summary>
     /// 
@@ -21,7 +21,7 @@ namespace WhiteRaven.API.Core
         {
             MapperConfiguration = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Usuario, UsuarioModel>().ReverseMap();
+                cfg.CreateMap<User, UserModel>().ReverseMap();
             });
         }
 

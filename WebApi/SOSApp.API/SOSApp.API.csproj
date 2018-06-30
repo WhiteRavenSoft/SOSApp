@@ -14,8 +14,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhiteRaven.API</RootNamespace>
-    <AssemblyName>WhiteRaven.API</AssemblyName>
+    <RootNamespace>SOSApp.API</RootNamespace>
+    <AssemblyName>SOSApp.API</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -226,46 +226,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccionUsuarioToRolController.cs" />
-    <Compile Include="Controllers\AdsCategoriaController.cs" />
-    <Compile Include="Controllers\AdsController.cs" />
-    <Compile Include="Controllers\BancoController.cs" />
-    <Compile Include="Controllers\BeneficioController.cs" />
-    <Compile Include="Controllers\Beneficio_DetalleController.cs" />
-    <Compile Include="Controllers\CalificacionController.cs" />
-    <Compile Include="Controllers\CategoriasPorAdsController.cs" />
-    <Compile Include="Controllers\CiudadController.cs" />
-    <Compile Include="Controllers\EmpresaConfiguracionesController.cs" />
-    <Compile Include="Controllers\EmpresaController.cs" />
-    <Compile Include="Controllers\EmpresaCuentaController.cs" />
-    <Compile Include="Controllers\EmpresaHorariosController.cs" />
-    <Compile Include="Controllers\EmpresaHorariosEspecialesController.cs" />
-    <Compile Include="Controllers\EmpresaRedesSocialesController.cs" />
-    <Compile Include="Controllers\EmpresaRubroController.cs" />
-    <Compile Include="Controllers\EmpresaSucursalController.cs" />
-    <Compile Include="Controllers\FormaPagoController.cs" />
-    <Compile Include="Controllers\FormaPagoEmpresaController.cs" />
-    <Compile Include="Controllers\FormaPagoVendedorController.cs" />
-    <Compile Include="Controllers\HorariosController.cs" />
-    <Compile Include="Controllers\InstitucionSocialConfiguracionesController.cs" />
-    <Compile Include="Controllers\InstitucionSocialController.cs" />
-    <Compile Include="Controllers\InstitucionSocialCuentaController.cs" />
-    <Compile Include="Controllers\InstitucionSocialRedesSocialesController.cs" />
-    <Compile Include="Controllers\MonedaController.cs" />
-    <Compile Include="Controllers\PaisController.cs" />
-    <Compile Include="Controllers\PlanController.cs" />
-    <Compile Include="Controllers\Plan_CaracteristicaController.cs" />
-    <Compile Include="Controllers\ProvinciaController.cs" />
-    <Compile Include="Controllers\RedesSocialesController.cs" />
-    <Compile Include="Controllers\UserSessionController.cs" />
-    <Compile Include="Controllers\UsuarioAccionController.cs" />
-    <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Controllers\UsuarioRolController.cs" />
-    <Compile Include="Controllers\VendedorConfiguracionesController.cs" />
-    <Compile Include="Controllers\VendedorController.cs" />
-    <Compile Include="Controllers\VendedorCuentaController.cs" />
-    <Compile Include="Controllers\VendedorRedesSocialesController.cs" />
-    <Compile Include="Controllers\VentasController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserRoleController.cs" />
     <Compile Include="Core\ApiKeyHandler.cs" />
     <Compile Include="Core\ApiBaseController.cs" />
     <Compile Include="Core\AppConfiguration.cs" />
@@ -351,7 +314,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -377,7 +342,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\News\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\News\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -391,21 +358,21 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WhiteRaven.Core\WhiteRaven.Core.csproj">
-      <Project>{30550ecc-43c8-48a6-990d-432db264ef99}</Project>
-      <Name>WhiteRaven.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WhiteRaven.Data\WhiteRaven.Data.csproj">
-      <Project>{0552eada-e505-4763-88ac-dcb6d9017900}</Project>
-      <Name>WhiteRaven.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WhiteRaven.Svc\WhiteRaven.Svc.csproj">
-      <Project>{b5468972-a7a7-448a-a91c-a2d801b89842}</Project>
-      <Name>WhiteRaven.Svc</Name>
-    </ProjectReference>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <ProjectReference Include="..\SOSApp.Core\SOSApp.Core.csproj">
+      <Project>{30550ecc-43c8-48a6-990d-432db264ef99}</Project>
+      <Name>SOSApp.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOSApp.Data\SOSApp.Data.csproj">
+      <Project>{0552eada-e505-4763-88ac-dcb6d9017900}</Project>
+      <Name>SOSApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOSApp.Svc\SOSApp.Svc.csproj">
+      <Project>{b5468972-a7a7-448a-a91c-a2d801b89842}</Project>
+      <Name>SOSApp.Svc</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

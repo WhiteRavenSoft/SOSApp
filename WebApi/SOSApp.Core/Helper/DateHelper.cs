@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace WhiteRaven.Core.Helper
+namespace SOSApp.Core.Helper
 {
     public static class DateHelper
     {
@@ -85,6 +85,17 @@ namespace WhiteRaven.Core.Helper
             }
 
             return mes;
+        }
+
+        /// <summary>
+        /// Obtiene una fecha desde un string con el formato especificado.
+        /// </summary>
+        /// <param name="strDate">Format YYYY-MM-DD</param>
+        /// <returns></returns>
+        public static DateTime GetDateFromString(string strDate)
+        {
+            var arrayStr = strDate.Split('-');
+            return new DateTime(int.Parse(arrayStr[0]), int.Parse(arrayStr[1]), int.Parse(arrayStr[2]));
         }
     }
 }

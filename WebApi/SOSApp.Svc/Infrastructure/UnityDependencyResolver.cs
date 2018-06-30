@@ -1,4 +1,4 @@
-﻿using WhiteRaven.Data.DBModel;
+﻿using SOSApp.Data.DBModel;
 using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.Svc.Infrastructure
+namespace SOSApp.Svc.Infrastructure
 {
     public class UnityDependencyResolver : IDependencyResolver
     {
@@ -37,7 +37,7 @@ namespace WhiteRaven.Svc.Infrastructure
             //container.RegisterType<PlayerService>(new UnityPerExecutionContextLifetimeManager());
 
             //Registering object context
-            container.RegisterType<WhiteAdsEntities>(new UnityPerExecutionContextLifetimeManager());
+            container.RegisterType<SOSAppDBEntities>(new UnityPerExecutionContextLifetimeManager());
            
         }
 

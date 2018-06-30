@@ -1,4 +1,4 @@
-﻿namespace WhiteRaven.API.AppProvider
+﻿namespace SOSApp.API.AppProvider
 {
 
     //public class GoogleAuthProvider : IGoogleOAuth2AuthenticationProvider

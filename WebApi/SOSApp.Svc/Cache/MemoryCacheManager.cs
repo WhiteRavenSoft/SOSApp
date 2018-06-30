@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Caching;
 using System.Text.RegularExpressions;
 
-namespace WhiteRaven.Svc.Cache
+namespace SOSApp.Svc.Cache
 {
     public partial class MemoryCacheManager : ICacheManager
     {

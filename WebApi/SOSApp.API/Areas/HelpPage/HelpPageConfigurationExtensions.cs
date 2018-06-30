@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using WhiteRaven.API.Areas.HelpPage.ModelDescriptions;
-using WhiteRaven.API.Areas.HelpPage.Models;
+using SOSApp.API.Areas.HelpPage.ModelDescriptions;
+using SOSApp.API.Areas.HelpPage.Models;
 
-namespace WhiteRaven.API.Areas.HelpPage
+namespace SOSApp.API.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

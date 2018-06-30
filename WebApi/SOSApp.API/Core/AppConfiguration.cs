@@ -6,7 +6,7 @@ using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
 
-namespace WhiteRaven.API.Core
+namespace SOSApp.API.Core
 {
     /// <summary>
     /// Application Configuration

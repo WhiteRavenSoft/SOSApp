@@ -7,8 +7,8 @@
     <ProjectGuid>{30550ECC-43C8-48A6-990D-432DB264EF99}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WhiteRaven.Core</RootNamespace>
-    <AssemblyName>WhiteRaven.Core</AssemblyName>
+    <RootNamespace>SOSApp.Core</RootNamespace>
+    <AssemblyName>SOSApp.Core</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

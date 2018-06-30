@@ -11,9 +11,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
-using WhiteRaven.Svc.Infrastructure;
+using SOSApp.Svc.Infrastructure;
 
-namespace WhiteRaven.Svc.GenericDataService
+namespace SOSApp.Svc.GenericDataService
 {
     public class GenericSvc<TEntity, TContext> : IGenericSvc<TEntity>, IDisposable
         where TEntity : class
@@ -77,6 +77,10 @@ namespace WhiteRaven.Svc.GenericDataService
                 }
 
                 throw new Exception(msg);
+            }
+            catch (Exception ex)
+            {
+                var a = ex;
             }
 
             return newentity;
@@ -328,7 +332,7 @@ namespace WhiteRaven.Svc.GenericDataService
         {
             get
             {
-                var rdo = Convert.ToBoolean(ConfigurationManager.AppSettings["WhiteRaven.Svc.Configuration.StoredProcedure.Enabled"]);
+                var rdo = Convert.ToBoolean(ConfigurationManager.AppSettings["SOSApp.Svc.Configuration.StoredProcedure.Enabled"]);
                 return rdo;
             }
         }

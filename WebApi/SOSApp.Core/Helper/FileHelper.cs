@@ -1,10 +1,11 @@
 ﻿using ImageResizer;
 using System;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace WhiteRaven.Core.Helper
+namespace SOSApp.Core.Helper
 {
     public class FileHelper
     {
@@ -91,7 +92,6 @@ namespace WhiteRaven.Core.Helper
 
         public static string SaveFile(byte[] file, string folder, string format, string fileName = null, bool cleanFolder = false)
         {
-
             MemoryStream stream = new MemoryStream();
 
             MemoryStream dest = new MemoryStream();
@@ -100,25 +100,11 @@ namespace WhiteRaven.Core.Helper
             ImageBuilder.Current.Build(stream, dest, new ResizeSettings());
 
             if (file == null)
-            {
-                return "";
-            }
+                return string.Empty;
 
             if (!Directory.Exists(HttpContext.Current.Server.MapPath(folder)))
-            {
                 Directory.CreateDirectory(HttpContext.Current.Server.MapPath(folder));
-            }
-            else
-            {
-                if (cleanFolder)
-                {
-                    Directory.GetFiles(HttpContext.Current.Server.MapPath(folder), "*.jpg").ToList().ForEach(f =>
-                    {
-                        File.Delete(f);
-                    });
-                }
-            }
-
+            
             if (string.IsNullOrEmpty(fileName))
                 fileName = DateTime.UtcNow.ToString("yyyyMMddHHmmss") + format;
 
@@ -132,5 +118,9 @@ namespace WhiteRaven.Core.Helper
             return fileName;
         }
 
+        public static string GetNewsImageUrl(int id)
+        {
+            return string.Concat(ConfigurationManager.AppSettings["Api.Base.Path.Root"], $"Images/News/{id}.jpg");
+        }
     }
 }

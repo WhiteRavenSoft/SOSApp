@@ -1,4 +1,4 @@
-﻿using WhiteRaven.Core.Helper;
+﻿using SOSApp.Core.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace WhiteRaven.API.Core
+namespace SOSApp.API.Core
 {
     /// <summary>
     /// 

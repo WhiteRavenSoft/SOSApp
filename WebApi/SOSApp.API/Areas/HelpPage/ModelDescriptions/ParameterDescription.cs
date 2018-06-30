@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace WhiteRaven.API.Areas.HelpPage.ModelDescriptions
+namespace SOSApp.API.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {

@@ -2,9 +2,9 @@
 using System.Configuration;
 using System.Xml;
 
-namespace WhiteRaven.Svc.Configuration
+namespace SOSApp.Svc.Configuration
 {
-    public partial class WhiteRavenConfig : IConfigurationSectionHandler
+    public partial class SOSAppConfig : IConfigurationSectionHandler
     {
         private static bool _initialized = false;
         private static XmlNode _scheduleTasks;
@@ -21,7 +21,7 @@ namespace WhiteRaven.Svc.Configuration
         {
             if (!_initialized)
             {
-                ConfigurationManager.GetSection("WhiteRavenConfiguration");
+                ConfigurationManager.GetSection("SOSAppConfiguration");
                 _initialized = true;
             }
         }

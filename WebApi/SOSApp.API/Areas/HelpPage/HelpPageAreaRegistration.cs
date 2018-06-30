@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace WhiteRaven.API.Areas.HelpPage
+namespace SOSApp.API.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

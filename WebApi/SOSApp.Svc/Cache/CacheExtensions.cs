@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.Svc.Cache
+namespace SOSApp.Svc.Cache
 {
     public static class CacheExtensions
     {

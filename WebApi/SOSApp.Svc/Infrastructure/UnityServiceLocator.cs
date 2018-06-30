@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.Svc.Infrastructure
+namespace SOSApp.Svc.Infrastructure
 {
     public class UnityServiceLocator : ServiceLocatorImplBase
     {

@@ -1,4 +1,4 @@
-﻿namespace WhiteRaven.Data.AppModel
+﻿namespace SOSApp.Data.AppModel
 {
     public class AppResponse<T>
     {

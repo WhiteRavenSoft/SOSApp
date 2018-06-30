@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace WhiteRaven.Svc.Tasking
+namespace SOSApp.Svc.Tasking
 {
     public partial class TaskThread : IDisposable
     {

@@ -1,4 +1,4 @@
-namespace WhiteRaven.API.Areas.HelpPage
+namespace SOSApp.API.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

@@ -1,4 +1,4 @@
-﻿using WhiteRaven.Core.Helper;
+﻿using SOSApp.Core.Helper;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WhiteRaven.Core.Reporting
+namespace SOSApp.Core.Reporting
 {
     public class PdfOutput
     {
@@ -98,7 +98,7 @@ namespace WhiteRaven.Core.Reporting
             if (!string.IsNullOrEmpty(document.FooterUrl))
             {
                 paramsBuilder.AppendFormat("--footer-html {0} ", document.FooterUrl);
-                paramsBuilder.Append("--margin-WhiteRaventtom 25 ");
+                paramsBuilder.Append("--margin-SOSAppttom 25 ");
                 paramsBuilder.Append("--footer-spacing 5 ");
             }
 
