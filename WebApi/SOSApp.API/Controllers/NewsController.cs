@@ -11,13 +11,13 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace SOSApp.API.Controllers
 {
     /// <summary>
     /// Controlador de noticias
     /// </summary>
+    [Authorize]
     public class NewsController : ApiBaseController
     {
         // GET: News
@@ -45,6 +45,7 @@ namespace SOSApp.API.Controllers
             //else
             //    db = db.OrderBy(x => x.Apellido);
 
+            db = db.OrderByDescending(x => x.CreatedDate);
             response.Total = db.Count();
             db = db.Skip(start.Value).Take(limit.Value);
             var model = MapToGridModel(db.ToList());
@@ -168,7 +169,7 @@ namespace SOSApp.API.Controllers
         public HttpResponseMessage Delete(int id)
         {
             AppResponse<bool> response = new AppResponse<bool>() { Data = false };
-            userSvc.DeleteLogic(id);
+            newsSvc.DeleteLogic(id);
             response.Data = true;
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }

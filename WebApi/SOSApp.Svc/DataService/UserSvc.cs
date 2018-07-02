@@ -14,17 +14,83 @@ namespace SOSApp.Svc.DataService
     {
         public User Save(User x)
         {
-            if (x.ID == 0)
+            try
             {
-                x.CreatedDate = DateTime.Now;
-                x.LastUpdate = DateTime.Now;
-                x.Active = true;
-                x.Deleted = false;
-                return CreateEntity(x);
-            }
+                if (x.ID == 0)
+                {
+                    x.CreatedDate = DateTime.Now;
+                    x.LastUpdate = DateTime.Now;
+                    x.Active = true;
+                    x.Deleted = false;
+                    return CreateEntity(x);
+                }
 
-            x.LastUpdate = DateTime.Now;
-            return UpdateEntity(x);
+                x.LastUpdate = DateTime.Now;
+                return UpdateEntity(x);
+            }
+            catch (Exception ex)
+            {
+                var a = ex;
+                return null;
+            }
+        }
+
+        public User Save(UserModel x)
+        {
+            try
+            {
+                DateTime? birthdate;
+                if (x.Birthdate != null)
+                    birthdate = DateTime.Parse(x.Birthdate);
+                else
+                    birthdate = null;
+
+                if (x.ID == 0)
+                {
+                    var newUser = new User()
+                    {
+                        LastName = x.LastName,
+                        Name = x.Name,
+                        Address = x.Address,
+                        Lat = x.Lat,
+                        Lon = x.Lon,
+                        Birthdate = birthdate,
+                        MobileID = x.MobileID,
+                        Phone = x.Phone,
+                        RoleId = x.RoleId,
+                        Email = x.Email,
+                        CreatedDate = DateTime.Now,
+                        LastUpdate = DateTime.Now,
+                        Active = true,
+                        Deleted = false
+                    };
+
+                    return CreateEntity(newUser);
+                }
+                else
+                {
+                    var db = Load(x.ID);
+
+                    db.LastUpdate = DateTime.Now;
+                    db.LastName = x.LastName;
+                    db.Name = x.Name;
+                    db.Address = x.Address;
+                    db.Lat = x.Lat;
+                    db.Lon = x.Lon;
+                    db.Birthdate = birthdate;
+                    db.MobileID = x.MobileID;
+                    db.Phone = x.Phone;
+                    db.RoleId = x.RoleId;
+                    db.Active = x.Active;
+
+                    return UpdateEntity(db);
+                }
+            }
+            catch (Exception ex)
+            {
+                var a = ex;
+                return null;
+            }
         }
 
         public bool ExistsByEmail(string email, int Usuario)
@@ -78,12 +144,18 @@ namespace SOSApp.Svc.DataService
 
         public User Create(UserModel user)
         {
-
             if (ExistsByEmail(user.Email, user.ID))
                 throw new Exception("El usuario ya se encuentra registrado");
 
             if (HasAny(u => u.Active && u.Email == user.Email))
                 throw new Exception("Ya existe otro usuario con el mismo correo electrónico");
+
+            DateTime? birthdate;
+            if (user.Birthdate != null)
+                birthdate = DateTime.Parse(user.Birthdate);
+            else
+                birthdate = null;
+
 
             User newUser = new User()
             {
@@ -91,6 +163,7 @@ namespace SOSApp.Svc.DataService
                 LastName = user.LastName,
                 Email = user.Email,
                 Phone = user.Phone,
+                Birthdate = birthdate,
                 Address = user.Address,
                 RoleId = user.RoleId,
                 CreatedDate = DateTime.Now,

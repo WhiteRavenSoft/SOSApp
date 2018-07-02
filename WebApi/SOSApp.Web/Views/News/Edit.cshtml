@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Usuarios</h1>
+        <h1 class="page-header">Noticias</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -22,39 +22,38 @@
             <div class="panel-body">
                 <form id="formNoticia" role="form">
                     <input type="hidden" id="IdNews" name="ID" class="form-control">
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Título</label>
                         <input id="Title" name="Title" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label>Copete</label>
-                        <input id="Important" name="Important" class="form-control">
-                    </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Fecha</label>
                         <input type="date" id="Date" name="Date" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-12 form-group">
+                        <label>Copete</label>
+                        <input id="Important" name="Important" class="form-control">
+                    </div>
+                    <div class="col-md-12 form-group">
                         <label>Cuerpo</label>
                         <textarea id="Body" name="Body" class="form-control" rows="4"></textarea>
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-12 form-group">
                         <label for="NewImage">Nueva Imágen</label>
                         <input type="file" name="NewImage" id="NewImage" class="form-control" value="" />
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-12 form-group">
                         <label for="NewImage">Imágen</label>
                         <img id="Image" height="150" />
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-12 form-group">
                         <div class="checkbox">
                             <label>
                                 <input id="Active" name="Active" type="checkbox" value="true" checked="checked">Activo?
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button type="reset" class="btn btn-default">Limpiar</button>
+                    <button type="submit" class="btn btn-primary" style="min-width:200px;width:20%;">Guardar</button>
                     <input type="button" class="btn btn-danger" id="btnEliminarNoticia" value="Eliminar" onclick="return confirm('¿Desea eliminar esta noticia?')" />
                 </form>
             </div>

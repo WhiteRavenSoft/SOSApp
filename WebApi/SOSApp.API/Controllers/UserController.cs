@@ -13,6 +13,7 @@ namespace SOSApp.API.Controllers
     /// <summary>
     /// Controlador de User
     /// </summary>
+    [Authorize]
     public class UserController : ApiBaseController
     {
         /// <summary>
@@ -73,7 +74,15 @@ namespace SOSApp.API.Controllers
         public HttpResponseMessage Get(int id)
         {
             AppResponse<UserModel> response = new AppResponse<UserModel>() { Data = null };
-            var db = userSvc.Load(id);
+            var db = new User();
+            if (id == 0)
+            {
+                db = userSvc.Load(UserId);
+                response.Data = MapToModel(db);
+                return Request.CreateResponse(HttpStatusCode.OK, response);
+            }
+
+            db = userSvc.Load(id);
             response.Data = MapToModel(db);
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
@@ -101,7 +110,7 @@ namespace SOSApp.API.Controllers
         public HttpResponseMessage Put(int id, [FromBody] UserModel value)
         {
             AppResponse<User> response = new AppResponse<User>() { Data = null };
-            var db = userSvc.Save(MapToDB(value));
+            var db = userSvc.Save(value);
             response.Data = db;
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }

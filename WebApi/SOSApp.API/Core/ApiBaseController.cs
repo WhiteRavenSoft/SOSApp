@@ -9,6 +9,8 @@ using SOSApp.Data.DBModel;
 using SOSApp.Svc.DataService;
 using SOSApp.Svc.Infrastructure;
 using SOSApp.Core.Helper;
+using System;
+using System.Security.Claims;
 
 namespace SOSApp.API.Core
 {
@@ -18,6 +20,13 @@ namespace SOSApp.API.Core
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ApiBaseController : ApiController
     {
+        public int UserId
+        {
+            get
+            {
+                return Convert.ToInt32(ClaimsPrincipal.Current.FindFirst(ClaimTypes.PrimarySid).Value);
+            }
+        }
         /// <summary>
         /// Crea una instancia de log4net
         /// </summary>
@@ -66,7 +75,7 @@ namespace SOSApp.API.Core
                 Phone = item.Phone,
                 Address = item.Address,
                 RoleId = item.RoleId,
-                Birthdate = item.Birthdate,
+                Birthdate = item.Birthdate.HasValue ? string.Concat(item.Birthdate.Value.Year, "-", item.Birthdate.Value.Month.ToString("00"), "-", item.Birthdate.Value.Day.ToString("00")) : null,
                 Lat = item.Lat,
                 Lon = item.Lon,
                 Active = item.Active
@@ -84,7 +93,7 @@ namespace SOSApp.API.Core
                 Phone = item.Phone,
                 Address = item.Address,
                 RoleId = item.RoleId,
-                Birthdate = item.Birthdate,
+                Birthdate = DateTime.Parse(item.Birthdate),
                 Lat = item.Lat,
                 Lon = item.Lon,
                 Active = item.Active,
@@ -154,11 +163,12 @@ namespace SOSApp.API.Core
         }
         protected NewsModel MapToModel(News item)
         {
+            DateTime newsDate = item.Date ?? new DateTime();
             return new NewsModel()
             {
                 ID = item.ID,
                 Title = item.Title,
-                Date = item.Date,
+                Date = string.Concat(newsDate.Year, "-", newsDate.Month.ToString("00"), "-", newsDate.Day.ToString("00")),
                 Important = item.Important,
                 Body = item.Body,
                 Image = FileHelper.GetNewsImageUrl(item.ID),
@@ -176,7 +186,7 @@ namespace SOSApp.API.Core
                 ID = model.ID,
                 Title = model.Title,
                 Important = model.Important,
-                Date = model.Date,
+                Date = DateTime.Parse(model.Date),
                 Body = model.Body,
                 Active = model.Active
             };

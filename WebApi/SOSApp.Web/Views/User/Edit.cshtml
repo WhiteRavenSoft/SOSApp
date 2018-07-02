@@ -28,57 +28,58 @@
                     <div class="tab-pane active" id="General">
                         <form id="formUsuario" role="form">
                             <input type="hidden" id="IdUsuario" name="ID" class="form-control">
-                            <div class="form-group">
+                            <div class="col-md-6 form-group">
                                 <label>Nombre</label>
                                 <input id="Nombre" name="Name" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="col-md-6 form-group">
                                 <label>Apellido</label>
-                                <input id="Nombre" name="LastName" class="form-control">
+                                <input id="Apellido" name="LastName" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="col-md-6 form-group">
                                 <label>Fecha de Nacimiento</label>
                                 <input type="date" id="Birthdate" name="Birthdate" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="col-md-6 form-group">
                                 <label>Email</label>
-                                <input id="Email" name="Email" class="form-control">
+                                <input id="Email" name="Email" disabled="disabled" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="col-md-6 form-group">
                                 <label>Telefono</label>
                                 <input id="Telefono" name="Phone" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="col-md-6 form-group">
                                 <label>Direccion</label>
                                 <input id="Direccion" name="Address" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="col-md-6 form-group">
                                 <label>Rol de Usuario</label>
                                 <select id="cmbRolUsuario" name="RoleId" class="form-control"></select>
                             </div>
-                            <div class="form-group">
+                            <div class="col-md-6 form-group">
                                 <div class="checkbox">
                                     <label>
                                         <input id="Active" name="Active" type="checkbox" value="true" checked="checked">Activo?
                                     </label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                            <button type="reset" class="btn btn-default">Limpiar</button>
-                            <input type="button" class="btn btn-danger" id="btnEliminarUsuario" value="Eliminar" onclick="return confirm('Desea eliminar este Usuario?')" />
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary" style="min-width:200px;width:20%;">Guardar</button>
+                                <input type="button" class="btn btn-danger" id="btnEliminarUsuario" value="Eliminar" onclick="return confirm('Desea eliminar este Usuario?')" />
+                            </div>
                         </form>
                     </div>
                     <!-- TABLA SEGURIDAD USUARIO -->
                     <div class="tab-pane" id="Seguridad" style="padding:15px;">
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
-                            <form id="formChangePassword" role="form" style="padding:50px;">
+                            <form id="formChangePassword" role="form" style="padding:30px;">
                                 <input type="hidden" id="IdUsuario" name="ID" class="form-control">
                                 <div class="form-group">
-                                    <input class="form-control" id="password" name="Password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La contraseña debe contener al menos 6 caracteres' : ''); if (this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Contraseña" required>
+                                    <input class="form-control" id="password" name="Password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La contraseña debe contener al menos 6 caracteres' : ''); if (this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Nueva contraseña" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="password_two" name="Password2" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Las contraseñas no coinciden' : '');" placeholder="Repita Contraseña" required>
+                                    <input class="form-control" id="password_two" name="Password2" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Las contraseñas no coinciden' : '');" placeholder="Repita contraseña" required>
                                 </div>
                                 <input type="submit" id="btnResetPassUsuario" class="btn btn-lg btn-danger btn-block" value="Reset Password" />
                             </form>
@@ -120,11 +121,14 @@
                             });
                         }
                     });
+
                     $("#Nombre").val(response.Data.Name);
+                    $("#Apellido").val(response.Data.LastName);
                     $("#Email").val(response.Data.Email);
                     $("#Telefono").val(response.Data.Phone);
                     $("#Direccion").val(response.Data.Address);
                     $("#cmbRolUsuario").val(response.Data.RoleId);
+                    $("#Birthdate").val(response.Data.Birthdate);
                     $("#IdUsuario").val(response.Data.ID);
                 }
             });

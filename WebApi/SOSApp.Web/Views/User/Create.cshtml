@@ -22,47 +22,49 @@
             <div class="panel-body">
                 <form id="formUsuario" role="form">
                     <input type="hidden" value="1" name="AuthenticationMode" />
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Nombre</label>
                         <input id="Name" name="Name" autocomplete="given-name" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Apellido</label>
                         <input id="LastName" name="LastName" autocomplete="family-name" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Fecha de Nacimiento</label>
                         <input type="date" id="Birthdate" name="Birthdate" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Email</label>
                         <input id="Email" name="Email" autocomplete="email" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Telefono</label>
                         <input id="Telefono" name="Phone" autocomplete="tel" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Direccion</label>
                         <input id="Direccion" name="Address" autocomplete="address-line" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Contraseña</label>
                         <input type="password" id="Pwd" name="Password" autocomplete="current-password" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <label>Rol de Usuario</label>
                         <select id="cmbRolUsuario" name="RoleId" class="form-control"></select>
                     </div>
-                    <div class="form-group">
+                    <div class="col-md-6 form-group">
                         <div class="checkbox">
                             <label>
                                 <input id="Active" name="Active" type="checkbox" value="true" checked="checked">Activo?
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                    <button type="reset" class="btn btn-default">Limpiar</button>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary" style="min-width:200px;width:20%;">Guardar</button>
+                        <button type="reset" class="btn btn-default">Limpiar</button>
+                    </div>
                 </form>
             </div>
         </div>

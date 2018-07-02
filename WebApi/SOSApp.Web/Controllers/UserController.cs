@@ -69,19 +69,19 @@ namespace SOSApp.Web.Controllers
             }
 
             if (returnUrl == string.Empty || returnUrl == null)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "News");
 
             if (Url.IsLocalUrl(returnUrl))
                 return Redirect(returnUrl);
             else
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "News");
         }
 
         public ActionResult Logout()
         {
             Session.Remove("access_token");
             Request.GetOwinContext().Authentication.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "News");
         }
 
         // GET: User

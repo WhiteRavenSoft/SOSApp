@@ -13,6 +13,7 @@ namespace SOSApp.API.Controllers
     /// <summary>
     /// Controlador de UserRole
     /// </summary>
+    [Authorize]
     public class UserRoleController : ApiBaseController
     {
         /// <summary>

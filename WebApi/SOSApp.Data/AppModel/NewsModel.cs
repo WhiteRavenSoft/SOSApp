@@ -5,7 +5,7 @@ namespace SOSApp.Data.AppModel
     public class NewsModel
     {
         public int ID { get; set; }
-        public DateTime? Date { get; set; }
+        public string Date { get; set; }
         public string Title { get; set; }
         public string Important { get; set; }
         public string Body { get; set; }
