@@ -349,9 +349,12 @@
     <Content Include="Content\Images\Icons\checkbox.png" />
     <Content Include="Content\Images\Icons\uncheckbox.png" />
     <Content Include="Content\Images\Logo.png" />
+    <Content Include="Content\Images\web_back.png" />
     <Content Include="Content\metisMenu.min.css" />
     <Content Include="Content\morris.css" />
+    <Content Include="Content\spinner.css" />
     <Content Include="Content\startmin.css" />
+    <Content Include="Content\switch.css" />
     <Content Include="Content\timeline.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -536,6 +539,7 @@
     <Content Include="Views\News\Create.cshtml" />
     <Content Include="Views\News\Edit.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Home\Splash.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -128,5 +128,13 @@ namespace SOSApp.API.Controllers
             response.Data = true;
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
+
+        [ActionName("ResetPassword")]
+        [HttpPut]
+        public HttpResponseMessage ResetPassword(int id, [FromBody] UserChangePasswordModel value)
+        {
+            userSvc.ChangePass(id, value);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
     }
 }

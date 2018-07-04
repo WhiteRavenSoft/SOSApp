@@ -3,14 +3,17 @@
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
             @*<li>
-                <a href="/" class="@(ViewBag.SectionName == "Dashboard" ? "active" : "")"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-            </li>*@
+            <a href="/" class="@(ViewBag.SectionName == "Dashboard" ? "active" : "")"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+        </li>*@
             <li>
                 <a href="/News" class="@(ViewBag.SectionName == "News" ? "active" : "")"><i class="fa fa-file fa-fw"></i> Noticias</a>
             </li>
-            <li>
-                <a href="/User" class="@(ViewBag.SectionName == "User" ? "active" : "")"><i class="fa fa-users fa-fw"></i> Usuarios</a>
-            </li>
+            @if (Session["role_id"].ToString() == "1")
+            {
+                <li>
+                    <a href="/User" class="@(ViewBag.SectionName == "User" ? "active" : "")"><i class="fa fa-users fa-fw"></i> Usuarios</a>
+                </li>
+            }
         </ul>
     </div>
 </div>

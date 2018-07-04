@@ -25,4 +25,9 @@ namespace SOSApp.Data.AppModel
         public string MobileID { get; set; }
         public string Password { get; set; }
     }
+
+    public class UserChangePasswordModel
+    {
+        public string Password { get; set; }
+    }
 }

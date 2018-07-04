@@ -10,19 +10,12 @@
     <meta name="viewport" content="width=device-width" />
     <title>Bienvenidos a SOSApp!</title>
     @Styles.Render("~/Content/css")
-    <style>
-        body {
-            background-image: url("../../Content/Images/web_back.png");
-            background-repeat:repeat-x;
-        }
-    </style>
 </head>
 <body>
-    <div class="lds-ripple"><div></div><div></div></div>
-    <div>
+    <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4 text-center">
-            <div>
+        <div class="col-md-4">
+            <div class="text-center">
                 <img src="~/Content/Images/Logo.png" alt="App del Vecino Sunchalense" style="width:70%;margin:10% auto;" />
             </div>
         </div>
@@ -34,20 +27,13 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 <script>
-
-    var ApiUrl = "@System.Configuration.ConfigurationManager.AppSettings["Api.Base.Path"]";
-   
     $(document).ready(function () {
-
+        var ApiUrl = "@System.Configuration.ConfigurationManager.AppSettings["Api.Base.Path"]";
         var url = ApiUrl + "User/0";
 
         $.ajax({
             type: "GET",
             url: url,
-             beforeSend: function (xhr) {
-                xhr.setRequestHeader("Accept", "application/vvv.website+json;version=1");
-                xhr.setRequestHeader("Authorization", "Bearer @Session["access_token"]");
-            },
             success: function (response) {
                 window.location.replace("/News");
             },

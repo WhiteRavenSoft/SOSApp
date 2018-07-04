@@ -105,6 +105,9 @@ namespace SOSApp.API.AppProvider
                                 },
                                 {
                                     "id", userDB.ID.ToString()
+                                },
+                                {
+                                    "role_id", userDB.RoleId.ToString()
                                 }
                             });
 

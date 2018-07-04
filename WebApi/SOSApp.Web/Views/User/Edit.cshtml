@@ -30,11 +30,11 @@
                             <input type="hidden" id="IdUsuario" name="ID" class="form-control">
                             <div class="col-md-6 form-group">
                                 <label>Nombre</label>
-                                <input id="Nombre" name="Name" class="form-control">
+                                <input id="Nombre" name="Name" autocomplete="given-name" class="form-control">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Apellido</label>
-                                <input id="Apellido" name="LastName" class="form-control">
+                                <input id="Apellido" name="LastName" autocomplete="family-name" class="form-control">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Fecha de Nacimiento</label>
@@ -42,15 +42,15 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Email</label>
-                                <input id="Email" name="Email" disabled="disabled" class="form-control">
+                                <input id="Email" name="Email" disabled="disabled" autocomplete="email" class="form-control">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Telefono</label>
-                                <input id="Telefono" name="Phone" class="form-control">
+                                <input id="Telefono" name="Phone" autocomplete="tel-national" class="form-control">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Direccion</label>
-                                <input id="Direccion" name="Address" class="form-control">
+                                <input id="Direccion" name="Address" autocomplete="address-line1" class="form-control">
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>Rol de Usuario</label>
@@ -61,6 +61,12 @@
                                     <label>
                                         <input id="Active" name="Active" type="checkbox" value="true" checked="checked">Activo?
                                     </label>
+                                    @*<label for="Active" style="padding-left:0;">Activo?</label>
+        <br />
+        <label class="switch">
+            <input id="Active" name="Active" type="checkbox" value="true" checked="checked">
+            <span class="slider round"></span>
+        </label>*@
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -74,14 +80,13 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
                             <form id="formChangePassword" role="form" style="padding:30px;">
-                                <input type="hidden" id="IdUsuario" name="ID" class="form-control">
                                 <div class="form-group">
-                                    <input class="form-control" id="password" name="Password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La contraseña debe contener al menos 6 caracteres' : ''); if (this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Nueva contraseña" required>
+                                    <input class="form-control" id="password" autocomplete="new-password" name="Password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La contraseña debe contener al menos 6 caracteres' : ''); if (this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Nueva contraseña" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="password_two" name="Password2" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Las contraseñas no coinciden' : '');" placeholder="Repita contraseña" required>
+                                    <input class="form-control" id="password_two" autocomplete="new-password" name="Password2" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Las contraseñas no coinciden' : '');" placeholder="Repita contraseña" required>
                                 </div>
-                                <input type="submit" id="btnResetPassUsuario" class="btn btn-lg btn-danger btn-block" value="Reset Password" />
+                                <input type="button" id="btnResetPassUsuario" class="btn btn-lg btn-danger btn-block" value="Reset Password" />
                             </form>
                         </div>
                         <div class="col-md-4"></div>
@@ -159,19 +164,23 @@
 
             });
 
-            $("#formChangePassword").submit(function (e) {
+            $("#btnResetPassUsuario").click(function (e) {
                 var url = ApiUrl + "User/ResetPassword/" + usuarioId;
 
-                $.ajax({
-                    type: "PUT",
-                    url: url,
-                    data: $("#changePassword").serialize(),
-                    success: function (data) {
-
-                        window.location.assign("/User");
-                    }
-                });
-
+                if ($("#password").val() === $("#password_two").val()) {
+                    $.ajax({
+                        type: "PUT",
+                        url: url,
+                        data: $("#password").serialize(),
+                        success: function (data) {
+                            window.location.assign("/User");
+                        }
+                    });
+                }
+                else
+                {
+                    alert("Las contraseñas ingresadas no coinciden.");
+                }
                 e.preventDefault();
             });
 

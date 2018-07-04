@@ -45,26 +45,29 @@ namespace SOSApp.Web.Controllers
 
                     var token = JsonConvert.DeserializeObject<TokenModel>(resultContent);
 
-                    AuthenticationProperties options = new AuthenticationProperties
+                    if (token.expires_in != null)
                     {
-                        IsPersistent = true,
-                        ExpiresUtc = DateTime.UtcNow.AddSeconds(int.Parse(token.expires_in))
-                    };
+                        AuthenticationProperties options = new AuthenticationProperties
+                        {
+                            IsPersistent = true,
+                            ExpiresUtc = DateTime.UtcNow.AddSeconds(int.Parse(token.expires_in))
+                        };
 
-                    var claims = new[]
-                    {
-                        new Claim(ClaimTypes.Email, model.Email),
-                        new Claim(ClaimTypes.GivenName, token.given_name),
-                        new Claim("AcessToken", string.Format("Bearer {0}", token.access_token)),
-                    };
+                        var claims = new[]
+                        {
+                            new Claim(ClaimTypes.Email, model.Email),
+                            new Claim(ClaimTypes.GivenName, token.given_name),
+                            new Claim("AcessToken", string.Format("Bearer {0}", token.access_token)),
+                        };
 
-                    Session.Add("access_token", token.access_token);
-                    Session.Add("given_name", token.given_name);
+                        Session.Add("access_token", token.access_token);
+                        Session.Add("given_name", token.given_name);
+                        Session.Add("role_id", token.role_id);
 
-                    var identity = new ClaimsIdentity(claims, "ApplicationCookie");
+                        var identity = new ClaimsIdentity(claims, "ApplicationCookie");
 
-                    Request.GetOwinContext().Authentication.SignIn(options, identity);
-
+                        Request.GetOwinContext().Authentication.SignIn(options, identity);
+                    }
                 }
             }
 

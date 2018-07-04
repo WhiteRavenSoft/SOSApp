@@ -9,6 +9,12 @@ namespace SOSApp.Web.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        public ActionResult Splash()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();

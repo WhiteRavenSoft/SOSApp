@@ -18,14 +18,14 @@ namespace SOSApp.Svc.DataService
             {
                 if (x.ID == 0)
                 {
-                    x.CreatedDate = DateTime.Now;
-                    x.LastUpdate = DateTime.Now;
+                    x.CreatedDate = DateTime.UtcNow;
+                    x.LastUpdate = DateTime.UtcNow;
                     x.Active = true;
                     x.Deleted = false;
                     return CreateEntity(x);
                 }
 
-                x.LastUpdate = DateTime.Now;
+                x.LastUpdate = DateTime.UtcNow;
                 return UpdateEntity(x);
             }
             catch (Exception ex)
@@ -59,8 +59,8 @@ namespace SOSApp.Svc.DataService
                         Phone = x.Phone,
                         RoleId = x.RoleId,
                         Email = x.Email,
-                        CreatedDate = DateTime.Now,
-                        LastUpdate = DateTime.Now,
+                        CreatedDate = DateTime.UtcNow,
+                        LastUpdate = DateTime.UtcNow,
                         Active = true,
                         Deleted = false
                     };
@@ -71,7 +71,7 @@ namespace SOSApp.Svc.DataService
                 {
                     var db = Load(x.ID);
 
-                    db.LastUpdate = DateTime.Now;
+                    db.LastUpdate = DateTime.UtcNow;
                     db.LastName = x.LastName;
                     db.Name = x.Name;
                     db.Address = x.Address;
@@ -166,8 +166,8 @@ namespace SOSApp.Svc.DataService
                 Birthdate = birthdate,
                 Address = user.Address,
                 RoleId = user.RoleId,
-                CreatedDate = DateTime.Now,
-                LastUpdate = DateTime.Now,
+                CreatedDate = DateTime.UtcNow,
+                LastUpdate = DateTime.UtcNow,
                 Active = true,
                 Deleted = false
             };
@@ -180,6 +180,18 @@ namespace SOSApp.Svc.DataService
             Save(newUser);
 
             return newUser;
+        }
+
+        public void ChangePass(int id, UserChangePasswordModel value)
+        {
+            string newSalt = AppHelper.CreateSaltKey(10);
+            string newPassword = AppHelper.EncryptText(value.Password.Trim(), newSalt);
+
+            var x = Load(id);
+            x.Salt = newSalt;
+            x.Password = newPassword;
+            x.LastUpdate = DateTime.UtcNow;
+            UpdateEntity(x);
         }
 
         public void DeleteLogic(int id)

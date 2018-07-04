@@ -38,7 +38,9 @@ namespace SOSApp.Web
                       "~/Content/startmin.css",
                       "~/Content/morris.css",
                       "~/Content/font-awesome.min.css",
-                      "~/Content/bootstrap-social.css"));
+                      "~/Content/bootstrap-social.css",
+                      "~/Content/switch.css",
+                      "~/Content/spinner.css"));
         }
     }
 }
