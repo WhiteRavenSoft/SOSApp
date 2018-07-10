@@ -12,6 +12,24 @@ namespace SOSApp
 		public MainPage()
 		{
 			InitializeComponent();
-		}
-	}
+        }
+
+        void OnTapShowTuyo(object sender, EventArgs args)
+        {
+            var imageSender = (Image)sender;
+            Navigation.PushAsync(new Tuyo());
+        }
+
+        void OnTapShowParking(object sender, EventArgs args)
+        {
+            var imageSender = (Image)sender;
+            Navigation.PushAsync(new Parking());
+        }
+
+        void OnTapShowSiac(object sender, EventArgs args)
+        {
+            var imageSender = (Image)sender;
+            Navigation.PushAsync(new Siac());
+        }
+    }
 }

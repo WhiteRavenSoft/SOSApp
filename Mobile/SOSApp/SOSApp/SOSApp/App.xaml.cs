@@ -13,7 +13,7 @@ namespace SOSApp
 		{
 			InitializeComponent();
 
-			MainPage = new SOSApp.MainPage();
+			MainPage = new NavigationPage(new SOSApp.MainPage());
 		}
 
 		protected override void OnStart ()
