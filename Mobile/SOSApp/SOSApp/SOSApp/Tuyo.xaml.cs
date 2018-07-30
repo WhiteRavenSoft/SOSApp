@@ -20,7 +20,7 @@ namespace SOSApp
         void OnTapShowCuandoPasa(object sender, EventArgs args)
         {
             var imageSender = (Image)sender;
-            Navigation.PushAsync(new TuyoApp.DondeLLevo());
+            Navigation.PushAsync(new TuyoApp.CuandoPasa());
         }
 
         void OnTapShowDondeLLevo(object sender, EventArgs args)
@@ -33,6 +33,11 @@ namespace SOSApp
         {
             var imageSender = (Image)sender;
             Navigation.PushAsync(new TuyoApp.InfoUtil());
+        }
+
+        private void OnTapLoQueTenesQueSaber(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TuyoApp.LoQueTenesQueSaber.Noticias());
         }
     }
 }

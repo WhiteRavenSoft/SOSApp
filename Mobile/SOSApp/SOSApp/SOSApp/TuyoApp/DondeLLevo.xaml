@@ -3,14 +3,118 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SOSApp.TuyoApp.DondeLLevo"
              Title="Donde Llevo?"
-             NavigationPage.HasNavigationBar="false">
+             NavigationPage.HasNavigationBar="false" 
+             BackgroundImage="tuyo_dondellevo_back.png"
+             >
     <ContentPage.Content>
+        <RelativeLayout x:Name="Buttons">
+            <!--<Image Source="tuyo_dondellevo_back.png" 
+                   Aspect="AspectFill"
+                    RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>-->
+            <Grid x:Name="SearchRoot" RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}" Margin="0, 0, 0, 30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="ToolBar">
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Image Grid.Column="0" Grid.Row="1" 
+                       Margin="35, -20, -35, 20"
+                       Source="dondellevopuntoslimpios.png" 
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"
+                       Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowDondeLlevoPuntosLimpios"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="0" Grid.Row="2" Source="dondellevopapel.png" HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowDondeLlevoPapel"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="2" Grid.Row="2" Source="dondellevobasuraelectronica.png" 
+                       HorizontalOptions="FillAndExpand"
+                        Margin="-35, -15, 35, 15"
+                        VerticalOptions="FillAndExpand"
+                        Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowDondeLlevoBasuraElectronica" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image Grid.Column="0" Grid.Row="3" Source="dondellevoplastico.png" HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowDondeLlevoPlastico" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="2" Grid.Row="3" Source="dondellevopilas.png" HorizontalOptions="FillAndExpand"
+                        Margin="-5, -25, 5, 25"
+                        VerticalOptions="FillAndExpand"
+                        Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowDondeLlevoPilas"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </Grid>
+        </RelativeLayout>
+    </ContentPage.Content>
+
+    <!--<ContentPage.Content>
         <RelativeLayout Padding="0">
             <Image Source="tuyo_dondellevo.png" 
                    Aspect="AspectFill"
+            RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+                   Aspect="AspectFill"
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" HorizontalOptions="Fill"/>
-            <Grid x:Name="SearchRoot" >
+            <Grid x:Name="SearchRoot" RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}" Margin="0, 0, 0, 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="7*" />
                     <RowDefinition Height="*" />
@@ -44,5 +148,5 @@
                 </Grid>
             </Grid>
         </RelativeLayout>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
 </ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SOSApp.TuyoApp.InfoUtil"
+             Title="Información Útil"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundImage="amarilloback.png">
+    
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand">
+            <Grid x:Name="SearchRoot"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="4*" />
+                    <ColumnDefinition Width="5*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="1" 
+                       Grid.Row="1" 
+                       VerticalOptions="Start"
+                       Source="diagramarecoleccion.png" 
+                        Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowDiagramaRecoleccion"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="2" 
+                       Grid.Row="1" 
+                       Margin="0, -20, 0, 20"
+                       VerticalOptions="Start"
+                       Source="normativa.png" 
+                        Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowNormativa"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

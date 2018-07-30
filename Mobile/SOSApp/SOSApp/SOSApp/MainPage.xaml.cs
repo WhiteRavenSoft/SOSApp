@@ -28,8 +28,7 @@ namespace SOSApp
 
         void OnTapShowSiac(object sender, EventArgs args)
         {
-            var imageSender = (Image)sender;
-            Navigation.PushAsync(new Siac());
+            Device.OpenUri(new Uri("tel:" + (string)(App.Current.Resources["NumeroSiac"])));
         }
     }
 }

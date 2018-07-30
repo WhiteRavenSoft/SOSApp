@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SOSApp.TuyoApp.LoQueTenesQueSaber.Noticias"
+             NavigationPage.HasNavigationBar="false"
+             BackgroundImage="amarilloback.png">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"></StackLayout>
+                <StackLayout 
+                    Grid.Row="1"
+                    Spacing="15"
+                    HorizontalOptions="Center"
+                    VerticalOptions="FillAndExpand"
+                    Padding="20, 10, 20, 10">
+                    <ListView
+                            x:Name="lvNoticias"
+                            HasUnevenRows="True"
+                            ItemSelected="lvNoticias_ItemSelected"
+                            SeparatorVisibility="None"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout
+                                        Margin="0, 7, 0, 7"
+                                        Padding="5, 5, 5, 5"
+                                        VerticalOptions="StartAndExpand"
+                                        BackgroundColor="#d9d9d9"
+                                        HorizontalOptions="FillAndExpand">
+                                        <Grid HorizontalOptions="FillAndExpand">
+                                            <Label
+                                                    Grid.Column="0"
+                                                    Text="{Binding Title}"
+                                                    FontSize="Large"
+                                                    TextColor="Purple"
+                                                    FontAttributes="Bold"
+                                                    HorizontalOptions="Start"/>
+                                            <Label 
+                                                    Grid.Column="1"
+                                                    Text="{Binding Date, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                                    FontSize="Large"
+                                                    TextColor="Black"
+                                                    HorizontalOptions="EndAndExpand"/>
+                                        </Grid>
+                                        <Label
+                                            Text="{Binding Important}"
+                                            HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="StartAndExpand">
+
+                                        </Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

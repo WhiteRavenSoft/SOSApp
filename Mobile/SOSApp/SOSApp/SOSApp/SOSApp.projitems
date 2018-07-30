@@ -10,11 +10,30 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLLevo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ApiRest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\AsyncImageSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\NotifyTaskCompletion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SunchalesMapa.xaml.cs">
+      <DependentUpon>SunchalesMapa.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\CuandoPasa.xaml.cs">
+      <DependentUpon>CuandoPasa.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo.xaml.cs">
+      <DependentUpon>DondeLLevo.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -31,12 +50,45 @@
       <DependentUpon>Tuyo.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLLevo.xaml.cs">
-      <DependentUpon>DondeLLevo.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\BasuraElectronica.xaml.cs">
+      <DependentUpon>BasuraElectronica.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\InfoUtil.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\Papel.xaml.cs">
+      <DependentUpon>Papel.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\Pilas.xaml.cs">
+      <DependentUpon>Pilas.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\Plastico.xaml.cs">
+      <DependentUpon>Plastico.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\PuntosLimpios.xaml.cs">
+      <DependentUpon>PuntosLimpios.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)InfoUtil.xaml.cs">
       <DependentUpon>InfoUtil.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\InformacionUtil\DiagramaRecoleccion.xaml.cs">
+      <DependentUpon>DiagramaRecoleccion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\InformacionUtil\Normativa.xaml.cs">
+      <DependentUpon>Normativa.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\LoQueTenesQueSaber\Noticia.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\LoQueTenesQueSaber\NoticiaDetalle.xaml.cs">
+      <DependentUpon>NoticiaDetalle.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\LoQueTenesQueSaber\Noticias.xaml.cs">
+      <DependentUpon>Noticias.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -59,15 +111,75 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLLevo.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)InfoUtil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\InfoUtil.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\Plastico.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\PuntosLimpios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\BasuraElectronica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\Pilas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\Papel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\InformacionUtil\Normativa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\InformacionUtil\DiagramaRecoleccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SunchalesMapa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\LoQueTenesQueSaber\Noticias.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\LoQueTenesQueSaber\NoticiaDetalle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\CuandoPasa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -3,12 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SOSApp.Parking"
              Title="Estacionamiento medido" 
-             NavigationPage.HasNavigationBar="false">
+             NavigationPage.HasNavigationBar="false"
+             BackgroundImage="back.png">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Bienvenido al Estacionamiento Medido!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <WebView HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     Source="{StaticResource URLEstacionamientoMedido}">
+                
+            </WebView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SOSApp.TuyoApp.InformacionUtil.DiagramaRecoleccion"
+             BackgroundImage="amarilloback.png">
+    <ContentPage.Content>
+        <StackLayout
+            Spacing="2"
+            VerticalOptions="FillAndExpand">
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"></StackLayout>
+                <ScrollView
+                    Grid.Row="1">
+                    <StackLayout 
+                        Spacing="15"
+                        HorizontalOptions="Center"
+                        Padding="30, 30, 30, 20">
+                        <StackLayout
+                            VerticalOptions="FillAndExpand"
+                            Padding="7, 7, 7, 7"
+                            HorizontalOptions="StartAndExpand"
+                            BackgroundColor="#58575a">
+                            <Label
+                                Text="SECTORES PARA RESIDUOS ORGÁNICOS Y RECUPERABLES, NO RECUPERABLES Y DE LIMPIEZA DE PATIOS"
+                                BackgroundColor="#58575a"
+                                TextColor="White"
+                                FontSize="Medium"/>
+                        </StackLayout>
+                        <StackLayout
+                            VerticalOptions="FillAndExpand"
+                            BackgroundColor="#d9d9d9"
+                            Padding="5, 5, 5, 5">
+                            <StackLayout
+                                x:Name="slMapa">
+                                <Image Aspect="AspectFit"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="StartAndExpand"
+                                       Source="areasrecoleccion.png"/>
+                                <Button Text="Area 1"
+                                        x:Name="btnArea1"
+                                        Clicked="btnArea1_Clicked"/>
+                                <Button Text="Area 2"
+                                        x:Name="btnArea2"
+                                        Clicked="btnArea2_Clicked"/>
+                                <Button Text="Area 3"
+                                        x:Name="btnArea3"
+                                        Clicked="btnArea3_Clicked"/>
+                                <Button Text="Area 4"
+                                        x:Name="btnArea4"
+                                        Clicked="btnArea4_Clicked"/>
+                            </StackLayout>
+
+                            <!--Residuos orgánicos-->
+                            <StackLayout
+                                x:Name="slResiduosOrganicos"
+                                Spacing="10"
+                                Padding="15, 10, 15, 10"
+                                IsVisible="False"
+                                BackgroundColor="#d9d9d9"
+                                HorizontalOptions="FillAndExpand">
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#7f7f7f">
+                                    <Label
+                                        Text="ORGÁNICOS"
+                                        BackgroundColor="#7f7f7f"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="Large"/>
+                                </ContentView>
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#7f7f7f">
+                                    <Label
+                                        Text="Restos de comida, papel sin impresión, aserrín, hojas, flores, plumas, pelos y algodón"
+                                        BackgroundColor="#7f7f7f"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="Medium"/>
+                                </ContentView>
+
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#7f7f7f">
+                                    <Label
+                                        Text="RECUPERABLES"
+                                        BackgroundColor="#7f7f7f"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="Large"/>
+                                </ContentView>
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#7f7f7f">
+                                <Label
+                                    Text="Botellas de plástico y de vidrio, cartón, envases tetra."
+                                    TextColor="White"
+                                    HorizontalOptions="FillAndExpand"
+                                    FontSize="Medium"/>
+                                </ContentView>
+                            </StackLayout>
+
+                            <!--Residuos no recuperables-->
+                            <StackLayout
+                                x:Name="slResiduosNoRecuperables"
+                                Spacing="10"
+                                Padding="15, 10, 15, 10"
+                                IsVisible="False"
+                                BackgroundColor="#d9d9d9"
+                                HorizontalOptions="FillAndExpand">
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#7f7f7f">
+                                    <Label
+                                        Text="NO RECUPERABLES"
+                                        BackgroundColor="#7f7f7f"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="Large"/>
+                                </ContentView>
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#7f7f7f">
+                                    <Label
+                                        Text="Hojalata, pañales, bandejas plásticas, bolsas de nylon, envases de alimentos, envoltorios de snacks y golosinas, elementos de oficina, tergopol, y todo lo que no pueda recuperarse."
+                                        BackgroundColor="#7f7f7f"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="Medium"/>
+                                </ContentView>
+                            </StackLayout>
+
+                            <!--Limpieza de patio-->
+                            <StackLayout
+                                x:Name="slLimpiezaPatio"
+                                Spacing="10"
+                                Padding="15, 10, 15, 10"
+                                IsVisible="False"
+                                BackgroundColor="#d9d9d9"
+                                HorizontalOptions="FillAndExpand">
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#7f7f7f">
+                                    <Label
+                                        Text="LIMPIEZA DE PATIO"
+                                        BackgroundColor="#7f7f7f"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="Large"/>
+                                </ContentView>
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#7f7f7f">
+                                    <Label
+                                        Text="Pequeña poda, pasto, elementos y mobiliario en desuso, entre otros."
+                                        BackgroundColor="#7f7f7f"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="Medium"/>
+                                </ContentView>
+
+                                <ContentView
+                                    Padding="3, 3, 3, 3"
+                                    BackgroundColor="#d6782e">
+                                    <Label
+                                        Text="IMPORTANTE: El retiro de residuos de gran porte correspondientes a la Limpieza de Patio, como la poda de un árbol, debe realizarse de manera privada."
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"
+                                        FontSize="Medium"/>
+                                </ContentView>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <StackLayout
+                            VerticalOptions="FillAndExpand"
+                            Spacing="0">
+                            <Label  
+                                BackgroundColor="#7f7f7f" 
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                FontSize="Medium"
+                                TextColor="White"
+                                Margin="0, 0, 0, 0"
+                                Text="ORGÁNICOS Y RECUPERABLES">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OrganicosRecuperables"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label  
+                                x:Name="lblOrganicosRecuperables"
+                                BackgroundColor="#8d8c90" 
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                FontSize="Medium"
+                                TextColor="White"
+                                Margin="0, 0, 0, 0"
+                                Text=""/>
+                            <Label  
+                                BackgroundColor="#7f7f7f" 
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                FontSize="Medium"
+                                TextColor="White"
+                                Margin="0, 0, 0, 0"
+                                Text="NO RECUPERABLES">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_NoRecuperables"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label  
+                                x:Name="lblNoRecuperables"
+                                BackgroundColor="#8d8c90" 
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                FontSize="Medium"
+                                TextColor="White"
+                                Margin="0, 0, 0, 0"
+                                Text=""/>
+                            <Label  
+                                BackgroundColor="#7f7f7f" 
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                FontSize="Medium"
+                                TextColor="White"
+                                Margin="0, 0, 0, 0"
+                                Text="LIMPIEZA DE PATIO">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_LimpiezaPatio"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label
+                                x:Name="lblLimpiezaPatio"
+                                BackgroundColor="#8d8c90" 
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                FontSize="Medium"
+                                TextColor="White"
+                                Margin="0, 0, 0, 0"
+                                Text=""/>
+                        </StackLayout>
+
+                        <StackLayout
+                            Orientation="Horizontal">
+                        <StackLayout
+                            Padding="5, 5, 5, 5"
+                            BackgroundColor="#779671"
+                            VerticalOptions="Start"
+                            HorizontalOptions="CenterAndExpand">
+                            <Grid
+                                RowSpacing="5"
+                                ColumnSpacing="0"
+                                VerticalOptions="Start"
+                                HorizontalOptions="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="1*"/>
+                                    <RowDefinition Height="4*"/>
+                                </Grid.RowDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Text="Limpieza de Patio|"
+                                    HorizontalOptions="End"
+                                    TextColor="#35231e"
+                                    FontSize="Small"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    Text="Desde las 4 hs"
+                                    TextColor="White"
+                                    FontSize="Small"
+                                    FontAttributes="Bold"/>
+                                <Label 
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    HorizontalOptions="End"
+                                    Text="Orgánicos y Recuperables|"
+                                    TextColor="#35231e"
+                                    FontSize="Small"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="Desde las 6 hs"
+                                    TextColor="White"
+                                    FontSize="Small"
+                                    FontAttributes="Bold"/>
+                                <Label 
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Text="No Recuperables|"
+                                    HorizontalOptions="End"
+                                    TextColor="#35231e"
+                                    FontSize="Small"
+                                    FontAttributes="Bold"/>
+                                <StackLayout 
+                                    Grid.Row="2"
+                                    Grid.Column="1">
+                                    <Label
+                                        Text="Desde las 6 hs"
+                                        TextColor="White"
+                                        FontSize="Small"
+                                        FontAttributes="Bold"/>
+                                    <Label
+                                        Text="Del 01/04 al 30/09 - Desde las 19 hs"
+                                        TextColor="White"
+                                        FontSize="Small"
+                                        FontAttributes="Bold"/>
+                                    <Label
+                                        Text="Del 01/10 al 31/03 - Desde las 20 hs"
+                                        TextColor="White"
+                                        FontSize="Small"
+                                        FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                            <!--<Image VerticalOptions="Fill"
+                                   WidthRequest="20"
+                                   Aspect="Fill"
+                                   Source="semicirculo.png"/>-->
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

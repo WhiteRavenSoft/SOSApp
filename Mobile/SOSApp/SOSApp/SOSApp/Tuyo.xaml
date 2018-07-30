@@ -3,13 +3,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SOSApp.Tuyo"
              Title="Tuyo"
-             NavigationPage.HasNavigationBar="false">
+             NavigationPage.HasNavigationBar="false"
+             BackgroundImage="tuyo_back.png">
     <ContentPage.Content>
-        <RelativeLayout Padding="0">
-            <Image Source="tuyo_back.png" 
+        <StackLayout HorizontalOptions="Center" 
+                     VerticalOptions="End" 
+                     Padding="0, 0, 0, 20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image
+                    Grid.Row="1"
+                    Source="buttons/cuandopasa.png" 
+                    Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowCuandoPasa" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image 
+                    Grid.Row="2"
+                    Source="loquetenesquesaber.png" 
+                    Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapLoQueTenesQueSaber" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image 
+                    Grid.Row="3"
+                    Source="buttons/infoutil.png"
+                    Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowInfoUtil" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image 
+                    Grid.Row="4"
+                    Source="buttons/dondellevo.png" 
+                    Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowDondeLLevo" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+        <!--<RelativeLayout Padding="0, 0, 0, 20" >
+            --><!--<Image Source="tuyo_back.png" 
                    Aspect="AspectFill"
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
-                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" HorizontalOptions="Fill"/>
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" HorizontalOptions="Fill"/>--><!--
             <Grid x:Name="SearchRoot">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="7*" />
@@ -27,15 +73,6 @@
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
-                    <Image Grid.Column="1" 
-                           Source="buttons/cuandopasa.png" 
-                           Aspect="AspectFit" >
-
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnTapShowCuandoPasa" />
-                        </Image.GestureRecognizers>
-                    </Image>
                 </Grid>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
@@ -43,15 +80,6 @@
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
-                    <Image Grid.Column="1"
-                            Source="buttons/infoutil.png"
-                            Aspect="AspectFit" >
-
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnTapShowInfoUtil" />
-                        </Image.GestureRecognizers>
-                    </Image>
                 </Grid>
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
@@ -59,17 +87,38 @@
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
-                    <Image Grid.Column="1" 
+                </Grid>
+                
+                <Image Grid.Column="1" Grid.Row="0"
+                           Source="buttons/cuandopasa.png" 
+                           Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowCuandoPasa" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="1" Grid.Row="1"
+                           Source="buttons/cuandopasa.png" 
+                           Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowCuandoPasa" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="1" Grid.Row="2"
+                            Source="buttons/infoutil.png"
+                            Aspect="AspectFit" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowInfoUtil" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="1" Grid.Row="3"
                             Source="buttons/dondellevo.png" 
                             Aspect="AspectFit">
 
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnTapShowDondeLLevo" />
-                        </Image.GestureRecognizers>
-                    </Image>
-                </Grid>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTapShowDondeLLevo" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
-        </RelativeLayout>
+        </RelativeLayout>-->
     </ContentPage.Content>
 </ContentPage>

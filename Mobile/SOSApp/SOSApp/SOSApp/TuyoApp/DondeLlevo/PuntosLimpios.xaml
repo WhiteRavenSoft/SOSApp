@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SOSApp.TuyoApp.DondeLlevo.PuntosLimpios"
+             BackgroundImage="amarilloback.png">
+    <ContentPage.Content>
+        <StackLayout
+            Spacing="2"
+            VerticalOptions="FillAndExpand">
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"></StackLayout>
+                <ScrollView
+                    Grid.Row="1">
+                    <StackLayout 
+                        Spacing="15"
+                        HorizontalOptions="Center"
+                        Padding="30, 30, 30, 30">
+                        <Grid
+                            HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Aspect="AspectFit"
+                            Source="dondellevopuntoslimpios.png"/>
+                            <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            VerticalOptions="Center"
+                            BackgroundColor="#6cab24"
+                            Padding="7, 7, 7, 7">
+                                <Label
+                                VerticalOptions="Start"
+                                HorizontalOptions="Start"
+                                BackgroundColor="#6cab24"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                TextColor="Black"
+                                Text="Puntos para la libre utilización de los vecinos.">
+                                    
+                                </Label>
+                            </StackLayout>
+                        </Grid>
+
+                        <Label
+                            Margin="10, 0, 0, 0"
+                            VerticalOptions="Start"
+                            HorizontalOptions="Start"
+                            FontSize="Medium"
+                            TextColor="Black"
+                            Text="Deposite sus residuos que luego serán recolectados."/>
+
+                        <Label
+                            Margin="0, 10, 0, 0"
+                            Text="Orgánicos"
+                            FontSize="Large"
+                            TextColor="#6cab24"/>
+                        <StackLayout
+                            Padding="20, 20, 20, 20"
+                                BackgroundColor="#6cab24">
+                            <Label
+                                        FontSize="Medium"
+                                        TextColor="Black"
+                                        LineBreakMode="CharacterWrap"
+                                        VerticalOptions="StartAndExpand"
+                                        HorizontalOptions="StartAndExpand"
+                                        BackgroundColor="#6cab24"
+                                        Text="En la campana verde"/>
+                            <Label
+                                        LineBreakMode="CharacterWrap"
+                                        VerticalOptions="StartAndExpand"
+                                        HorizontalOptions="StartAndExpand"
+                                        BackgroundColor="#6cab24">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="Destino: " FontSize="Medium" FontAttributes="Bold" ForegroundColor="Black"/>
+                                            <Span ForegroundColor="Black" FontSize="Medium" Text="Elaboración de compost." />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <Label
+                            Margin="0, 10, 0, 0"
+                            Text="No recuperables"
+                            FontSize="Large"
+                            TextColor="Black"/>
+                        <StackLayout
+                            Padding="20, 20, 20, 20"
+                            BackgroundColor="Black">
+                            <Label
+                                    FontSize="Medium"
+                                    LineBreakMode="CharacterWrap"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="StartAndExpand"
+                                    BackgroundColor="Black"
+                                    TextColor="White"
+                                    Text="En la campana negra"/>
+                            <Label
+                                    LineBreakMode="CharacterWrap"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="StartAndExpand"
+                                    BackgroundColor="Black">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="Destino: " FontSize="Medium" FontAttributes="Bold" ForegroundColor="White"/>
+                                            <Span ForegroundColor="White" FontSize="Medium" Text="Relleno sanitario." />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <Label
+                            Margin="0, 10, 0, 0"
+                            Text="Recuperables"
+                            FontSize="Large"
+                            TextColor="#334071"/>
+                        <StackLayout
+                            Padding="20, 20, 20, 20"
+                            BackgroundColor="#334071">
+                            <Label
+                                    FontSize="Medium"
+                                    LineBreakMode="CharacterWrap"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="StartAndExpand"
+                                    BackgroundColor="#334071"
+                                    TextColor="White"
+                                    Text="En la campana azul"/>
+                            <Label
+                                    LineBreakMode="CharacterWrap"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="StartAndExpand"
+                                    BackgroundColor="#334071">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="Destino: " FontSize="Medium" FontAttributes="Bold" ForegroundColor="White"/>
+                                            <Span ForegroundColor="White" FontSize="Medium" Text="Puesta en valor y comercialización." />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout 
+                            Padding="20, 20, 20, 20"
+                            HorizontalOptions="Start">
+                            <Label
+                                Margin="0, 0, 0, 0"
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                TextColor="Purple"
+                                Text="Puntos"/>
+                            <Grid
+                                VerticalOptions="Center"
+                                Margin="20, 5, 10, 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="9*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    FontSize="Default"
+                                    TextColor="Black"
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Text="Plaza libertad (barrio Centro)."/>
+
+                                <Label
+                                    FontSize="Default"
+                                    TextColor="Black"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Text="Plaza D'antoni (barrio 9 de Julio)."/>
+
+                                <Label
+                                    FontSize="Default"
+                                    TextColor="Black"
+                                    Grid.Column="1"
+                                    Grid.Row="2"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Text="Parque Loyola (Ferrocarril)."/>
+
+                                <Label
+                                    FontSize="Default"
+                                    TextColor="Black"
+                                    Grid.Column="1"
+                                    Grid.Row="3"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Text="Parque Lineal. (barrio Villa del Parque)"/>
+
+                                <Label
+                                    FontSize="Default"
+                                    TextColor="Black"
+                                    Grid.Column="1"
+                                    Grid.Row="4"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Text="Paseo de los 130 Años (frente al predio de Saltos Hípicos)."/>
+
+
+                                <Image
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    HeightRequest="15"
+                                    Source="punto.png"/>
+                                <Image
+                                    Grid.Column="0"
+                                    Grid.Row="1"
+                                    HeightRequest="15"
+                                    Source="punto.png"/>
+                                <Image
+                                    Grid.Column="0"
+                                    Grid.Row="2"
+                                    HeightRequest="15"
+                                    Source="punto.png"/>
+                                <Image
+                                    Grid.Column="0"
+                                    Grid.Row="3"
+                                    HeightRequest="15"
+                                    Source="punto.png"/>
+                                <Image
+                                    Grid.Column="0"
+                                    Grid.Row="4"
+                                    HeightRequest="15"
+                                    Source="punto.png"/>
+                            </Grid>
+
+                            <StackLayout
+                                BackgroundColor="#6cab24"
+                                Padding="20, 20, 20, 20">
+                                <Label
+                                        LineBreakMode="CharacterWrap"
+                                        VerticalOptions="Start"
+                                        HorizontalOptions="StartAndExpand"
+                                        BackgroundColor="#6cab24">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="¡Recordar!" FontSize="Default" FontAttributes="Bold" ForegroundColor="Black"/>
+                                                <Span ForegroundColor="Black" FontSize="Default" Text=" En los puntos limpios, los residuos deben depositarse de forma separada y según el color de la campana." />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

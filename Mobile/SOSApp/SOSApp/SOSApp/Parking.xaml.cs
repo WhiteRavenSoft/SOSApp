@@ -15,6 +15,17 @@ namespace SOSApp
 		public Parking ()
 		{
 			InitializeComponent ();
-		}
+
+            //if (!App.Current.Properties.ContainsKey("user") && !App.Current.Properties.ContainsKey("password"))
+            //{
+            //    App.Current.Properties.Add("user", Session.Usuario.email);
+            //    App.Current.Properties.Add("password", Session.Usuario.password);
+            //}
+            //else
+            //{
+            //    App.Current.Properties["user"] = Session.Usuario.email;
+            //    App.Current.Properties["password"] = Session.Usuario.password;
+            //}
+        }
 	}
 }
