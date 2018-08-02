@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SOSApp.TuyoApp
+namespace SOSApp.TuyoApp.DondeLlevo
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class InfoUtil : ContentPage
+	public partial class Pilas : ContentPage
 	{
-		public InfoUtil ()
+		public Pilas ()
 		{
 			InitializeComponent ();
 		}

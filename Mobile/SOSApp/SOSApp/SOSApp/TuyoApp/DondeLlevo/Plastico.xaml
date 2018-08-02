@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SOSApp.TuyoApp.DondeLlevo.Plastico"
+             BackgroundImage="amarilloback.png">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30*"/>
+                    <RowDefinition Height="70*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"></StackLayout>
+                <ScrollView 
+                    HorizontalOptions="Center"
+                    Grid.Row="1">
+                    <StackLayout
+                        Spacing="15"
+                        HorizontalOptions="Center"
+                        Padding="30, 30, 30, 30">
+                        <Grid
+                            HorizontalOptions="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Aspect="AspectFit"
+                                Source="dondellevoplastico.png"/>
+                            <Image
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Aspect="AspectFit"
+                                Source="reciplas.png"/>
+                        </Grid>
+
+                        <Grid
+                            VerticalOptions="Start"
+                            HorizontalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="9*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Margin="0, 0, 0, 0"
+                                VerticalOptions="Start"
+                                HorizontalOptions="Start"
+                                FontSize="Large"
+                                TextColor="Black"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Text="Acercá tus botellas (enjuagadas y aplastadas con la tapa y etiqueta)." />
+                            <Label
+                                Margin="0, 0, 0, 0"
+                                VerticalOptions="Start"
+                                HorizontalOptions="Start"
+                                FontSize="Large"
+                                TextColor="Black"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Text="Estas serán canjeadas por juegos y mobiliario urbano que luego podrás disfrutar en distintos espacios públicos de la ciudad."/>
+                            <Label
+                                Margin="0, 0, 0, 0"
+                                VerticalOptions="Start"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                TextColor="Purple"
+                                Text="1 | "/>
+                            <Label
+                                VerticalOptions="Start"
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                FontSize="Large"
+                                TextColor="Purple"
+                                Text="2 | "/>
+                        </Grid>
+                        <StackLayout 
+                            Padding="20, 20, 20, 20"
+                            HorizontalOptions="Start">
+                            <Label
+                                Margin="0, 0, 0, 0"
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                TextColor="Purple"
+                                Text="Puntos"/>
+                            <Grid
+                                VerticalOptions="Center"
+                                Margin="20, 5, 10, 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="9*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    FontSize="Default"
+                                    TextColor="Black"
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Text="Supermercado 'El Once'"/>
+                                <Label
+                                    FontSize="Default"
+                                    TextColor="Black"
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Text="Escuela N° 6169 'Gral. Manuel Savio'"/>
+                                <Image
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    HeightRequest="15"
+                                    Source="punto.png"/>
+                                <Image
+                                    Grid.Column="0"
+                                    Grid.Row="1"
+                                    HeightRequest="15"
+                                    Source="punto.png"/>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

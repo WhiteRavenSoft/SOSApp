@@ -3,11 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SOSApp"
              x:Class="SOSApp.MainPage" 
-             Title="SOSApp Sunchalense" NavigationPage.HasNavigationBar="false">
+             Title="SOSApp Sunchalense" 
+             NavigationPage.HasNavigationBar="false"
+             BackgroundImage="SOSApp_back.png">
 
     <ContentPage.Content>
         <RelativeLayout x:Name="Buttons" Padding="0">
-            <Grid x:Name="SearchRoot">
+            <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}" Margin="20, 0, 20, 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="ToolBar">
+                </Grid>
+
+                <Grid Grid.Row="1" x:Name="Botonera">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="0" Source="tuyo.png" 
+                    Aspect="Fill">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapShowTuyo" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Grid.Column="2" Source="estacionamiento.png" 
+                           Aspect="Fill" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapShowParking" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Grid Grid.Row="2" x:Name="Botonera2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Grid.Column="1"
+                        Source="siac.png" 
+                        Aspect="Fill">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapShowSiac"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </Grid>
+
+            <!--<Grid x:Name="SearchRoot">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="7*" />
                     <RowDefinition Height="*" />
@@ -60,16 +112,16 @@
                         </Image>
                     </RelativeLayout>
                 </Grid>
-            </Grid>
-            <Image x:Name="Background" Source="SOSApp_back.png" 
+            </Grid>-->
+            <!--<Image x:Name="Background" Source="SOSApp_back.png" 
                    Aspect="AspectFill"
                    RelativeLayout.WidthConstraint=
                         "{ConstraintExpression Type=RelativeToParent, Property=Width}"
                    RelativeLayout.HeightConstraint=    
-                        "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+                        "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>-->
         </RelativeLayout>
     </ContentPage.Content>
-    
+
 </ContentPage>
 
 <!--HorizontalOptions="FillAndExpand"

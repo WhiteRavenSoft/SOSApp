@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SOSApp.TuyoApp.InformacionUtil.Normativa"
+             BackgroundImage="amarilloback.png">
+    <ContentPage.Content>
+        <StackLayout
+            Spacing="2"
+            VerticalOptions="FillAndExpand">
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0"></StackLayout>
+                <ScrollView
+                    Grid.Row="1">
+                    <StackLayout 
+                        Spacing="15"
+                        HorizontalOptions="Center"
+                        Padding="30, 30, 30, 30">
+                        <StackLayout
+                            Padding="7, 7, 7, 7"
+                            HorizontalOptions="Fill"
+                            BackgroundColor="#58575a">
+                            <Label 
+                                Text="Normativa"
+                                FontSize="Large"
+                                TextColor="White"
+                                BackgroundColor="#58575a"/>
+                        </StackLayout>
+
+                        <StackLayout
+                            Padding="7, 7, 7, 7"
+                            HorizontalOptions="Fill"
+                            BackgroundColor="#d9d9d9">
+                            <Label 
+                                LineBreakMode="CharacterWrap"
+                                HorizontalOptions="Fill"
+                                Text="El actual sistema de recolección de residuos fue establecido en marzo del 2018. Se confeccionó con el fin de tener un sistema eficiente y simple. Para ello se estableció una división única de la ciudad, en cuatro sectores y para todos los servicios: recolección de residuos orgánicos, recuperables y de limpieza de patios (este último, en reemplazo del antiguo 'poda y chatarra':"
+                                TextColor="Black"
+                                BackgroundColor="#d9d9d9"/>
+                            <!--Sectores-->
+                            <Label
+                                LineBreakMode="CharacterWrap"
+                                HorizontalOptions="Fill"
+                                BackgroundColor="#d9d9d9">
+                            <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="•   " FontAttributes="Bold" ForegroundColor="Black"/>
+                                            <Span ForegroundColor="Black" Text="Sector 1: Cuadrante comprendido entre Av. Yrigoyen, 9 de Julio, Montalbetti, Ruta 280s y Ruta Nacional 34." />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                LineBreakMode="CharacterWrap"
+                                HorizontalOptions="Fill"
+                                BackgroundColor="#d9d9d9">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="•   " FontAttributes="Bold" ForegroundColor="Black"/>
+                                            <Span ForegroundColor="Black" Text="Sector 2: Cuadrante comprendido entre Bolivar, Av. Yrigoyen, sector Villa Amanda y Villa Autódromo." />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                LineBreakMode="CharacterWrap"
+                                HorizontalOptions="Fill"
+                                BackgroundColor="#d9d9d9">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="•   " FontAttributes="Bold" ForegroundColor="Black"/>
+                                            <Span ForegroundColor="Black" Text="Sector 3: Cuadrante comprendido entre Bolivar, Av. Independencia, Av. Eva Perón y límite rural zona sur." />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label
+                                LineBreakMode="CharacterWrap"
+                                HorizontalOptions="Fill"
+                                BackgroundColor="#d9d9d9">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="•   " FontAttributes="Bold" ForegroundColor="Black"/>
+                                            <Span ForegroundColor="Black" Text="Sector 4: Cuadrante comprendido entre Av. Eva Perón, Av. Independencia, calle 9 de Julio, Montalbetti y Ruta 280s." />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout
+                            Padding="7, 7, 7, 7"
+                            HorizontalOptions="Fill"
+                            BackgroundColor="#afabab">
+                            <Label 
+                                LineBreakMode="CharacterWrap"
+                                HorizontalOptions="Fill"
+                                Text="¿Cómo se separan los residuos en casa?"
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                BackgroundColor="#afabab"/>
+                            <Label 
+                                LineBreakMode="CharacterWrap"
+                                HorizontalOptions="Fill"
+                                Text="Los residuos debens separarse en diferentes recipientes según sean:"
+                                TextColor="Black"
+                                BackgroundColor="#afabab"/>
+                            
+                            <!--Tipos de residuos-->
+                            <Label
+                                LineBreakMode="CharacterWrap"
+                                HorizontalOptions="Fill"
+                                BackgroundColor="#afabab">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="•   " FontAttributes="Bold" ForegroundColor="Black"/>
+                                            <Span ForegroundColor="Black" Text="Orgánicos: Restos de comida, huesos, grasa, carne, cáscaras de frutas, café, yerba, saquitos de té, restos de pan, semillas, carozos, papel sin impresión, aserrín, cáscara de huevos, restos de jardín, hojas, flores, ramas, plumas, palos, algodón." />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                        
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

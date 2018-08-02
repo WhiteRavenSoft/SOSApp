@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
+using Plugin.Geolocator;
+using System;
 
 namespace SOSApp
 {
@@ -13,10 +10,10 @@ namespace SOSApp
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new SOSApp.MainPage());
+			MainPage = new NavigationPage(new SOSApp.ConfiguracionInicial());
 		}
 
-		protected override void OnStart ()
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
