@@ -9,6 +9,7 @@
 <body>
     <div id="wrapper">
         @Html.Partial("_Navigation")
+        <div class="lds-ripple"><div></div><div></div></div>
         <div id="page-wrapper">
             <div class="container-fluid">
                 @RenderBody()
@@ -36,6 +37,13 @@
                 }
             }
         });
+
+        var $loading = $('.lds-ripple').hide();
+        $(document).ajaxStart(function () {
+                $loading.show();
+            }).ajaxStop(function () {
+                $loading.hide();
+            });
 
         $("#nickName").html("@Session["given_name"]");
     </script>

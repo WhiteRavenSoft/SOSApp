@@ -13,6 +13,9 @@
         <EntityTypeShape EntityType="SOSAppDBModel.UserGroup" Width="1.5" PointX="0.75" PointY="6" />
         <AssociationConnector Association="SOSAppDBModel.FK_UsersByUserGroup_UserGroup" />
         <EntityTypeShape EntityType="SOSAppDBModel.News" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SOSAppDBModel.NewsSent" Width="1.5" PointX="8.625" PointY="3.625" />
+        <AssociationConnector Association="SOSAppDBModel.FK_NewsSent_News" />
+        <AssociationConnector Association="SOSAppDBModel.FK_NewsSent_UserGroup" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

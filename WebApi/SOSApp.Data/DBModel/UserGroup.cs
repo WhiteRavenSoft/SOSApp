@@ -18,6 +18,7 @@ namespace SOSApp.Data.DBModel
         public UserGroup()
         {
             this.UsersByUserGroup = new HashSet<UsersByUserGroup>();
+            this.NewsSent = new HashSet<NewsSent>();
         }
     
         public int ID { get; set; }
@@ -30,5 +31,7 @@ namespace SOSApp.Data.DBModel
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UsersByUserGroup> UsersByUserGroup { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NewsSent> NewsSent { get; set; }
     }
 }

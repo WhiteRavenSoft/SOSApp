@@ -82,6 +82,7 @@
     <Compile Include="Cache\WebCache.cs" />
     <Compile Include="Configuration\WhiteRavenConfig.cs" />
     <Compile Include="Context\BaseContext.cs" />
+    <Compile Include="DataService\NewsSentSvc.cs" />
     <Compile Include="DataService\UserRoleSvc.cs" />
     <Compile Include="DataService\UserGroupSvc.cs" />
     <Compile Include="DataService\NewsSvc.cs" />

@@ -21,9 +21,19 @@ namespace SOSApp.Svc.DataService
                 x.Deleted = false;
                 return CreateEntity(x);
             }
+            else
+            {
+                var db = Load(x.ID);
 
-            x.LastUpdate = DateTime.Now;
-            return UpdateEntity(x);
+                db.Title = x.Title;
+                db.Date = x.Date;
+                db.Important = x.Important;
+                db.Body = x.Body;
+                db.Active = x.Active;
+
+                db.LastUpdate = DateTime.UtcNow;
+                return UpdateEntity(db);
+            }
         }
 
         public void DeleteLogic(int id)

@@ -13,6 +13,7 @@
 </div>
 <!-- /.row -->
 <div class="row">
+    <div class='notifications top-right'></div>
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -53,32 +54,67 @@
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="min-width:200px;width:20%;">Guardar</button>
+                    <button type="button" class="btn btn-success" style="min-width:200px;width:20%;" data-toggle="modal" data-target="#GroupsModal"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+                    <button type="submit" class="btn btn-primary" style="min-width:200px;width:20%;"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
                     <input type="button" class="btn btn-danger" id="btnEliminarNoticia" value="Eliminar" onclick="return confirm('¿Desea eliminar esta noticia?')" />
                 </form>
             </div>
         </div>
     </div>
 </div>
-
+<div class="modal" id="GroupsModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Seleccione regiones</h3>
+            </div>
+            <div class="modal-body">
+                <p>Seleccione las regiones a las que les quiere enviar la noticia:</p>
+                <ul id="groupList">
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="EnviarNoticia" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
     @section Scripts {
         <script>
-        $(document).ready(function () {
-            var NewsId = window.location.href.split("/")[window.location.href.split("/").length-1];
-            var url = ApiUrl + "News/" + NewsId;
+            $(document).ready(function () {
+                var NewsId = window.location.href.split("/")[window.location.href.split("/").length - 1];
 
-            $.ajax({
-            type: "GET",
-            url: url,
-            success: function (response) {
-                $("#Title").val(response.data.Title);
-                $("#Important").val(response.data.Important);
-                $("#Date").val(response.data.Date);
-                $("#Body").val(response.data.Body);
-                $("#Image").attr("src", response.data.Image);
-                $("#IdNews").val(response.data.IdNews);
-            }
-            });
+                var url = ApiUrl + "News/" + NewsId;
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    success: function (response) {
+                        $("#Title").val(response.data.Title);
+                        $("#Important").val(response.data.Important);
+                        $("#Date").val(response.data.Date);
+                        $("#Body").val(response.data.Body);
+                        $("#Image").attr("src", response.data.Image);
+                        $("#IdNews").val(response.data.ID);
+                    }
+                });
+
+                var url = ApiUrl + "UserGroup";
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    success: function (response) {
+                        $.each(response.Data, function (key, value) {
+                            $("#groupList").append('<label style="width: 100%;text-align: center;"><input name="UserGroup" class="form-control" type="checkbox" checked="checked" value="' + value.ID + '"> ' + value.Name + '</label><br><br>');
+                        });
+                    }
+                });
+
+                $('#GroupsModal').on('shown.bs.modal', function () {
+                    //Llenar la lista de grupos
+                });
 
             $("#btnEliminarNoticia").click(function (e) {
                 $.ajax({
@@ -88,25 +124,96 @@
                         window.location.replace("/News");
                     }
                 });
-
             });
+
 
             $("#formNoticia").submit(function (e) {
-                var url = ApiUrl + "News/" + NewsId;
+                //stop submit the form, we will post it manually.
+                event.preventDefault();
+
+                // Create an FormData object 
+                var data = new FormData();
+
+                // Get form
+                data.append("file", $('#NewImage')[0].files[0]);
+
+                data.append("Title", $("#Title").val());
+                data.append("Date", $("#Date").val());
+                data.append("Important", $("#Important").val());
+                data.append("Body", $("#Body").val());
+                data.append("Active", $("#Active").is(":checked"));
+                data.append("ID", $("#IdNews").val());
+
+                // disabled the submit button
+                $("#btnSubmit").prop("disabled", true);
+
                 $.ajax({
                     type: "PUT",
-                    url: url,
-                    data: $("#formNoticia").serialize(),
+                    enctype: 'multipart/form-data',
+                    url: ApiUrl + "News",
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 600000,
                     success: function (data) {
-                        window.location.replace("/News");
+                        console.log("SUCCESS : ", data);
+                        $("#btnSubmit").prop("disabled", false);
+
+                        $('.top-right').notify({
+                            message: { html: '<i class="fa fa-check fa-fw"></i>  La noticia fue guardada con <b>éxito!</b>  ' },
+                            fadeOut: { enabled: true }
+                        }).show(); 
+                    },
+                    error: function (e) {
+
+                        $("#result").text(e.responseText);
+                        console.log("ERROR : ", e);
+                        $("#btnSubmit").prop("disabled", false);
+
                     }
                 });
-
-                e.preventDefault();
-
             });
-        });
 
+            
+        });
+            $("#EnviarNoticia").click(function (e) {
+                //stop submit the form, we will post it manually.
+                event.preventDefault();
+
+                // disabled the submit button
+                $("#EnviarNoticia").prop("disabled", true);
+
+                var regiones = [];
+                $.each($("input[name='UserGroup']:checked"), function () {
+                    regiones.push($(this).val());
+                });
+
+                data = {
+                    Regions: regiones,
+                    NewsId: $("#IdNews").val()
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: ApiUrl + "NewsSent",
+                    data: data,
+                    timeout: 600000,
+                    success: function (data) {
+                        console.log("SUCCESS : ", data);
+                        $("#EnviarNoticia").prop("disabled", false);
+
+                        $('.top-right').notify({
+                            message: { html: '<i class="fa fa-check fa-fw"></i>  La noticia fue enviada con <b>éxito!</b>  ' },
+                            fadeOut: { enabled: true }
+                        }).show();
+                    },
+                    error: function (e) {
+                        console.log("ERROR : ", e);
+                        $("#btnSubmit").prop("disabled", false);
+                    }
+                });
+            });
         </script>
     }
 

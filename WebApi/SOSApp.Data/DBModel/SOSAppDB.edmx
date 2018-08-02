@@ -20,6 +20,15 @@
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="NewsSent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NewsID" Type="int" Nullable="false" />
+          <Property Name="UserGroupId" Type="int" Nullable="false" />
+          <Property Name="SentDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
@@ -78,6 +87,30 @@
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="Deleted" Type="bit" Nullable="false" />
         </EntityType>
+        <Association Name="FK_NewsSent_News">
+          <End Role="News" Type="Self.News" Multiplicity="1" />
+          <End Role="NewsSent" Type="Self.NewsSent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsSent">
+              <PropertyRef Name="NewsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsSent_UserGroup">
+          <End Role="UserGroup" Type="Self.UserGroup" Multiplicity="1" />
+          <End Role="NewsSent" Type="Self.NewsSent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsSent">
+              <PropertyRef Name="UserGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_User_UserRole">
           <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -116,10 +149,19 @@
         </Association>
         <EntityContainer Name="SOSAppDBModelStoreContainer">
           <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsSent" EntityType="Self.NewsSent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsersByUserGroup" EntityType="Self.UsersByUserGroup" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_NewsSent_News" Association="Self.FK_NewsSent_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsSent" EntitySet="NewsSent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsSent_UserGroup" Association="Self.FK_NewsSent_UserGroup">
+            <End Role="UserGroup" EntitySet="UserGroup" />
+            <End Role="NewsSent" EntitySet="NewsSent" />
+          </AssociationSet>
           <AssociationSet Name="FK_User_UserRole" Association="Self.FK_User_UserRole">
             <End Role="UserRole" EntitySet="UserRole" />
             <End Role="User" EntitySet="User" />
@@ -169,6 +211,15 @@
             <End Role="UsersByUserGroup" EntitySet="UsersByUserGroup" />
           </AssociationSet>
           <EntitySet Name="News" EntityType="SOSAppDBModel.News" />
+          <EntitySet Name="NewsSent" EntityType="SOSAppDBModel.NewsSent" />
+          <AssociationSet Name="FK_NewsSent_News" Association="SOSAppDBModel.FK_NewsSent_News">
+            <End Role="News" EntitySet="News" />
+            <End Role="NewsSent" EntitySet="NewsSent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NewsSent_UserGroup" Association="SOSAppDBModel.FK_NewsSent_UserGroup">
+            <End Role="UserGroup" EntitySet="UserGroup" />
+            <End Role="NewsSent" EntitySet="NewsSent" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -243,6 +294,7 @@
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="UsersByUserGroup" Relationship="SOSAppDBModel.FK_UsersByUserGroup_UserGroup" FromRole="UserGroup" ToRole="UsersByUserGroup" />
+          <NavigationProperty Name="NewsSent" Relationship="SOSAppDBModel.FK_NewsSent_UserGroup" FromRole="UserGroup" ToRole="NewsSent" />
         </EntityType>
         <Association Name="FK_UsersByUserGroup_UserGroup">
           <End Type="SOSAppDBModel.UserGroup" Role="UserGroup" Multiplicity="1" />
@@ -270,7 +322,43 @@
           <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NewsSent" Relationship="SOSAppDBModel.FK_NewsSent_News" FromRole="News" ToRole="NewsSent" />
         </EntityType>
+        <EntityType Name="NewsSent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NewsID" Type="Int32" Nullable="false" />
+          <Property Name="UserGroupId" Type="Int32" Nullable="false" />
+          <Property Name="SentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="News" Relationship="SOSAppDBModel.FK_NewsSent_News" FromRole="NewsSent" ToRole="News" />
+          <NavigationProperty Name="UserGroup" Relationship="SOSAppDBModel.FK_NewsSent_UserGroup" FromRole="NewsSent" ToRole="UserGroup" />
+        </EntityType>
+        <Association Name="FK_NewsSent_News">
+          <End Type="SOSAppDBModel.News" Role="News" Multiplicity="1" />
+          <End Type="SOSAppDBModel.NewsSent" Role="NewsSent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsSent">
+              <PropertyRef Name="NewsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NewsSent_UserGroup">
+          <End Type="SOSAppDBModel.UserGroup" Role="UserGroup" Multiplicity="1" />
+          <End Type="SOSAppDBModel.NewsSent" Role="NewsSent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NewsSent">
+              <PropertyRef Name="UserGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -351,6 +439,16 @@
                 <ScalarProperty Name="Important" ColumnName="Important" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsSent">
+            <EntityTypeMapping TypeName="SOSAppDBModel.NewsSent">
+              <MappingFragment StoreEntitySet="NewsSent">
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+                <ScalarProperty Name="NewsID" ColumnName="NewsID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

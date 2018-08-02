@@ -30,5 +30,6 @@ namespace SOSApp.Data.DBModel
         public virtual DbSet<UserRole> UserRole { get; set; }
         public virtual DbSet<UserGroup> UserGroup { get; set; }
         public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<NewsSent> NewsSent { get; set; }
     }
 }

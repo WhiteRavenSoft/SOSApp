@@ -43,7 +43,7 @@ namespace SOSApp.Svc.DataService
 
         public IQueryable<UserGroup> LoadActives()
         {
-            var query = from x in Context.UserGroup.Include("User")
+            var query = from x in Context.UserGroup
                         where x.Active && !x.Deleted
                         orderby x.Name
                         select x;

@@ -53,10 +53,14 @@
     <Compile Include="AppModel\AppResponse.cs" />
     <Compile Include="AppModel\GridFilter.cs" />
     <Compile Include="AppModel\NewsModel.cs" />
+    <Compile Include="AppModel\NewsSentModel.cs" />
     <Compile Include="AppModel\UserModel.cs" />
     <Compile Include="AppModel\UserGroupModel.cs" />
     <Compile Include="AppModel\UserRoleModel.cs" />
     <Compile Include="DBModel\News.cs">
+      <DependentUpon>SOSAppDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\NewsSent.cs">
       <DependentUpon>SOSAppDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DBModel\SOSAppDB.Context.cs">
