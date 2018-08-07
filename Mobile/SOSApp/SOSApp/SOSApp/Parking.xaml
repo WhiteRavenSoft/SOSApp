@@ -9,10 +9,11 @@
         <StackLayout
             VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand">
-            <WebView HorizontalOptions="FillAndExpand"
-                     VerticalOptions="FillAndExpand"
-                     Source="{StaticResource URLEstacionamientoMedido}">
-                
+            <WebView 
+                x:Name="wvBrowser"
+                HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Source="{StaticResource URLEstacionamientoMedido}">
             </WebView>
             
         </StackLayout>

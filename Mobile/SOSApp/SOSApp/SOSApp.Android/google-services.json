@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "887607946689",
+    "firebase_url": "https://tuyoprueba.firebaseio.com",
+    "project_id": "tuyoprueba",
+    "storage_bucket": "tuyoprueba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887607946689:android:b09fe5a061140a07",
+        "android_client_info": {
+          "package_name": "xamarin.SOSApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887607946689-pjmh0l3jna1h89nh3g5qojja649sprvn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBkLWl1fZfS1x5ZhPlFuht3w7t7MrpFfI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

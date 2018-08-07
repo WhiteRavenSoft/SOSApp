@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOSApp.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace SOSApp
 {
 	public partial class MainPage : ContentPage
 	{
+        
 		public MainPage()
 		{
 			InitializeComponent();
@@ -23,7 +25,8 @@ namespace SOSApp
         void OnTapShowParking(object sender, EventArgs args)
         {
             var imageSender = (Image)sender;
-            Navigation.PushAsync(new Parking());
+            Navigation.PushModalAsync(new Loading(), false);
+            Navigation.PushAsync(new Parking(), true);
         }
 
         void OnTapShowSiac(object sender, EventArgs args)

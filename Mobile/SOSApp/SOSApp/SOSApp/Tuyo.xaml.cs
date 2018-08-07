@@ -1,5 +1,8 @@
-﻿using System;
+﻿using SOSApp.Helpers;
+using SOSApp.TuyoApp.LoQueTenesQueSaber;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,8 +39,31 @@ namespace SOSApp
         }
 
         private void OnTapLoQueTenesQueSaber(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new TuyoApp.LoQueTenesQueSaber.Noticias());
+        {   
+            Task<Noticia> taskNoticias = ApiRest.GetFormData<Noticia>((string)(App.Current.Resources["APIRoot"]));
+            
+            taskNoticias.ContinueWith((task) => {
+                try
+                {
+                    ObservableCollection<Detalle> ListaNoticias = new ObservableCollection<Detalle>();
+                    foreach (Detalle d in ((Noticia)task.Result).data)
+                    {
+                        ListaNoticias.Add(d);
+                    }
+                    Device.BeginInvokeOnMainThread(() => {
+                        Navigation.PopModalAsync(true);
+                        Navigation.PushAsync(new Noticias(ListaNoticias), true);
+                    });
+                }
+                catch
+                {
+                    Device.BeginInvokeOnMainThread(new Action(() => {
+                        Navigation.PopModalAsync(false);
+                    Navigation.PushModalAsync(new Loading("No se pudieron cargar tus noticias"), false);
+                    }));
+                }
+            });
+            Navigation.PushModalAsync(new Loading("Cargando noticias..."), false);
         }
     }
 }

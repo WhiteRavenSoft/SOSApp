@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundImage="amarilloback.png"
+             x:Class="SOSApp.Loading">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label 
+                x:Name="lblCargando"
+                Text="Cargando..."
+                VerticalOptions="CenterAndExpand" 
+                FontSize="Medium"
+                TextColor="#7e0080"
+                FontAttributes="Bold"
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

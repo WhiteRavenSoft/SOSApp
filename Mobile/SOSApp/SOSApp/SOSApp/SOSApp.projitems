@@ -27,6 +27,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\ApiRest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\AsyncImageSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\NotifyTaskCompletion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)SunchalesMapa.xaml.cs">
       <DependentUpon>SunchalesMapa.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -188,6 +192,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)ConfiguracionInicial.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

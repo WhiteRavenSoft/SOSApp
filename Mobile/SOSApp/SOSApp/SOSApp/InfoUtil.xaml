@@ -4,7 +4,7 @@
              x:Class="SOSApp.TuyoApp.InfoUtil"
              Title="Información Útil"
              NavigationPage.HasNavigationBar="false"
-             BackgroundImage="amarilloback.png">
+             BackgroundImage="tuyo_infoutil.png">
     
     <ContentPage.Content>
         <StackLayout

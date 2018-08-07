@@ -17,17 +17,17 @@
                 </StackLayout>-->
             <StackLayout Grid.Row="1">
                 <parallax:ParallaxView x:Name="MainParallax" 
-                                           BodyMargin="0,200,0,0" 
-                                           HeaderScrollSpeed="4" 
-                                           VerticalOptions="FillAndExpand">
+                                        BodyMargin="0, 180, 0, 0"
+                                        HeaderScrollSpeed="4"
+                                        VerticalOptions="FillAndExpand">
                         <parallax:ParallaxView.HeaderContent>
                             <ContentView HorizontalOptions="FillAndExpand" 
                                          BackgroundColor="White">
                                 <Image
                                     x:Name="imagenNoticia"
-                                    HorizontalOptions="CenterAndExpand"
-                                    VerticalOptions="Start"
-                                    Aspect="AspectFill"/>
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="StartAndExpand"
+                                    Aspect="Fill"/>
                             </ContentView>
                         </parallax:ParallaxView.HeaderContent>
                         <parallax:ParallaxView.BodyContent

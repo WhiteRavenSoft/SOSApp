@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Com.OneSignal;
 
 using Foundation;
 using UIKit;
@@ -26,6 +24,8 @@ namespace SOSApp.iOS
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+      //      OneSignal.Current.StartInit("594f259c-e74b-4d72-94ee-5f509d38c8fb")
+      //.EndInit();
         }
     }
 }
