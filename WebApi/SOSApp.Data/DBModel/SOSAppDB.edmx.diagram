@@ -6,16 +6,16 @@
     <edmx:Diagrams>
       <Diagram DiagramId="f8ccd0dfebc043e7992b741684426287" Name="Diagram1" ZoomLevel="81">
         <EntityTypeShape EntityType="SOSAppDBModel.UsersByUserGroup" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="SOSAppDBModel.User" Width="1.5" PointX="3.375" PointY="5.375" />
         <EntityTypeShape EntityType="SOSAppDBModel.UserRole" Width="1.5" PointX="5.75" PointY="4.5" />
-        <AssociationConnector Association="SOSAppDBModel.FK_User_UserRole" />
-        <AssociationConnector Association="SOSAppDBModel.FK_UsersByUserGroup_User" />
         <EntityTypeShape EntityType="SOSAppDBModel.UserGroup" Width="1.5" PointX="0.75" PointY="6" />
         <AssociationConnector Association="SOSAppDBModel.FK_UsersByUserGroup_UserGroup" />
         <EntityTypeShape EntityType="SOSAppDBModel.News" Width="1.5" PointX="5.375" PointY="0.75" />
         <EntityTypeShape EntityType="SOSAppDBModel.NewsSent" Width="1.5" PointX="8.625" PointY="3.625" />
         <AssociationConnector Association="SOSAppDBModel.FK_NewsSent_News" />
         <AssociationConnector Association="SOSAppDBModel.FK_NewsSent_UserGroup" />
+        <EntityTypeShape EntityType="SOSAppDBModel.User" Width="1.5" PointX="8" PointY="7.5" />
+        <AssociationConnector Association="SOSAppDBModel.FK_User_UserRole" />
+        <AssociationConnector Association="SOSAppDBModel.FK_UsersByUserGroup_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

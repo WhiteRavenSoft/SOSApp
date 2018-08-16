@@ -159,7 +159,7 @@
                     success: function (data) {
                         console.log("SUCCESS : ", data);
                         $("#btnSubmit").prop("disabled", false);
-
+                        
                         $('.top-right').notify({
                             message: { html: '<i class="fa fa-check fa-fw"></i>  La noticia fue guardada con <b>éxito!</b>  ' },
                             fadeOut: { enabled: true }
@@ -202,7 +202,7 @@
                     success: function (data) {
                         console.log("SUCCESS : ", data);
                         $("#EnviarNoticia").prop("disabled", false);
-
+                        $('#GroupsModal').modal('toggle');
                         $('.top-right').notify({
                             message: { html: '<i class="fa fa-check fa-fw"></i>  La noticia fue enviada con <b>éxito!</b>  ' },
                             fadeOut: { enabled: true }

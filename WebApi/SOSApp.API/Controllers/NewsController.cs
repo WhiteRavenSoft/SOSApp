@@ -46,7 +46,6 @@ namespace SOSApp.API.Controllers
             //else
             //    db = db.OrderBy(x => x.Apellido);
 
-            db = db.OrderByDescending(x => x.CreatedDate);
             response.Total = db.Count();
             db = db.Skip(start.Value).Take(limit.Value);
             var model = MapToGridModel(db.ToList());
@@ -137,7 +136,7 @@ namespace SOSApp.API.Controllers
                 newNews.Image = FileHelper.GetNewsImageUrl(newNews.ID);
                 newsSvc.Save(newNews);
 
-                return Request.CreateResponse(HttpStatusCode.OK);
+                return Request.CreateResponse(HttpStatusCode.OK, newNews.ID);
             }
             catch (Exception e)
             {
@@ -237,8 +236,8 @@ namespace SOSApp.API.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
-        [System.Web.Http.Route("SaveImage")]
-        [System.Web.Http.HttpPost]
+        [Route("SaveImage")]
+        [HttpPost]
         public async Task<IHttpActionResult> SaveImage(HttpRequestMessage request, int Id, int avatarHeight = 0, int avatarWidth = 0)
         {
             var httpRequest = HttpContext.Current.Request;

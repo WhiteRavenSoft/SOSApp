@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AppModel\AppPagedResponse.cs" />
     <Compile Include="AppModel\AppResponse.cs" />
+    <Compile Include="AppModel\MapsGeocodeResponse.cs" />
     <Compile Include="AppModel\GridFilter.cs" />
     <Compile Include="AppModel\NewsModel.cs" />
     <Compile Include="AppModel\NewsSentModel.cs" />

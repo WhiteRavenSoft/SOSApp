@@ -1,11 +1,8 @@
-﻿using SOSApp.Core;
-using SOSApp.Core.Helper;
-using SOSApp.Data.AppModel;
+﻿using SOSApp.Data.AppModel;
 using SOSApp.Data.DBModel;
 using SOSApp.Svc.GenericDataService;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 
 namespace SOSApp.Svc.DataService
@@ -22,7 +19,7 @@ namespace SOSApp.Svc.DataService
 
         public IQueryable<NewsSent> LoadAll()
         {
-            var query = from x in Context.NewsSent//.Include("News").Include("UserGroup")
+            var query = from x in Context.NewsSent.Include("News").Include("UserGroup")
                         orderby x.SentDate descending
                         select x;
 

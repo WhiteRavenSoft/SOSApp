@@ -40,15 +40,27 @@
 {
     <script src="~/Scripts/dataTables/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.responsive.min.js"></script>
     <script src="~/Scripts/moment.js"></script>
     <script>
         $(document).ready(function () {
             $('#table-noticias').DataTable({
                 ajax: ApiUrl + 'newssent',
+                autoWidth: false,
+                displayLength: 50,
+                order: [[2, "desc"]],
                 columns: [
                     { data: 'NewsTitle' },
                     { data: 'UserGroupName' },
-                    { data: 'SentDate' }
+                    {
+                        data: 'SentDate',
+                        render: function (data, type, row) {
+                            if (type === "sort" || type === "type") {
+                                return data;
+                            }
+                            return moment(data).format("DD/MM/YYYY HH:mm:ss");
+                        }
+                    },
                 ],
                 responsive: true
             });

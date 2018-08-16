@@ -44,8 +44,8 @@
           <Property Name="Salt" Type="nvarchar" MaxLength="255" />
           <Property Name="Birthdate" Type="datetime" />
           <Property Name="Address" Type="nvarchar" MaxLength="255" />
-          <Property Name="Lon" Type="nvarchar" MaxLength="255" />
-          <Property Name="Lat" Type="nvarchar" MaxLength="255" />
+          <Property Name="Lon" Type="float" />
+          <Property Name="Lat" Type="float" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="LastUpdate" Type="datetime" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
@@ -190,21 +190,12 @@
           <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="SOSAppDBModel.FK_UsersByUserGroup_User" FromRole="UsersByUserGroup" ToRole="User" />
           <NavigationProperty Name="UserGroup" Relationship="SOSAppDBModel.FK_UsersByUserGroup_UserGroup" FromRole="UsersByUserGroup" ToRole="UserGroup" />
+          <NavigationProperty Name="User" Relationship="SOSAppDBModel.FK_UsersByUserGroup_User" FromRole="UsersByUserGroup" ToRole="User" />
         </EntityType>
         <EntityContainer Name="SOSAppDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="UsersByUserGroup" EntityType="Self.UsersByUserGroup" />
-          <EntitySet Name="User" EntityType="SOSAppDBModel.User" />
           <EntitySet Name="UserRole" EntityType="SOSAppDBModel.UserRole" />
-          <AssociationSet Name="FK_User_UserRole" Association="SOSAppDBModel.FK_User_UserRole">
-            <End Role="UserRole" EntitySet="UserRole" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UsersByUserGroup_User" Association="SOSAppDBModel.FK_UsersByUserGroup_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="UsersByUserGroup" EntitySet="UsersByUserGroup" />
-          </AssociationSet>
           <EntitySet Name="UserGroup" EntityType="SOSAppDBModel.UserGroup" />
           <AssociationSet Name="FK_UsersByUserGroup_UserGroup" Association="SOSAppDBModel.FK_UsersByUserGroup_UserGroup">
             <End Role="UserGroup" EntitySet="UserGroup" />
@@ -220,31 +211,16 @@
             <End Role="UserGroup" EntitySet="UserGroup" />
             <End Role="NewsSent" EntitySet="NewsSent" />
           </AssociationSet>
+          <EntitySet Name="User" EntityType="SOSAppDBModel.User" />
+          <AssociationSet Name="FK_User_UserRole" Association="SOSAppDBModel.FK_User_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsersByUserGroup_User" Association="SOSAppDBModel.FK_UsersByUserGroup_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UsersByUserGroup" EntitySet="UsersByUserGroup" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MobileID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="RoleId" Type="Int32" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Salt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Birthdate" Type="DateTime" Precision="3" />
-          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Lon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Lat" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
-          <Property Name="Deleted" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="UserRole" Relationship="SOSAppDBModel.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
-          <NavigationProperty Name="UsersByUserGroup" Relationship="SOSAppDBModel.FK_UsersByUserGroup_User" FromRole="User" ToRole="UsersByUserGroup" />
-        </EntityType>
         <EntityType Name="UserRole">
           <Key>
             <PropertyRef Name="ID" />
@@ -258,30 +234,6 @@
           <Property Name="Deleted" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="User" Relationship="SOSAppDBModel.FK_User_UserRole" FromRole="UserRole" ToRole="User" />
         </EntityType>
-        <Association Name="FK_User_UserRole">
-          <End Type="SOSAppDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
-          <End Type="SOSAppDBModel.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserRole">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UsersByUserGroup_User">
-          <End Type="SOSAppDBModel.User" Role="User" Multiplicity="1" />
-          <End Type="SOSAppDBModel.UsersByUserGroup" Role="UsersByUserGroup" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="UsersByUserGroup">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="UserGroup">
           <Key>
             <PropertyRef Name="ID" />
@@ -359,6 +311,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MobileID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Salt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Birthdate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Lon" Type="Double" />
+          <Property Name="Lat" Type="Double" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserRole" Relationship="SOSAppDBModel.FK_User_UserRole" FromRole="User" ToRole="UserRole" />
+          <NavigationProperty Name="UsersByUserGroup" Relationship="SOSAppDBModel.FK_UsersByUserGroup_User" FromRole="User" ToRole="UsersByUserGroup" />
+        </EntityType>
+        <Association Name="FK_User_UserRole">
+          <End Type="SOSAppDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+          <End Type="SOSAppDBModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsersByUserGroup_User">
+          <End Type="SOSAppDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="SOSAppDBModel.UsersByUserGroup" Role="UsersByUserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UsersByUserGroup">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -375,29 +375,6 @@
                 <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
                 <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="SOSAppDBModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Lat" ColumnName="Lat" />
-                <ScalarProperty Name="Lon" ColumnName="Lon" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
-                <ScalarProperty Name="Salt" ColumnName="Salt" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="MobileID" ColumnName="MobileID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -449,6 +426,29 @@
                 <ScalarProperty Name="SentDate" ColumnName="SentDate" />
                 <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
                 <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="SOSAppDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lon" ColumnName="Lon" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="MobileID" ColumnName="MobileID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

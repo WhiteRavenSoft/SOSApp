@@ -4,6 +4,7 @@ using SOSApp.Data.AppModel;
 using SOSApp.Data.DBModel;
 using SOSApp.Svc.GenericDataService;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -59,6 +60,16 @@ namespace SOSApp.Svc.DataService
                         select x;
 
             return query;
+        }
+
+        public List<string> GetPlayerIds(int userGroupId)
+        {
+            var query = from x in Context.UsersByUserGroup
+                        where x.Active && !x.Deleted
+                        && x.UserGroupID == userGroupId
+                        select x.User.MobileID;
+
+            return query.ToList();
         }
     }
 }

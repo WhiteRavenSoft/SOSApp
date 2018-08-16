@@ -584,6 +584,13 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:SOSApp.API.Controllers.UserController.UserMobile(SOSApp.Data.AppModel.UserMobileModel)">
+            <summary>
+            Método para Agregar User Mobile
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:SOSApp.API.Controllers.UserController.Put(System.Int32,SOSApp.Data.AppModel.UserModel)">
             <summary>
             Método para Modificar User

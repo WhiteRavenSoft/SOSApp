@@ -1,4 +1,5 @@
 ﻿using SOSApp.API.Core;
+using SOSApp.Core.Helper;
 using SOSApp.Data.AppModel;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,6 @@ namespace SOSApp.API.Controllers
 
             try
             {
-                db = db.OrderByDescending(x => x.SentDate);
                 response.Total = db.Count();
                 db = db.Skip(start.Value).Take(limit.Value);
                 var model = MapToGridModel(db.ToList());
@@ -67,12 +67,30 @@ namespace SOSApp.API.Controllers
         /// Método para Agregar envío de noticias a grupos
         /// </summary>
         // POST: api/NewsSent
+        [AllowAnonymous]
         public HttpResponseMessage Post(NewsSentPostModel model)
         {
-            var dbList = newsSentSvc.Create(model);
-            //TODO: enviar vía OneSignal
+            List<string> PlayerIds = GetPlayerIds(model.Regions);
+            if (PlayerIds.Count > 0)
+            {
+                var news = newsSvc.Load(model.NewsId);
+                if (news != null)
+                {
+                    OneSignalNotification.SendNotification(news.Title, PlayerIds.ToArray(), news.ID);
+                    newsSentSvc.Create(model);
+                }
+            }
+
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        private List<string> GetPlayerIds(List<int> regions)
+        {
+            List<string> listPlayerIds = new List<string>();
+            foreach (var item in regions)
+                listPlayerIds.AddRange(userGroupSvc.GetPlayerIds(item));
+
+            return listPlayerIds;
+        }
     }
 }
