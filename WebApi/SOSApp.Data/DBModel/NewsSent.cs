@@ -20,6 +20,5 @@ namespace SOSApp.Data.DBModel
         public System.DateTime SentDate { get; set; }
     
         public virtual News News { get; set; }
-        public virtual UserGroup UserGroup { get; set; }
     }
 }

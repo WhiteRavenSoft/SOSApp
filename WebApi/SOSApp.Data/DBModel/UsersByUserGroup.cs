@@ -22,7 +22,6 @@ namespace SOSApp.Data.DBModel
         public bool Active { get; set; }
         public bool Deleted { get; set; }
     
-        public virtual UserGroup UserGroup { get; set; }
         public virtual User User { get; set; }
     }
 }

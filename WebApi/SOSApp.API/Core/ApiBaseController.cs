@@ -230,7 +230,8 @@ namespace SOSApp.API.Core
             {
                 ID = item.ID,
                 NewsTitle = item.News.Title,
-                UserGroupName = item.UserGroup.Name,
+                UserGroupName = item.UserGroupId.ToString(),
+                UserGroupId = item.UserGroupId,
                 SentDate = item.SentDate
             };
         }
@@ -251,7 +252,7 @@ namespace SOSApp.API.Core
                 UserGroupId = item.UserGroupId,
                 SentDate = item.SentDate,
                 News = MapToModel(item.News),
-                UserGroup = MapToModel(item.UserGroup)
+                UserGroup = new UserGroupModel() { ID = item.UserGroupId }
             };
         }
         #endregion

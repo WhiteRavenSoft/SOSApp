@@ -8,7 +8,9 @@ using SOSApp.Svc.AvlServiceTest;
 using SOSApp.Svc.GenericDataService;
 using SOSApp.Svc.Infrastructure;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -156,12 +158,12 @@ namespace SOSApp.Svc.DataService
         /// </summary>
         /// <param name="value">Objeto que contiene PlayerId de OneSignal y dirección del usuario</param>
         /// <returns>Id de la region a la que pertenece el usuario</returns>
-        public int CreateMobile(UserMobileModel value)
+        public List<int> CreateMobile(UserMobileModel value)
         {
             double latitude = 0, longitude = 0;
-            int RegionId = GetRegionId(value, ref latitude, ref longitude);
+            List<int> listRegionsId = GetRegionId(value, ref latitude, ref longitude);
 
-            if (RegionId != 0)
+            if (listRegionsId.Count > 0)
             {
                 var user = LoadByPlayerId(value.PlayerID);
                 if (user == null)
@@ -186,18 +188,22 @@ namespace SOSApp.Svc.DataService
                 }
 
                 IoC.Resolve<UserByUserGroupSvc>().DeleteByUser(user.ID);
-                IoC.Resolve<UserByUserGroupSvc>().Save(new UsersByUserGroup()
+
+                foreach (var regionId in listRegionsId)
                 {
-                    UserID = user.ID,
-                    UserGroupID = RegionId,
-                    LastUpdate = DateTime.UtcNow,
-                    CreatedDate = DateTime.UtcNow,
-                    Deleted = false,
-                    Active = true
-                });
+                    IoC.Resolve<UserByUserGroupSvc>().Save(new UsersByUserGroup()
+                    {
+                        UserID = user.ID,
+                        UserGroupID = regionId,
+                        LastUpdate = DateTime.UtcNow,
+                        CreatedDate = DateTime.UtcNow,
+                        Deleted = false,
+                        Active = true
+                    });
+                }
             }
 
-            return RegionId;
+            return listRegionsId;
         }
 
         private User LoadByPlayerId(string playerID)
@@ -210,15 +216,16 @@ namespace SOSApp.Svc.DataService
             return query.FirstOrDefault();
         }
 
-        private static int GetRegionId(UserMobileModel value, ref double latitude, ref double longitude)
+        private static List<int> GetRegionId(UserMobileModel value, ref double latitude, ref double longitude)
         {
+            List<int> listRegiones = new List<int>();
+
             try
             {
-                string URL = "http://maps.googleapis.com/maps/api/geocode/xml"; 
-                string urlParameters = $"?address={value.Address}, Suncheles, Santa Fe, Argentina&sensor=false";
+                string URL = Settings.GoogleMapsAPIURL; 
+                string urlParameters = $"?address={value.Address}, Suncheles, Santa Fe, Argentina&sensor=false&key={Settings.GoogleMapsAPIKey}";
 
-                HttpClient client = new HttpClient
-                { BaseAddress = new Uri(URL) };
+                HttpClient client = new HttpClient { BaseAddress = new Uri(URL) };
 
                 // Add an Accept header for JSON format.
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/xml"));
@@ -230,34 +237,55 @@ namespace SOSApp.Svc.DataService
                     XmlSerializer serializer = new XmlSerializer(typeof(GeocodeResponse));
                     GeocodeResponse resultingMessage = (GeocodeResponse)serializer.Deserialize(new XmlTextReader(response.Content.ReadAsStreamAsync().Result));
 
-                    latitude = double.Parse(resultingMessage.Result.Geometry.Location.Lat.Replace('.',','));
-                    longitude = double.Parse(resultingMessage.Result.Geometry.Location.Lng.Replace('.', ','));
+                    if (Settings.IsDev)
+                    {
+                        latitude = double.Parse(resultingMessage.Result.Geometry.Location.Lat.Replace('.', ','));
+                        longitude = double.Parse(resultingMessage.Result.Geometry.Location.Lng.Replace('.', ','));
+                    }
+                    else
+                    {
+                        latitude = double.Parse(resultingMessage.Result.Geometry.Location.Lat);
+                        longitude = double.Parse(resultingMessage.Result.Geometry.Location.Lng);
+                    }
 
                     if (latitude == Settings.ExcludeLatitude && longitude == Settings.ExcludeLongitude)
-                        return 0;
+                    {
+                        listRegiones.Clear();
+                        listRegiones.Add(0);
+                        return listRegiones;
+                    }
 
                     //Consulta a la API de AVL la región a la que pertenecen las coordenadas
                     AvlSoapClient avlClient = new AvlSoapClient();
                     var avlResponse = avlClient.ObtenerRegionesActualesPorCoordenada(6, latitude, longitude);
 
                     if (avlResponse.Rows.Count > 0)
-                        if (avlResponse.Rows[0].ItemArray.Count() > 0)
-                            return int.Parse(avlResponse.Rows[0].ItemArray[0].ToString());
+                        foreach (DataRow item in avlResponse.Rows)
+                        {
+                            if (int.TryParse(item.ItemArray[0].ToString(), out int regionId))
+                                if (item.ItemArray[1].ToString().ToUpper().Contains("RECOLECCI"))
+                                    regionId = regionId * 10000;
+
+                            listRegiones.Add(regionId);
+                        }
                 }
                 else
                 {
-                    return 0;
+                    listRegiones.Clear();
+                    listRegiones.Add(0);
+                    return listRegiones;
                 }
 
                 client.Dispose();
             }
             catch (Exception ex)
             {
-                var a = ex;
-                return 0;
+                listRegiones.Clear();
+                listRegiones.Add(0);
+                return listRegiones;
             }
 
-            return 0;
+            return listRegiones;
         }
 
         public User Create(UserModel user)

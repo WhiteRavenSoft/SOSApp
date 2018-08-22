@@ -19,7 +19,7 @@ namespace SOSApp.Svc.DataService
 
         public IQueryable<NewsSent> LoadAll()
         {
-            var query = from x in Context.NewsSent.Include("News").Include("UserGroup")
+            var query = from x in Context.NewsSent.Include("News")
                         orderby x.SentDate descending
                         select x;
 

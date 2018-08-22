@@ -52,7 +52,7 @@
     <script>
         $(document).ready(function () {
             $('#table-noticias').DataTable({
-                ajax: ApiUrl + 'news',
+                ajax: ApiUrl + 'news?isWeb=True',
                 columnDefs: [
                     { width: 300, targets: 0 }
                 ],

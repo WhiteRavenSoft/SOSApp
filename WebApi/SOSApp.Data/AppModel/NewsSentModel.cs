@@ -17,6 +17,7 @@ namespace SOSApp.Data.AppModel
     {
         public long ID { get; set; }
         public string NewsTitle { get; set; }
+        public int UserGroupId { get; set; }
         public string UserGroupName { get; set; }
         public DateTime SentDate { get; set; }
     }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 using SOSApp.API.Core;
 using SOSApp.Data.AppModel;
 using SOSApp.Data.DBModel;
@@ -98,7 +100,8 @@ namespace SOSApp.API.Controllers
         public HttpResponseMessage UserMobile(UserMobileModel value)
         {
             var RegionId = userSvc.CreateMobile(value);
-            return Request.CreateResponse(HttpStatusCode.OK, RegionId);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return Request.CreateResponse(HttpStatusCode.OK, js.Serialize(RegionId));
         }
 
         /// <summary>

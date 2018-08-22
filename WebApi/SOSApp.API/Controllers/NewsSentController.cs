@@ -44,10 +44,10 @@ namespace SOSApp.API.Controllers
             try
             {
                 response.Total = db.Count();
-                db = db.Skip(start.Value).Take(limit.Value);
+                //db = db.Skip(start.Value).Take(limit.Value);
                 var model = MapToGridModel(db.ToList());
                 response.data = model;
-                response.Limit = limit.Value;
+                response.Limit = 0;//limit.Value;
                 response.Filter = filters;
                 response.Sort = sorts;
 

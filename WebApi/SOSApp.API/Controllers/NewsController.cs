@@ -22,14 +22,18 @@ namespace SOSApp.API.Controllers
     {
         // GET: News
         [AllowAnonymous]
-        public HttpResponseMessage Get(int? page = 1, int? start = 0, int? limit = 20, string filter = "", string sort = "")
+        public HttpResponseMessage Get(int? page = 1, int? start = 0, int? limit = 20, string filter = "", string sort = "", bool? isWeb = false)
         {
             List<GridFilter> filters = new List<GridFilter>();
             List<GridSort> sorts = new List<GridSort>();
 
             AppPagedResponse<List<NewsGridModel>> response = new AppPagedResponse<List<NewsGridModel>>() { data = null };
 
-            var db = newsSvc.LoadActives();
+            IQueryable<News> db;
+            if (isWeb.Value)
+                db = newsSvc.LoadAll();
+            else
+                db = newsSvc.LoadActives();
 
             //if (filter != string.Empty)
             //{
@@ -186,9 +190,8 @@ namespace SOSApp.API.Controllers
                     Date = DateHelper.GetDateFromString(strDate),
                     Body = strBody,
                     Deleted = false,
-                    Active = true,
-                    LastUpdate = DateTime.UtcNow,
-                    CreatedDate = DateTime.UtcNow
+                    Active = bool.Parse(strActive),
+                    LastUpdate = DateTime.UtcNow
                 });
 
                 // This illustrates how to get the file names.
@@ -214,7 +217,7 @@ namespace SOSApp.API.Controllers
                     newsSvc.Save(newNews);
                 }
 
-                return Request.CreateResponse(HttpStatusCode.OK);
+                return Request.CreateResponse(HttpStatusCode.OK, newNews);
             }
             catch (Exception e)
             {

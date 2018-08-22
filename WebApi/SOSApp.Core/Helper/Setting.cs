@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace SOSApp.Core.Helper
 {
@@ -24,22 +19,51 @@ namespace SOSApp.Core.Helper
             }
         }
 
-
-
-        public static string GoogleAPIURL
+        public static bool IsDev
         {
             get
             {
                 try
                 {
-                    return ConfigurationManager.AppSettings["GoogleAPIURL"].ToString();
+                    return bool.Parse(ConfigurationManager.AppSettings["Api.IsDev"].ToString());
                 }
                 catch
                 {
-                    return "https://www.googleapis.com/oauth2/v1/userinfo?access_token=";
+                    return true;
                 }
             }
         }
+
+        public static string GoogleMapsAPIURL
+        {
+            get
+            {
+                try
+                {
+                    return ConfigurationManager.AppSettings["GoogleMapsAPIURL"].ToString();
+                }
+                catch
+                {
+                    return "https://maps.googleapis.com/maps/api/geocode/xml";
+                }
+            }
+        }
+
+        public static string GoogleMapsAPIKey
+        {
+            get
+            {
+                try
+                {
+                    return ConfigurationManager.AppSettings["GoogleMapsAPIKey"].ToString();
+                }
+                catch
+                {
+                    return "AIzaSyBf1dXu5kENta2csw4Hdxy_XMLc8WsFwDE";
+                }
+            }
+        }
+        
 
         public static string FacebookUrlPicture
         {

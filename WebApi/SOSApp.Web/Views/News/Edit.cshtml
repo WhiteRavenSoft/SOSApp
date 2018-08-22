@@ -70,8 +70,7 @@
             </div>
             <div class="modal-body">
                 <p>Seleccione las regiones a las que les quiere enviar la noticia:</p>
-                <ul id="groupList">
-                </ul>
+                <div id="groupList"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="EnviarNoticia" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
@@ -95,7 +94,7 @@
                         $("#Important").val(response.data.Important);
                         $("#Date").val(response.data.Date);
                         $("#Body").val(response.data.Body);
-                        $("#Image").attr("src", response.data.Image);
+                        $("#Image").attr("src", response.data.Image + "?" + Date.parse(new Date()));
                         $("#IdNews").val(response.data.ID);
                     }
                 });
@@ -107,7 +106,7 @@
                     url: url,
                     success: function (response) {
                         $.each(response.Data, function (key, value) {
-                            $("#groupList").append('<label style="width: 100%;text-align: center;"><input name="UserGroup" class="form-control" type="checkbox" checked="checked" value="' + value.ID + '"> ' + value.Name + '</label><br><br>');
+                            $("#groupList").append('<div class="col-md-6" style="margin-top:20px;margin-bottom:5px;"><label style="width: 100%;text-align: center;"><input name="UserGroup" class="form-control" type="checkbox" checked="checked" value="' + value.ID + '"> ' + value.Name + '</label></div>');
                         });
                     }
                 });
@@ -116,15 +115,16 @@
                     //Llenar la lista de grupos
                 });
 
-            $("#btnEliminarNoticia").click(function (e) {
-                $.ajax({
-                    type: "DELETE",
-                    url: url,
-                    success: function (response) {
-                        window.location.replace("/News");
-                    }
+                $("#btnEliminarNoticia").click(function (e) {
+                    var url = ApiUrl + "News/" + NewsId;
+                    $.ajax({
+                        type: "DELETE",
+                        url: url,
+                        success: function (response) {
+                            window.location.replace("/News");
+                        }
+                    });
                 });
-            });
 
 
             $("#formNoticia").submit(function (e) {
@@ -159,7 +159,9 @@
                     success: function (data) {
                         console.log("SUCCESS : ", data);
                         $("#btnSubmit").prop("disabled", false);
-                        
+
+                        $("#Image").attr("src", data.Image + "?" + Date.parse(new Date()));
+
                         $('.top-right').notify({
                             message: { html: '<i class="fa fa-check fa-fw"></i>  La noticia fue guardada con <b>éxito!</b>  ' },
                             fadeOut: { enabled: true }
@@ -188,6 +190,8 @@
                 $.each($("input[name='UserGroup']:checked"), function () {
                     regiones.push($(this).val());
                 });
+
+                debugger;
 
                 data = {
                     Regions: regiones,

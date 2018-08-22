@@ -63,7 +63,7 @@
             </div>
             <div class="modal-body">
                 <p>Puede enviar ahora la noticia a los usuarios de las regiones seleccionadas, o puede regresar y enviarla luego... Si desea enviarla ahora, seleccione las regiones y presione <b>Enviar</b>:</p>
-                <ul id="groupList"></ul>
+                <div id="groupList"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" id="EnviarNoticia" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
@@ -83,7 +83,7 @@
             url: url,
             success: function (response) {
                 $.each(response.Data, function (key, value) {
-                    $("#groupList").append('<label style="width: 100%;text-align: center;"><input name="UserGroup" class="form-control" type="checkbox" checked="checked" value="' + value.ID + '"> ' + value.Name + '</label><br><br>');
+                    $("#groupList").append('<div class="col-md-6" style="margin-top:20px;margin-bottom:5px;"><label style="width: 100%;text-align: center;"><input name="UserGroup" class="form-control" type="checkbox" checked="checked" value="' + value.ID + '"> ' + value.Name + '</label></div>');
                 });
             }
         });

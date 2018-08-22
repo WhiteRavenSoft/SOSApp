@@ -2,9 +2,11 @@
 using SOSApp.Core.Helper;
 using SOSApp.Data.AppModel;
 using SOSApp.Data.DBModel;
+using SOSApp.Svc.AvlServiceTest;
 using SOSApp.Svc.GenericDataService;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 
@@ -42,14 +44,30 @@ namespace SOSApp.Svc.DataService
             }
         }
 
-        public IQueryable<UserGroup> LoadActives()
+        public List<UserGroup> LoadActives()
         {
-            var query = from x in Context.UserGroup
-                        where x.Active && !x.Deleted
-                        orderby x.Name
-                        select x;
+            List<UserGroup> listRegiones = new List<UserGroup>();
 
-            return query;
+            using (var avlClient = new AvlSoapClient())
+            {
+                DataTable avlResponse = avlClient.ObtenerRegionesActuales(6, string.Empty);
+
+                if (avlResponse.Rows.Count > 0)
+                {
+                    foreach (DataRow item in avlResponse.Rows)
+                    {
+                        listRegiones.Add(new UserGroup()
+                        {
+                            ID = int.Parse(item.ItemArray[0].ToString()),
+                            Name = item.ItemArray[1].ToString(),
+                            Deleted = false,
+                            Active = true
+                        });
+                    }
+                }
+            }
+
+            return listRegiones;
         }
 
         public IQueryable<UserGroup> LoadAll()
@@ -73,3 +91,4 @@ namespace SOSApp.Svc.DataService
         }
     }
 }
+
