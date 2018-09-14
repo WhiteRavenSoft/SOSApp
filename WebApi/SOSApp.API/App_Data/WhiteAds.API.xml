@@ -530,7 +530,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:SOSApp.API.Controllers.NewsController.Put(System.Int32,SOSApp.Data.AppModel.NewsModel)">
+        <member name="M:SOSApp.API.Controllers.NewsController.Put">
             <summary>
             Método para Modificar una Noticia
             </summary>
@@ -543,6 +543,16 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="T:SOSApp.API.Controllers.NewsSentController">
+            <summary>
+            Controlador de Noticias enviadas
+            </summary>
+        </member>
+        <member name="M:SOSApp.API.Controllers.NewsSentController.Post(SOSApp.Data.AppModel.NewsSentPostModel)">
+            <summary>
+            Método para Agregar envío de noticias a grupos
+            </summary>
         </member>
         <member name="T:SOSApp.API.Controllers.UserController">
             <summary>
@@ -574,6 +584,13 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:SOSApp.API.Controllers.UserController.UserMobile(SOSApp.Data.AppModel.UserMobileModel)">
+            <summary>
+            Método para Agregar User Mobile
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:SOSApp.API.Controllers.UserController.Put(System.Int32,SOSApp.Data.AppModel.UserModel)">
             <summary>
             Método para Modificar User
@@ -587,6 +604,11 @@
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="T:SOSApp.API.Controllers.UserGroupController">
+            <summary>
+            Controlador de grupos de usuario
+            </summary>
         </member>
         <member name="T:SOSApp.API.Controllers.UserRoleController">
             <summary>

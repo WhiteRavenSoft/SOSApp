@@ -96,4 +96,13 @@ namespace SOSApp.Core.Enum
         Todos = -2
     }
 
-}   
+    public enum UserRoleEnum
+    {
+        [EnumDescription("Administrador")]
+        Administrador = 1,
+        [EnumDescription("Editor")]
+        Editor = 2,
+        [EnumDescription("Usuario Mobile")]
+        UserMobile = 3
+    }
+}

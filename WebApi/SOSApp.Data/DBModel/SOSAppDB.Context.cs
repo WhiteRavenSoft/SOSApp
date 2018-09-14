@@ -25,10 +25,11 @@ namespace SOSApp.Data.DBModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<UsersByUserGroup> UsersByUserGroup { get; set; }
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<UserRole> UserRole { get; set; }
-        public virtual DbSet<UserGroup> UserGroup { get; set; }
         public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<NewsSent> NewsSent { get; set; }
+        public virtual DbSet<UserGroup> UserGroup { get; set; }
+        public virtual DbSet<UsersByUserGroup> UsersByUserGroup { get; set; }
     }
 }

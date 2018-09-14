@@ -42,6 +42,9 @@
     <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
       <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
     </Reference>
+    <Reference Include="GoogleMaps.LocationServices, Version=0.1.6329.16944, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMaps.LocationServices.1.2.0.1\lib\net40\GoogleMaps.LocationServices.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
@@ -65,6 +68,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -81,7 +85,14 @@
     <Compile Include="Cache\PerRequestCacheManager.cs" />
     <Compile Include="Cache\WebCache.cs" />
     <Compile Include="Configuration\WhiteRavenConfig.cs" />
+    <Compile Include="Connected Services\AvlServiceTest\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Context\BaseContext.cs" />
+    <Compile Include="DataService\NewsSentSvc.cs" />
+    <Compile Include="DataService\UserByUserGroupSvc.cs" />
     <Compile Include="DataService\UserRoleSvc.cs" />
     <Compile Include="DataService\UserGroupSvc.cs" />
     <Compile Include="DataService\NewsSvc.cs" />
@@ -106,7 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\AvlServiceTest\avl.wsdl" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SOSApp.Core\SOSApp.Core.csproj">
@@ -120,6 +133,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExternalService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AvlServiceTest\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\AvlServiceTest\configuration.svcinfo" />
+    <None Include="Connected Services\AvlServiceTest\configuration91.svcinfo" />
+    <Content Include="GoogleMaps.LocationServices.readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AvlServiceTest\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

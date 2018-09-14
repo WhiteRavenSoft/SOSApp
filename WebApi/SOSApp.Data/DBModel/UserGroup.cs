@@ -14,12 +14,6 @@ namespace SOSApp.Data.DBModel
     
     public partial class UserGroup
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserGroup()
-        {
-            this.UsersByUserGroup = new HashSet<UsersByUserGroup>();
-        }
-    
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -27,8 +21,5 @@ namespace SOSApp.Data.DBModel
         public System.DateTime LastUpdate { get; set; }
         public bool Active { get; set; }
         public bool Deleted { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UsersByUserGroup> UsersByUserGroup { get; set; }
     }
 }

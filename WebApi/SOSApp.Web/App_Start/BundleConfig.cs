@@ -27,7 +27,9 @@ namespace SOSApp.Web
                       "~/Scripts/raphael.min.js",
                       "~/Scripts/morris.min.js",
                       "~/Scripts/morris-data.js",
-                      "~/Scripts/startmin.js"));
+                      "~/Scripts/startmin.js",
+                      "~/Scripts/bootstrap-notify.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
@@ -40,7 +42,8 @@ namespace SOSApp.Web
                       "~/Content/font-awesome.min.css",
                       "~/Content/bootstrap-social.css",
                       "~/Content/switch.css",
-                      "~/Content/spinner.css"));
+                      "~/Content/spinner.css",
+                      "~/Content/bootstrap-notify.css"));
         }
     }
 }

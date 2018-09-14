@@ -31,8 +31,8 @@ namespace SOSApp.Data.DBModel
         public string Salt { get; set; }
         public Nullable<System.DateTime> Birthdate { get; set; }
         public string Address { get; set; }
-        public string Lon { get; set; }
-        public string Lat { get; set; }
+        public Nullable<double> Lon { get; set; }
+        public Nullable<double> Lat { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime LastUpdate { get; set; }
         public bool Active { get; set; }

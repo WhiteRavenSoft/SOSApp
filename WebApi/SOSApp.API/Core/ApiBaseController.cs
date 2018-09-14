@@ -37,8 +37,10 @@ namespace SOSApp.API.Core
         protected IMapper mapper;
 
         protected UserSvc userSvc = null;
+        protected UserGroupSvc userGroupSvc = null;
         protected UserRoleSvc userRoleSvc = null;
         protected NewsSvc newsSvc = null;
+        protected NewsSentSvc newsSentSvc = null;
 
         /// <summary>
         /// Constructor
@@ -49,8 +51,10 @@ namespace SOSApp.API.Core
             mapper = AutoMapperConfig.Instance.MapperConfiguration.CreateMapper();
 
             userSvc = IoC.Resolve<UserSvc>();
+            userGroupSvc = IoC.Resolve<UserGroupSvc>();
             userRoleSvc = IoC.Resolve<UserRoleSvc>();
             newsSvc = IoC.Resolve<NewsSvc>();
+            newsSentSvc = IoC.Resolve<NewsSentSvc>();
         }
 
         #region Mappers
@@ -98,6 +102,25 @@ namespace SOSApp.API.Core
                 Lon = item.Lon,
                 Active = item.Active,
                 Password = item.Password
+            };
+        }
+        #endregion
+        #region UserGroup 
+        protected List<UserGroupModel> MapToModel(List<UserGroup> list)
+        {
+            List<UserGroupModel> finalList = new List<UserGroupModel>();
+            foreach (var item in list)
+                finalList.Add(MapToModel(item));
+
+            return finalList;
+        }
+        protected UserGroupModel MapToModel(UserGroup item)
+        {
+            return new UserGroupModel()
+            {
+                ID = item.ID,
+                Name = item.Name,
+                Description = item.Description
             };
         }
         #endregion
@@ -189,6 +212,47 @@ namespace SOSApp.API.Core
                 Date = DateTime.Parse(model.Date),
                 Body = model.Body,
                 Active = model.Active
+            };
+        }
+        #endregion
+        #region NewsSent
+        protected List<NewsSentGridModel> MapToGridModel(List<NewsSent> list)
+        {
+            List<NewsSentGridModel> finalList = new List<NewsSentGridModel>();
+            foreach (var item in list)
+                finalList.Add(MapToGridModel(item));
+
+            return finalList;
+        }
+        protected NewsSentGridModel MapToGridModel(NewsSent item)
+        {
+            return new NewsSentGridModel()
+            {
+                ID = item.ID,
+                NewsTitle = item.News.Title,
+                UserGroupName = item.UserGroupId.ToString(),
+                UserGroupId = item.UserGroupId,
+                SentDate = item.SentDate
+            };
+        }
+        protected List<NewsSentModel> MapToModel(List<NewsSent> list)
+        {
+            List<NewsSentModel> finalList = new List<NewsSentModel>();
+            foreach (var item in list)
+                finalList.Add(MapToModel(item));
+
+            return finalList;
+        }
+        protected NewsSentModel MapToModel(NewsSent item)
+        {
+            return new NewsSentModel()
+            {
+                ID = item.ID,
+                NewsID = item.NewsID,
+                UserGroupId = item.UserGroupId,
+                SentDate = item.SentDate,
+                News = MapToModel(item.News),
+                UserGroup = new UserGroupModel() { ID = item.UserGroupId }
             };
         }
         #endregion

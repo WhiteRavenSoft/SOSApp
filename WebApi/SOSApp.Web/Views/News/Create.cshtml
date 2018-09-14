@@ -46,7 +46,7 @@
                             <label for="Active"><input id="Active" name="Active" type="checkbox" value="true" checked="checked" />Activo?</label>
                         </div>
                     </div>
-                    <button type="submit" id="btnSubmitNews" class="btn btn-primary" style="min-width:200px;width:20%;">Guardar</button>
+                    <button type="submit" id="btnSubmitNews" class="btn btn-primary" style="min-width:200px;width:20%;"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
                     <button type="reset" class="btn btn-default">Limpiar</button>
                 </form>
             </div>
@@ -54,52 +54,122 @@
     </div>
 </div>
 
+<div class="modal" id="GroupsModal" tabindex="-1" role="dialog">
+    <input type="hidden" id="IdNews" name="ID" class="form-control">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">¿Desea enviar la noticia a los usuarios registrados?</h3>
+            </div>
+            <div class="modal-body">
+                <p>Puede enviar ahora la noticia a los usuarios de las regiones seleccionadas, o puede regresar y enviarla luego... Si desea enviarla ahora, seleccione las regiones y presione <b>Enviar</b>:</p>
+                <div id="groupList"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="EnviarNoticia" class="btn btn-success"><span class="glyphicon glyphicon-send"></span> Enviar</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts
 {
 <script>
-        $(document).ready(function () {
-            $("#btnSubmitNews").click(function (event) {
-                //stop submit the form, we will post it manually.
-                event.preventDefault();
+    $(document).ready(function () {
+        var url = ApiUrl + "UserGroup";
 
-                // Create an FormData object 
-                var data = new FormData();
-
-                // Get form
-                data.append("file", $('#Image')[0].files[0]);
-
-                data.append("Title", $("#Title").val());
-                data.append("Date", $("#Date").val());
-                data.append("Important", $("#Important").val());
-                data.append("Body", $("#Body").val());
-                data.append("Active", $("#Active").is(":checked"));
-
-                // disabled the submit button
-                $("#btnSubmit").prop("disabled", true);
-
-                $.ajax({
-                    type: "POST",
-                    enctype: 'multipart/form-data',
-                    url: ApiUrl + "News",
-                    data: data,
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    timeout: 600000,
-                    success: function (data) {
-                        console.log("SUCCESS : ", data);
-                        $("#btnSubmit").prop("disabled", false);
-                    },
-                    error: function (e) {
-
-                        $("#result").text(e.responseText);
-                        console.log("ERROR : ", e);
-                        $("#btnSubmit").prop("disabled", false);
-
-                    }
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (response) {
+                $.each(response.Data, function (key, value) {
+                    $("#groupList").append('<div class="col-md-6" style="margin-top:20px;margin-bottom:5px;"><label style="width: 100%;text-align: center;"><input name="UserGroup" class="form-control" type="checkbox" checked="checked" value="' + value.ID + '"> ' + value.Name + '</label></div>');
                 });
+            }
+        });
+
+        $("#btnSubmitNews").click(function (event) {
+            //stop submit the form, we will post it manually.
+            event.preventDefault();
+
+            // Create an FormData object 
+            var data = new FormData();
+
+            // Get form
+            data.append("file", $('#Image')[0].files[0]);
+
+            data.append("Title", $("#Title").val());
+            data.append("Date", $("#Date").val());
+            data.append("Important", $("#Important").val());
+            data.append("Body", $("#Body").val());
+            data.append("Active", $("#Active").is(":checked"));
+
+            // disabled the submit button
+            $("#btnSubmit").prop("disabled", true);
+
+            $.ajax({
+                type: "POST",
+                enctype: 'multipart/form-data',
+                url: ApiUrl + "News",
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    debugger;
+                    console.log("SUCCESS : ", data);
+                    $("#IdNews").val(data);
+                    $("#btnSubmit").prop("disabled", false);
+                    $('#GroupsModal').modal('show');
+                },
+                error: function (e) {
+                    $("#result").text(e.responseText);
+                    console.log("ERROR : ", e);
+                    $("#btnSubmit").prop("disabled", false);
+
+                }
             });
         });
+
+        $("#EnviarNoticia").click(function (e) {
+            //stop submit the form, we will post it manually.
+            event.preventDefault();
+
+            // disabled the submit button
+            $("#EnviarNoticia").prop("disabled", true);
+
+            var regiones = [];
+            $.each($("input[name='UserGroup']:checked"), function () {
+                regiones.push($(this).val());
+            });
+
+            data = {
+                Regions: regiones,
+                NewsId: $("#IdNews").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: ApiUrl + "NewsSent",
+                data: data,
+                timeout: 600000,
+                success: function (data) {
+                    console.log("SUCCESS : ", data);
+                    $("#EnviarNoticia").prop("disabled", false);
+                    $('#GroupsModal').modal('toggle');
+                    $('.top-right').notify({
+                        message: { html: '<i class="fa fa-check fa-fw"></i>  La noticia fue enviada con <b>éxito!</b>  ' },
+                        fadeOut: { enabled: true }
+                    }).show();
+                },
+                error: function (e) {
+                    console.log("ERROR : ", e);
+                    $("#btnSubmit").prop("disabled", false);
+                }
+            });
+        });
+    });
 </script>
 }
 

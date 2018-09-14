@@ -20,7 +20,7 @@
                 <div class="text-right">
                     <a href="/News/Create" type="button" class="btn btn-info btn-circle" alt="Nuevo"><i class="fa fa-plus"></i></a>
                     @*<a href="#" type="button" class="btn btn-success btn-circle" alt="Descargar Excel"><i class="fa fa-file-excel-o"></i></a>
-                    <a href="#" type="button" class="btn btn-danger btn-circle" alt="Descargar PDF"><i class="fa fa-file-pdf-o"></i></a>*@
+                        <a href="#" type="button" class="btn btn-danger btn-circle" alt="Descargar PDF"><i class="fa fa-file-pdf-o"></i></a>*@
                 </div>
             </div>
             <!-- /.panel-heading -->
@@ -47,11 +47,19 @@
 {
     <script src="~/Scripts/dataTables/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/dataTables/dataTables.bootstrap.js"></script>
+    <script src="~/Scripts/DataTables/dataTables.responsive.min.js"></script>
     <script src="~/Scripts/moment.js"></script>
     <script>
         $(document).ready(function () {
             $('#table-noticias').DataTable({
-                ajax: ApiUrl + 'news',
+                ajax: ApiUrl + 'news?isWeb=True',
+                columnDefs: [
+                    { width: 300, targets: 0 }
+                ],
+                fixedColumns: true,
+                autoWidth: false,
+                displayLength: 50,
+                order: [[2, "desc"]],
                 columns: [
                     { data: 'Title' },
                     { data: 'Important' },

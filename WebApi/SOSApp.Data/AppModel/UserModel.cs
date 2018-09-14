@@ -14,9 +14,15 @@ namespace SOSApp.Data.AppModel
         public string Password { get; set; }
         public string Birthdate { get; set; }
         public string Address { get; set; }
-        public string Lon { get; set; }
-        public string Lat { get; set; }
+        public double? Lon { get; set; }
+        public double? Lat { get; set; }
         public bool Active { get; set; }
+    }
+
+    public class UserMobileModel
+    {
+        public string PlayerID { get; set; }
+        public string Address { get; set; }
     }
 
     public class UserLogin

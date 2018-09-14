@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 using SOSApp.API.Core;
 using SOSApp.Data.AppModel;
 using SOSApp.Data.DBModel;
@@ -33,22 +35,7 @@ namespace SOSApp.API.Controllers
 
             AppPagedResponse<List<UserModel>> response = new AppPagedResponse<List<UserModel>>() { data = null };
 
-            var db = userSvc.LoadActives();
-
-            //if (filter != string.Empty)
-            //{
-            //    filters = JsonConvert.DeserializeObject<List<GridFilter>>(filter);
-            //    db = ApplyFilters(db, filters);
-            //}
-
-
-            //if (sort != string.Empty)
-            //{
-            //    sorts = JsonConvert.DeserializeObject<List<GridSort>>(sort);
-            //    db = ApplySorts(db, sorts);
-            //}
-            //else
-            //    db = db.OrderBy(x => x.Apellido);
+            var db = userSvc.LoadNonClients();
 
             response.Total = db.Count();
             db = db.Skip(start.Value).Take(limit.Value);
@@ -99,6 +86,22 @@ namespace SOSApp.API.Controllers
             var db = userSvc.Create(value);
             response.Data = db;
             return Request.CreateResponse(HttpStatusCode.OK, response);
+        }
+
+        /// <summary>
+        /// Método para Agregar User Mobile
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        // POST: api/UserMobile
+        [Route("api/UserMobile")]
+        [HttpPost]
+        [AllowAnonymous]
+        public HttpResponseMessage UserMobile(UserMobileModel value)
+        {
+            var RegionId = userSvc.CreateMobile(value);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return Request.CreateResponse(HttpStatusCode.OK, js.Serialize(RegionId));
         }
 
         /// <summary>

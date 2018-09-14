@@ -6,14 +6,17 @@
             <a href="/" class="@(ViewBag.SectionName == "Dashboard" ? "active" : "")"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
         </li>*@
             <li>
-                <a href="/News" class="@(ViewBag.SectionName == "News" ? "active" : "")"><i class="fa fa-file fa-fw"></i> Noticias</a>
+                <a href="/News" class="@(ViewBag.SectionName == "News" ? "active" : "")"><i class="fa fa-newspaper-o fa-fw"></i> Noticias</a>
             </li>
             @if (Session["role_id"].ToString() == "1")
             {
-                <li>
-                    <a href="/User" class="@(ViewBag.SectionName == "User" ? "active" : "")"><i class="fa fa-users fa-fw"></i> Usuarios</a>
-                </li>
+                    <li>
+                        <a href="/User" class="@(ViewBag.SectionName == "User" ? "active" : "")"><i class="fa fa-users fa-fw"></i> Usuarios</a>
+                    </li>
             }
+            <li>
+                <a href="/NewsSent" class="@(ViewBag.SectionName == "NewsSent" ? "active" : "")"><i class="fa fa-paper-plane fa-fw"></i> Noticias enviadas</a>
+            </li>
         </ul>
     </div>
 </div>

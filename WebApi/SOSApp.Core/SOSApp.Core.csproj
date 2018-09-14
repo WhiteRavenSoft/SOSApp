@@ -57,6 +57,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +77,7 @@
     <Compile Include="Helper\EnumDescriptionAttribute.cs" />
     <Compile Include="Helper\FileHelper.cs" />
     <Compile Include="Helper\NumberHelper.cs" />
+    <Compile Include="Helper\OneSignalNotification.cs" />
     <Compile Include="Helper\Setting.cs" />
     <Compile Include="Media\ImageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

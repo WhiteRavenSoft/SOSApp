@@ -21,14 +21,19 @@ namespace SOSApp.API.Controllers
     public class NewsController : ApiBaseController
     {
         // GET: News
-        public HttpResponseMessage Get(int? page = 1, int? start = 0, int? limit = 20, string filter = "", string sort = "")
+        [AllowAnonymous]
+        public HttpResponseMessage Get(int? page = 1, int? start = 0, int? limit = 20, string filter = "", string sort = "", bool? isWeb = false)
         {
             List<GridFilter> filters = new List<GridFilter>();
             List<GridSort> sorts = new List<GridSort>();
 
             AppPagedResponse<List<NewsGridModel>> response = new AppPagedResponse<List<NewsGridModel>>() { data = null };
 
-            var db = newsSvc.LoadActives();
+            IQueryable<News> db;
+            if (isWeb.Value)
+                db = newsSvc.LoadAll();
+            else
+                db = newsSvc.LoadActives();
 
             //if (filter != string.Empty)
             //{
@@ -45,7 +50,6 @@ namespace SOSApp.API.Controllers
             //else
             //    db = db.OrderBy(x => x.Apellido);
 
-            db = db.OrderByDescending(x => x.CreatedDate);
             response.Total = db.Count();
             db = db.Skip(start.Value).Take(limit.Value);
             var model = MapToGridModel(db.ToList());
@@ -62,6 +66,7 @@ namespace SOSApp.API.Controllers
         }
 
         // GET: News/5
+        [AllowAnonymous]
         public HttpResponseMessage Get(int id)
         {
             AppPagedResponse<NewsModel> response = new AppPagedResponse<NewsModel>() { data = null };
@@ -114,6 +119,7 @@ namespace SOSApp.API.Controllers
                     CreatedDate = DateTime.UtcNow
                 });
 
+
                 // This illustrates how to get the file names.
                 foreach (MultipartFileData file in provider.FileData)
                 {
@@ -126,7 +132,7 @@ namespace SOSApp.API.Controllers
 
                 if (File.Exists(newFileName))
                     File.Delete(newFileName);
-                
+
                 File.Copy(oldFileName, newFileName);
                 File.Delete(oldFileName);
 
@@ -134,16 +140,12 @@ namespace SOSApp.API.Controllers
                 newNews.Image = FileHelper.GetNewsImageUrl(newNews.ID);
                 newsSvc.Save(newNews);
 
-                return Request.CreateResponse(HttpStatusCode.OK);
+                return Request.CreateResponse(HttpStatusCode.OK, newNews.ID);
             }
             catch (Exception e)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
             }
-
-            //var db = newsSvc.Save(MapToDB(value));
-            //response.Data = db;
-            //return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
         /// <summary>
@@ -152,12 +154,75 @@ namespace SOSApp.API.Controllers
         /// <param name="id"></param>
         /// <param name="value"></param>
         // PUT: api/User/5
-        public HttpResponseMessage Put(int id, [FromBody] NewsModel value)
+        public async Task<HttpResponseMessage> Put()
         {
             AppResponse<News> response = new AppResponse<News>() { Data = null };
-            var db = newsSvc.Save(MapToDB(value));
-            response.Data = db;
-            return Request.CreateResponse(HttpStatusCode.OK, response);
+
+            // Check if the request contains multipart/form-data.
+            if (!Request.Content.IsMimeMultipartContent())
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+
+            string root = HttpContext.Current.Server.MapPath("~/Images/News/");
+            var provider = new MultipartFormDataStreamProvider(root);
+
+            try
+            {
+                // Read the form data.
+                await Request.Content.ReadAsMultipartAsync(provider);
+
+                string fileName = string.Empty;
+                string oldFileName = string.Empty;
+                string newFileName = string.Empty;
+
+                // Show all the key-value pairs.
+                var strTitle = provider.FormData.GetValues("Title").First();
+                var strImportant = provider.FormData.GetValues("Important").First();
+                var strBody = provider.FormData.GetValues("Body").First();
+                var strDate = provider.FormData.GetValues("Date").First();
+                var strActive = provider.FormData.GetValues("Active").First();
+                var strID = provider.FormData.GetValues("ID").First();
+
+                var newNews = newsSvc.Save(new News()
+                {
+                    ID = int.Parse(strID),
+                    Title = strTitle,
+                    Important = strImportant,
+                    Date = DateHelper.GetDateFromString(strDate),
+                    Body = strBody,
+                    Deleted = false,
+                    Active = bool.Parse(strActive),
+                    LastUpdate = DateTime.UtcNow
+                });
+
+                // This illustrates how to get the file names.
+                if (provider.FileData.Count > 0)
+                {
+                    foreach (MultipartFileData file in provider.FileData)
+                    {
+                        fileName = file.Headers.ContentDisposition.FileName;
+                        oldFileName = file.LocalFileName;
+                        string[] fileNameArray = oldFileName.Split('\\');
+                        fileNameArray = fileNameArray.Take(fileNameArray.Count() - 1).ToArray();
+                        newFileName = String.Join("\\", fileNameArray) + $"\\{newNews.ID.ToString()}.jpg";
+                    }
+
+                    if (File.Exists(newFileName))
+                        File.Delete(newFileName);
+
+                    File.Copy(oldFileName, newFileName);
+                    File.Delete(oldFileName);
+
+                    //Actualiza la url de la imagen
+                    newNews.Image = FileHelper.GetNewsImageUrl(newNews.ID);
+                    newsSvc.Save(newNews);
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, newNews);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, e);
+            }
         }
 
         /// <summary>
@@ -174,8 +239,8 @@ namespace SOSApp.API.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
-        [System.Web.Http.Route("SaveImage")]
-        [System.Web.Http.HttpPost]
+        [Route("SaveImage")]
+        [HttpPost]
         public async Task<IHttpActionResult> SaveImage(HttpRequestMessage request, int Id, int avatarHeight = 0, int avatarWidth = 0)
         {
             var httpRequest = HttpContext.Current.Request;

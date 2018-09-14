@@ -14,6 +14,12 @@ namespace SOSApp.Data.DBModel
     
     public partial class News
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public News()
+        {
+            this.NewsSent = new HashSet<NewsSent>();
+        }
+    
         public int ID { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public string Title { get; set; }
@@ -24,5 +30,8 @@ namespace SOSApp.Data.DBModel
         public System.DateTime LastUpdate { get; set; }
         public bool Active { get; set; }
         public bool Deleted { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NewsSent> NewsSent { get; set; }
     }
 }

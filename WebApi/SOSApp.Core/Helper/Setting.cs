@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace SOSApp.Core.Helper
 {
@@ -24,22 +19,51 @@ namespace SOSApp.Core.Helper
             }
         }
 
-
-
-        public static string GoogleAPIURL
+        public static bool IsDev
         {
             get
             {
                 try
                 {
-                    return ConfigurationManager.AppSettings["GoogleAPIURL"].ToString();
+                    return bool.Parse(ConfigurationManager.AppSettings["Api.IsDev"].ToString());
                 }
                 catch
                 {
-                    return "https://www.googleapis.com/oauth2/v1/userinfo?access_token=";
+                    return true;
                 }
             }
         }
+
+        public static string GoogleMapsAPIURL
+        {
+            get
+            {
+                try
+                {
+                    return ConfigurationManager.AppSettings["GoogleMapsAPIURL"].ToString();
+                }
+                catch
+                {
+                    return "https://maps.googleapis.com/maps/api/geocode/xml";
+                }
+            }
+        }
+
+        public static string GoogleMapsAPIKey
+        {
+            get
+            {
+                try
+                {
+                    return ConfigurationManager.AppSettings["GoogleMapsAPIKey"].ToString();
+                }
+                catch
+                {
+                    return "AIzaSyBf1dXu5kENta2csw4Hdxy_XMLc8WsFwDE";
+                }
+            }
+        }
+        
 
         public static string FacebookUrlPicture
         {
@@ -71,5 +95,66 @@ namespace SOSApp.Core.Helper
                 }
             }
         }
+
+        public static string OneSignalAppId
+        {
+            get
+            {
+                try
+                {
+                    return ConfigurationManager.AppSettings["App.OneSignal.AppId"].ToString();
+                }
+                catch
+                {
+                    return "594f259c-e74b-4d72-94ee-5f509d38c8fb";
+                }
+            }
+        }
+
+        public static string OneSignalRestAPIKey
+        {
+            get
+            {
+                try
+                {
+                    return ConfigurationManager.AppSettings["App.OneSignal.RestAPIKey"].ToString();
+                }
+                catch
+                {
+                    return "Y2JhZjQwMWQtZGE2NS00MDgxLWJlMGMtZGM0MDQ1YmUwZDM3";
+                }
+            }
+        }
+
+        public static double ExcludeLatitude
+        {
+            get
+            {
+                try
+                {
+                    return double.Parse(ConfigurationManager.AppSettings["App.Map.ExcludeLatitude"].ToString());
+                }
+                catch
+                {
+                    return double.Parse("-30,9451714");
+                }
+            }
+        }
+
+        public static double ExcludeLongitude
+        {
+            get
+            {
+                try
+                {
+                    return double.Parse(ConfigurationManager.AppSettings["App.Map.ExcludeLongitude"].ToString());
+                }
+                catch
+                {
+                    return double.Parse("-61,5607353");
+                }
+            }
+        }
     }
+
 }

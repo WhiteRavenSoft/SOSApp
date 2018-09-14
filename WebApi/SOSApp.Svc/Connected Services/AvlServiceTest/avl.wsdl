@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://avl.integrarsi.com.ar" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://avl.integrarsi.com.ar" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://avl.integrarsi.com.ar">
+      <s:element name="ObtenerPosicionActual">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idDispositivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerPosicionActualResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerPosicionActualResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerRegionesActuales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idDispositivo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerRegionesActualesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerRegionesActualesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerRegionesActualesPorCoordenada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idServicio" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="latitud" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="longitud" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerRegionesActualesPorCoordenadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerRegionesActualesPorCoordenadaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerPosicionActualSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerPosicionActual" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerPosicionActualSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerPosicionActualResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerRegionesActualesSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerRegionesActuales" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerRegionesActualesSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerRegionesActualesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerRegionesActualesPorCoordenadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerRegionesActualesPorCoordenada" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerRegionesActualesPorCoordenadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerRegionesActualesPorCoordenadaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AvlSoap">
+    <wsdl:operation name="ObtenerPosicionActual">
+      <wsdl:input message="tns:ObtenerPosicionActualSoapIn" />
+      <wsdl:output message="tns:ObtenerPosicionActualSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegionesActuales">
+      <wsdl:input message="tns:ObtenerRegionesActualesSoapIn" />
+      <wsdl:output message="tns:ObtenerRegionesActualesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegionesActualesPorCoordenada">
+      <wsdl:input message="tns:ObtenerRegionesActualesPorCoordenadaSoapIn" />
+      <wsdl:output message="tns:ObtenerRegionesActualesPorCoordenadaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AvlSoap" type="tns:AvlSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerPosicionActual">
+      <soap:operation soapAction="http://avl.integrarsi.com.ar/ObtenerPosicionActual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegionesActuales">
+      <soap:operation soapAction="http://avl.integrarsi.com.ar/ObtenerRegionesActuales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegionesActualesPorCoordenada">
+      <soap:operation soapAction="http://avl.integrarsi.com.ar/ObtenerRegionesActualesPorCoordenada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AvlSoap12" type="tns:AvlSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerPosicionActual">
+      <soap12:operation soapAction="http://avl.integrarsi.com.ar/ObtenerPosicionActual" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegionesActuales">
+      <soap12:operation soapAction="http://avl.integrarsi.com.ar/ObtenerRegionesActuales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRegionesActualesPorCoordenada">
+      <soap12:operation soapAction="http://avl.integrarsi.com.ar/ObtenerRegionesActualesPorCoordenada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Avl">
+    <wsdl:port name="AvlSoap" binding="tns:AvlSoap">
+      <soap:address location="http://avltest2.integrarsi.com.ar/ws/avl.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AvlSoap12" binding="tns:AvlSoap12">
+      <soap12:address location="http://avltest2.integrarsi.com.ar/ws/avl.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
