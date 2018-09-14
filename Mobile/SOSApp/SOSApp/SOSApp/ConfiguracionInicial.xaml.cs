@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using SOSApp.Helpers;
 using System.Linq;
+using System.Globalization;
 
 namespace SOSApp
 {
@@ -16,6 +17,10 @@ namespace SOSApp
 		public ConfiguracionInicial ()
 		{
 			InitializeComponent ();
+            if (App.Current.Properties.ContainsKey("Direccion"))
+            {
+                txtDireccion.Text = App.Current.Properties["Direccion"].ToString();
+            }
         }
 
         private void Aceptar_Clicked(object sender, EventArgs e)
@@ -28,19 +33,59 @@ namespace SOSApp
                     return;
                 }
                 App.DireccionUsuario = txtDireccion.Text;
-                //App.PlayerId;//Id de dispositivo en onesignal
 
-                Task<object> taskRegistro = ApiRest.GetFormData<object>((string)(App.Current.Resources["APIRegistro"]));
+                List<KeyValuePair<string, string>> listaParams = new List<KeyValuePair<string, string>>();
+                listaParams.Add(new KeyValuePair<string, string>("PlayerID", App.PlayerId));
+                listaParams.Add(new KeyValuePair<string, string>("Address", txtDireccion.Text));
+
+                Task<string> taskRegistro = ApiRest.PostFormData<string>((string)(App.Current.Resources["APIRegistro"]), listaParams);
 
                 taskRegistro.ContinueWith((task) =>
                 {
-
-                    Device.BeginInvokeOnMainThread(() =>
+                    //Deserializo el resultado (JSON) a un array de int
+                    int[] result = (int[])Newtonsoft.Json.JsonConvert.DeserializeObject(task.Result, typeof(int[]));
+                    //Si el array contiene sólo un valor quiere decir que el resultado no pertenece a una región de la cuidad
+                    if (result.Length == 1)
                     {
-                        Navigation.PopModalAsync(true);
+                        if (result[0] == 0)
+                        {
+                            Navigation.PopModalAsync();
+                            lblError.Text = "Tu dirección no pertenece a ninguna zona.";
+                            return;
+                        }
+                        else if (result[0] == -1)
+                        {
+                            Navigation.PopModalAsync();
+                            lblError.Text = "La dirección no pertenece a la cuidad de Sunchales.";
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (!App.Current.Properties.ContainsKey("Zona"))
+                        {
+                            App.Current.Properties.Add("Zona", task.Result);
+                        }
+                        else
+                        {
+                            App.Current.Properties["Zona"] = task.Result;
+                        }
+
+                        CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+                        TextInfo textInfo = cultureInfo.TextInfo;
+
+                        if (!App.Current.Properties.ContainsKey("Direccion"))
+                        {
+                            App.Current.Properties.Add("Direccion", textInfo.ToTitleCase(txtDireccion.Text));
+                        }
+                        else
+                        {
+                            App.Current.Properties["Direccion"] = textInfo.ToTitleCase(txtDireccion.Text);
+                        }
+                        Navigation.PopModalAsync();
                         NavigationPage np = new NavigationPage(new MainPage());
                         Application.Current.MainPage = np;
-                    });
+                    }
                 });
                 Navigation.PushModalAsync(new Loading("Obteniendo tu ubicación..."), false);
 

@@ -33,5 +33,9 @@ namespace SOSApp
         {
             Device.OpenUri(new Uri("tel:" + (string)(App.Current.Resources["NumeroSiac"])));
         }
+        private void btnConfiguracion_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Configuracion());
+        }
     }
 }

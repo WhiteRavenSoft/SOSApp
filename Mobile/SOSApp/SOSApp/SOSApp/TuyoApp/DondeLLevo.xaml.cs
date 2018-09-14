@@ -19,20 +19,20 @@ namespace SOSApp.TuyoApp
 
         private void OnTapShowDondeLlevoPlastico(object sender, EventArgs e)
         {
-            ContentPage plastico = new TuyoApp.DondeLlevo.Plastico();
+            ContentPage plastico = new TuyoApp.DondeLlevo.DondeLlevoImagen("llevoplastico.png");
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(plastico, false);
             Navigation.PushAsync(plastico);
         }
         private void OnTapShowDondeLlevoPuntosLimpios(object sender, EventArgs e)
         {
-            ContentPage puntosLimpios = new TuyoApp.DondeLlevo.PuntosLimpios();
+            ContentPage puntosLimpios = new TuyoApp.DondeLlevo.DondeLlevoImagen("llevopuntoslimpios.png");
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(puntosLimpios, false);
             Navigation.PushAsync(puntosLimpios);
         }
 
         private void OnTapShowDondeLlevoBasuraElectronica(object sender, EventArgs e)
         {
-            ContentPage basuraElectronica = new TuyoApp.DondeLlevo.BasuraElectronica();
+            ContentPage basuraElectronica = new TuyoApp.DondeLlevo.DondeLlevoImagen("llevobasuraelectronica.png");
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(basuraElectronica, false);
             Navigation.PushAsync(basuraElectronica);
         }

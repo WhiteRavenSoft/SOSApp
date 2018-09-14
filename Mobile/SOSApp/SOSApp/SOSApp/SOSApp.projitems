@@ -20,6 +20,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Configuracion.xaml.cs">
+      <DependentUpon>Configuracion.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ConfiguracionInicial.xaml.cs">
       <DependentUpon>ConfiguracionInicial.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -62,6 +66,10 @@
       <DependentUpon>BasuraElectronica.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\DondeLlevoImagen.xaml.cs">
+      <DependentUpon>DondeLlevoImagen.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\Papel.xaml.cs">
       <DependentUpon>Papel.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -72,6 +80,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\Plastico.xaml.cs">
       <DependentUpon>Plastico.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\PlasticoImagen.xaml.cs">
+      <DependentUpon>PlasticoImagen.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\PuntosLimpios.xaml.cs">
@@ -198,6 +210,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Loading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Configuracion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\PlasticoImagen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TuyoApp\DondeLlevo\DondeLlevoImagen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

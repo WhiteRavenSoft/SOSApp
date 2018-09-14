@@ -120,10 +120,10 @@ namespace SOSApp.Helpers
             }
             catch (Exception ex)
             {
-                //await Task.Run(() =>
-                //{
-                //    Debug.WriteLine(ex.ToString());
-                //});
+                await Task.Run(() =>
+                {
+                    return "ERROR";
+                });
             }
 
             return default(T);

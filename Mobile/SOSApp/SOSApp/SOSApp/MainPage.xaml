@@ -58,67 +58,24 @@
                     </Image>
                 </Grid>
             </Grid>
-
-            <!--<Grid x:Name="SearchRoot">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="7*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="ToolBar">
-                </Grid>
-
-                <Grid Grid.Row="1" x:Name="Botonera">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Image Grid.Column="1" Source="buttons/tuyo.png" HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    Aspect="Fill" >
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnTapShowTuyo" />
-                        </Image.GestureRecognizers>
-                    </Image>
-
-                    <Image Grid.Column="3" Source="buttons/estacionamiento.png" HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    Aspect="Fill" >
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnTapShowParking" />
-                        </Image.GestureRecognizers>
-                    </Image>
-                </Grid>
-                <Grid Grid.Row="2" x:Name="Botonera2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <RelativeLayout Grid.Column="1">
-                        <Image Source="buttons/siac.png" 
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="FillAndExpand"
-                            Aspect="Fill">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnTapShowSiac" />
-                            </Image.GestureRecognizers>
-                        </Image>
-                    </RelativeLayout>
-                </Grid>
-            </Grid>-->
-            <!--<Image x:Name="Background" Source="SOSApp_back.png" 
-                   Aspect="AspectFill"
-                   RelativeLayout.WidthConstraint=
-                        "{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                   RelativeLayout.HeightConstraint=    
-                        "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>-->
+            <AbsoluteLayout
+                VerticalOptions="End"
+                HorizontalOptions="EndAndExpand">
+                <Image
+                    Margin="10, 10, 0, 0"
+                    Source="config.png"
+                    Aspect="AspectFit"
+                    HeightRequest="25"
+                    WidthRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnConfiguracion_Clicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <!--<Button
+                    Text="Config"
+                    x:Name="btnConfiguracion"
+                    Clicked="btnConfiguracion_Clicked"/>-->
+            </AbsoluteLayout>
         </RelativeLayout>
     </ContentPage.Content>
 

@@ -8,7 +8,7 @@
         <x:String x:Key="OneSignalId">594f259c-e74b-4d72-94ee-5f509d38c8fb</x:String>
 
         <!--URL de la api para registrar los datos del usuario (dirección, identificador de mensajería, etc.)-->
-        <x:String x:Key="APIRegistro">https://sosappapi.azurewebsites.net/api/news</x:String>
+        <x:String x:Key="APIRegistro">https://sosappapi.azurewebsites.net/api/usermobile</x:String>
         <!--URL de la api de noticias-->
         <x:String x:Key="APIRoot">https://sosappapi.azurewebsites.net/api/news</x:String>
         <x:String x:Key="NumeroSiac">147</x:String>

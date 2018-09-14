@@ -17,95 +17,60 @@
                 </StackLayout>-->
             <StackLayout Grid.Row="1">
                 <parallax:ParallaxView x:Name="MainParallax" 
+                                        Padding="0, 0, 0, 0"
+                                        Margin="0, 0, 0, 0"
+                                        BackgroundColor="#d9d9d9"
                                         BodyMargin="0, 180, 0, 0"
-                                        HeaderScrollSpeed="4"
+                                        HeaderScrollSpeed="6"
                                         VerticalOptions="FillAndExpand">
-                        <parallax:ParallaxView.HeaderContent>
-                            <ContentView HorizontalOptions="FillAndExpand" 
-                                         BackgroundColor="White">
-                                <Image
-                                    x:Name="imagenNoticia"
-                                    HorizontalOptions="FillAndExpand"
-                                    VerticalOptions="StartAndExpand"
-                                    Aspect="Fill"/>
-                            </ContentView>
-                        </parallax:ParallaxView.HeaderContent>
-                        <parallax:ParallaxView.BodyContent
-                            BackgroundColor="White">
-                            <ContentView HorizontalOptions="FillAndExpand" 
+                    <parallax:ParallaxView.HeaderContent>
+                        <ContentView
+                            Margin="0, 0, 0, 100"
+                            Padding="0, 0, 0, 0"
+                            VerticalOptions="StartAndExpand"
+                                BackgroundColor="#d9d9d9">
+                            <Image
+                                Margin="0, 0, 0, 0"
+                                HeightRequest="250"
+                                x:Name="imagenNoticia"
+                                VerticalOptions="Start"
+                                HorizontalOptions="FillAndExpand"
+                                Aspect="AspectFill"/>
+                        </ContentView>
+                    </parallax:ParallaxView.HeaderContent>
+                    <parallax:ParallaxView.BodyContent
+                            BackgroundColor="#d9d9d9">
+                        <ContentView HorizontalOptions="FillAndExpand" 
                                          BackgroundColor="White"
                                          VerticalOptions="FillAndExpand">
-                                <StackLayout
+                            <StackLayout
                                     
                                     BackgroundColor="#d9d9d9"
                                     Padding="15, 5, 15, 5">
-                                    <Label  x:Name="lblFecha"
+                                <Label  x:Name="lblFecha"
                                         FontSize="Small"
                                         TextColor="Black"/>
-                                    <Label  x:Name="lblTitulo"
+                                <Label  x:Name="lblTitulo"
                                         FontSize="Large"
                                         TextColor="Purple"
                                         FontAttributes="Bold"/>
-                                    <Label  x:Name="lblCopete"
+                                <Label  x:Name="lblCopete"
                                         FontSize="Default"
                                         TextColor="Black"
                                         HorizontalOptions="FillAndExpand"/>
-                                    <BoxView
+                                <BoxView
                                         HeightRequest="1"
                                         HorizontalOptions="Fill"
                                         Color="Black"/>
-                                    <Label  x:Name="lblContenido"
+                                <Label  x:Name="lblContenido"
                                         FontSize="Medium"
                                         TextColor="Black"
                                         HorizontalOptions="FillAndExpand"/>
-                                </StackLayout>
-                            </ContentView>
-                        </parallax:ParallaxView.BodyContent>
-                    </parallax:ParallaxView>
-                </StackLayout>
-                <!--<StackLayout
-                    Grid.Row="1">
-                    <StackLayout x:Name="noticiaCabecera"
-                                  Margin="20, 0, 20, 10">
-                    <Image
-                        x:Name="imagenNoticia"
-                        HorizontalOptions="CenterAndExpand"
-                        Aspect="AspectFit"/>
-                        
-                    </StackLayout>
-                    <ScrollView 
-                        Scrolled="ScrollView_Scrolled"
-                        HorizontalOptions="Center"
-                        VerticalOptions="FillAndExpand"
-                        Margin="20, 0, 20, 10">
-                        <StackLayout
-                            x:Name="noticiaBody"
-                            BackgroundColor="#d9d9d9"
-                            Padding="5, 5, 5, 5">
-                            <Label  x:Name="lblFecha"
-                                FontSize="Small"
-                                TextColor="Black"/>
-                            <Label  x:Name="lblTitulo"
-                                FontSize="Large"
-                                TextColor="Purple"
-                                FontAttributes="Bold"/>
-                            <Label  x:Name="lblCopete"
-                                FontSize="Default"
-                                TextColor="Black"
-                                HorizontalOptions="FillAndExpand"/>
-                            <BoxView
-                                HeightRequest="1"
-                                HorizontalOptions="Fill"
-                                Color="Black"/>
-                            <Label  x:Name="lblContenido"
-                                FontSize="Medium"
-                                TextColor="Black"
-                                HorizontalOptions="FillAndExpand"/>
-
-                        </StackLayout>
-                    </ScrollView>
-                </StackLayout>-->
-            <!--</Grid>-->
+                            </StackLayout>
+                        </ContentView>
+                    </parallax:ParallaxView.BodyContent>
+                </parallax:ParallaxView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
