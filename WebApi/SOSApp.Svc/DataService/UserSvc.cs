@@ -206,7 +206,7 @@ namespace SOSApp.Svc.DataService
             return listRegionsId;
         }
 
-        private User LoadByPlayerId(string playerID)
+        public User LoadByPlayerId(string playerID)
         {
             var query = from x in Context.User
                         where x.Active && !x.Deleted
