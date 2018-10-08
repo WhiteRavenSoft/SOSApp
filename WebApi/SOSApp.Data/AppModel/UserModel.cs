@@ -25,6 +25,12 @@ namespace SOSApp.Data.AppModel
         public string Address { get; set; }
     }
 
+    public class UserMobileLocation
+    {
+        public string Lon { get; set; }
+        public string Lat { get; set; }
+    }
+
     public class UserLogin
     {
         public int ID { get; set; }

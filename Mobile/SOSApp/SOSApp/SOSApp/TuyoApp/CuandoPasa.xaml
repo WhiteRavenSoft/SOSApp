@@ -20,9 +20,8 @@
                     Grid.Row="1"
                     x:Name="wAreas"
                     HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
                     Navigated="wAreas_Navigated"
-                    Source="{StaticResource URLCuandoPasa}">
+                    BackgroundColor="Transparent">
                 </WebView>
             </Grid>
         </StackLayout>

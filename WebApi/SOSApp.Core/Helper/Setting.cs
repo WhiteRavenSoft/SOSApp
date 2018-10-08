@@ -155,6 +155,22 @@ namespace SOSApp.Core.Helper
                 }
             }
         }
+
+        public static string GarbageRootApi
+        {
+            get
+            {
+                try
+                {
+                    return ConfigurationManager.AppSettings["App.Basureros.RootApi"].ToString();
+                }
+                catch 
+                {
+
+                    return "http://avltest2.integrarsi.com.ar/Sitio/Basureros/Horarios.aspx"; 
+                }
+            }
+        }
     }
 
 }

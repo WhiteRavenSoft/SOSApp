@@ -105,6 +105,21 @@ namespace SOSApp.API.Controllers
         }
 
         /// <summary>
+        /// Método para obtener coordenadas guardadas del usuario mobile
+        /// </summary>
+        /// <param name="playerId"></param>
+        /// <returns></returns>
+        // POST: api/GetUserLocation
+        [Route("api/GetUserLocation")]
+        [HttpGet]
+        [AllowAnonymous]
+        public HttpResponseMessage GetUserLocation(string playerId)
+        {
+            UserMobileLocation userLocation = userSvc.GetLocationMobile(playerId);
+            return Request.CreateResponse(HttpStatusCode.OK, userLocation);
+        }
+
+        /// <summary>
         /// Método para Modificar User
         /// </summary>
         /// <param name="id"></param>

@@ -154,6 +154,21 @@ namespace SOSApp.Svc.DataService
         }
 
         /// <summary>
+        /// Obtiene coordenadas guardadas del usuario mobile
+        /// </summary>
+        /// <param name="playerId"></param>
+        /// <returns></returns>
+        public UserMobileLocation GetLocationMobile(string playerId)
+        {
+            var user = LoadByPlayerId(playerId);
+            return new UserMobileLocation()
+            {
+                Lat = user.Lat.ToString(),
+                Lon = user.Lon.ToString()
+            };
+        }
+
+        /// <summary>
         /// Agrega el usuario mobile a una región, y retorna la región a la que pertenece.
         /// </summary>
         /// <param name="value">Objeto que contiene PlayerId de OneSignal y dirección del usuario</param>

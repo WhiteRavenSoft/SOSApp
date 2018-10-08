@@ -35,6 +35,7 @@
       <DependentUpon>Loading.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\UserMobileLocation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SunchalesMapa.xaml.cs">
       <DependentUpon>SunchalesMapa.xaml</DependentUpon>
       <SubType>Code</SubType>

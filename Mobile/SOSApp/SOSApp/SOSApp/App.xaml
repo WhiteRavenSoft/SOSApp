@@ -13,7 +13,9 @@
         <x:String x:Key="APIRoot">https://sosappapi.azurewebsites.net/api/news</x:String>
         <x:String x:Key="NumeroSiac">147</x:String>
         <x:String x:Key="URLEstacionamientoMedido">http://agilparkingtest.integrarsi.com.ar</x:String>
-        <x:String x:Key="URLCuandoPasa">http://avl.integrarsi.com.ar/municipalidad/sunchalesmapa.html</x:String>
+        
+        <x:String x:Key="URLCuandoPasa">http://avltest2.integrarsi.com.ar/Sitio/Basureros/Horarios.aspx</x:String>
+        <x:String x:Key="URLUserLocation">http://sosappapi.azurewebsites.net/api/GetUserLocation?playerId=</x:String>
 
     </Application.Resources>
 </Application>

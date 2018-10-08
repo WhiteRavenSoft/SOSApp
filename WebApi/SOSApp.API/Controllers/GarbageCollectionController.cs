@@ -16,7 +16,7 @@ namespace SOSApp.API.Controllers
         public HttpResponseMessage Get(string PlayerId)
         {
             string response = string.Empty;
-            string dateJsonFormated = string.Empty;
+            string dateJsonFormated = GetActualDateJsonFormated();
 
             var user = userSvc.LoadByPlayerId(PlayerId);
             string apiParameters = $"?lat={user.Lat}&long={user.Lon}&fa={dateJsonFormated}";
@@ -29,13 +29,12 @@ namespace SOSApp.API.Controllers
             {
                 client.BaseAddress = new Uri(Settings.GarbageRootApi);
                 var result = client.GetAsync(apiParameters).Result;
+
                 if (result.IsSuccessStatusCode)
-                    response = result.Content.ReadAsStringAsync().Result;
+                    return result;
             }
 
-            response = response.Replace("width:800px", "width:100%;");
-
-            return Request.CreateResponse(HttpStatusCode.OK, response);
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
 
         private string GetActualDateJsonFormated()

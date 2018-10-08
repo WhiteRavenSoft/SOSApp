@@ -591,6 +591,13 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:SOSApp.API.Controllers.UserController.GetUserLocation(System.String)">
+            <summary>
+            Método para obtener coordenadas guardadas del usuario mobile
+            </summary>
+            <param name="playerId"></param>
+            <returns></returns>
+        </member>
         <member name="M:SOSApp.API.Controllers.UserController.Put(System.Int32,SOSApp.Data.AppModel.UserModel)">
             <summary>
             Método para Modificar User
